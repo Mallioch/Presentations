@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>The Pumperknicle of Monkeyland</title>
+        <link rel="Stylesheet" href="reset.css" type="text/css"  />
+        <link rel="Stylesheet" href="7_Style.css" type="text/css"  />
+
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+        <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
+
+        <!--[if lt IE 9]>
+                        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+               <![endif]-->
+	</head>
+	<body>
+        <div id="page">
+            <header>
+                <h1>My Cool Blog</h1>
+            </header>
+            <nav>
+                <ul>
+                    <li><a href="index.htm">Index Page</a></li>
+                    <li><a href="">Menu Item 2</a></li>
+                    <li><a href="">Menu Item 3</a></li>
+                </ul>
+            </nav>
+            <article>
+        	    <h1>The Pumperknicle of Monkeyland</h1>
+		
+		        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod 
+		        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+		        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+		        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
+		        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
+		        culpa qui officia deserunt mollit anim id est laborum.</p>
+		
+		        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium 
+		        doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore 
+		        veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam 
+		        voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur 
+		        magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, 
+		        qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non 
+		        numquam eius modi tempora incidunt ut labore et dolore <abbr title="Cascading Style Sheets">Css</abbr> magnam aliquam quaerat voluptatem. 
+		        Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, 
+		        nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in 
+		        ea voluptate velit esse quam nihil molestiae consequatur et <abbr title="alius">al</abbr>, vel illum qui dolorem eum 
+		        fugiat quo voluptas nulla pariatur?</p>
+		
+		        <h2>The Follies of Prepostulated Colonization</h2>
+		
+		        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium 
+		        voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint 
+		        occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt 
+		        mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est 
+		        et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio 
+		        cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas 
+		        assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis 
+		        debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et 
+		        molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut 
+		        reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores 
+		        repellat.</p>
+
+                <section class="quoteThingies">
+                    <blockquote>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium 
+		                voluptatum deleniti atque corrupti architecto beatae vitae dicta sunt.
+                        <cite>Alexander the Great</cite></blockquote>
+                    <blockquote>Et harum quidem rerum facilis est tempore, cum soluta nobis est eligendi optio
+		                et expedita distinctio. Nam libero tempore.
+                        <cite>Your Mom</cite></blockquote>
+                    <blockquote>Itaque earum rerum hic tenetur a sapiente delectus, ut aut ut et voluptates repudiandae
+		                reiciendis voluptatibus maiores. <cite>Antioches Epiphanes</cite></blockquote>
+                </section>
+		
+		        <h2>Conclusion</h2>
+		
+		        <p>I do not like your mom.  Et harum quidem rerum facilis est 
+		        et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio 
+		        cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas 
+		        assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis 
+		        debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et 
+		        molestiae non recusandae.</p>
+
+                <h2>Hey! Let's Template Something!</h2>
+
+                <input type="button" id="templateSomeStuffYo" value="Shazam!" />
+
+                <div id="putStuffHere">
+                </div>
+            </article>
+        </div>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+                $('#templateSomeStuffYo').click(function () {
+                    var peeps =
+                    [
+                        { Name: 'Bob', Age: 15 },
+                        { Name: 'Fred', Age: 50 },
+                        { Name: 'Foo', Age: 25 }
+                    ];
+
+                    $("#aCoolTemplate").tmpl(peeps).appendTo("#putStuffHere");
+
+                });
+            });
+        </script>
+
+        <script id="aCoolTemplate" type="text/x-jquery-tmpl">
+            <p>${Name} - ${Age}</p>
+        </script>
+		
+	</body>
+</html>

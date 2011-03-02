@@ -1,0 +1,43 @@
+body {
+	background-color: #DDDDDD;
+}
+
+#page  {
+	background-color: #FFFFFF;
+	margin: 0 auto 0 auto; width: 960px;
+}
+
+#header {
+	background-color: #c00000;
+}
+
+#header h1 {
+	font-family: Georgia, Times New Roman, Serif;
+	font-size: 2em;
+}
+
+#nav ul {
+	background-color: #000000;
+	font-family: Verdana, Sans-Serif;
+	font-size: .9em;
+	font-weight: bold;
+	height: 30px;
+	margin: 0;
+	padding: 0 0 0 5px;
+}
+
+#nav ul li {
+	float: left; 
+	list-style-type: none; 
+	margin: 5px 15px 0 0; 
+	padding: 0;
+}
+
+#nav ul li a {
+	color: #FFFFFF;
+}
+
+#mainContent {
+	clear: both;
+	padding: 10px;
+}
