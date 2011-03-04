@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "About Us";
+}
+
+<h2>About</h2>
+<p>
+     Put content here.
+</p>
+
+<input type="button" id="theButton" />
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('#theButton').click(function () {
+
+            $.ajax({
+                url: '/home/getsomestuff',
+                success: function (data) {
+                    alert(data.Name);
+                }
+            });
+
+
+        });
+
+    });
+
+</script>

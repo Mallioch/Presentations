@@ -1,0 +1,15 @@
+﻿@model Pizza.ViewModels.Home.CreateAPizzaViewModel
+@{
+    ViewBag.Title = "CreateAPizza";
+}
+
+<h2>Create A Pizza</h2>
+
+@using (Html.BeginForm())
+{ 
+    @Html.EditorForModel()
+
+    @Html.TextBoxFor(m => m.Name, new { @class = "foo" })
+    
+    <input type="submit" value="Create that Pizza!" />
+}

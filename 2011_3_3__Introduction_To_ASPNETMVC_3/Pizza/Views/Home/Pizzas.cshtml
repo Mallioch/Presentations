@@ -1,0 +1,14 @@
+﻿@model Pizza.ViewModels.Home.PizzasViewModel
+@{
+    ViewBag.Title = "Pizzas";
+}
+
+<h2>Pizzas</h2>
+
+Pizzas: @Model.CountOfPizzas
+
+@foreach (var pizzaType in Model.PizzaTypes) {
+    <p>@pizzaType.Name</p>
+}
+
+@Html.ShowSomePizzaStuff(1)
