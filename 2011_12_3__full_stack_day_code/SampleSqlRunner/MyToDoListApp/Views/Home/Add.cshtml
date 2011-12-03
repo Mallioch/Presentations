@@ -1,0 +1,15 @@
+﻿@model MyToDoListApp.Models.Task
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add</h2>
+
+@Html.ValidationSummary()
+
+<form action="/home/add" method="post">
+
+    @Html.TextBoxFor(x => x.Description)
+    <input type="submit" value="save" />
+
+</form>

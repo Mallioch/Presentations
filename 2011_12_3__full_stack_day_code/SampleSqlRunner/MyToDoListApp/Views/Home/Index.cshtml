@@ -1,0 +1,17 @@
+﻿@model IEnumerable<dynamic>
+@{
+    ViewBag.Title = "Index";
+}
+
+<p>These are your tasks to do.</p>
+
+<ul>
+@foreach (var task in Model)
+{
+    <li>@task.Description</li>
+}
+</ul>
+
+<p><strong>@ViewBag.AnythingYouWant</strong></p>
+
+<p>You can <a href="/home/add">add a new task</a>.</p>

@@ -3,16 +3,38 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleSqlRunner", "SampleSqlRunner\SampleSqlRunner.csproj", "{DF609E22-CF63-4461-84C4-64625EC9BE02}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyToDoListApp", "MyToDoListApp\MyToDoListApp.csproj", "{6F1C7791-0D42-4540-BC6C-F0620D2FFA70}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
 		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF609E22-CF63-4461-84C4-64625EC9BE02}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{DF609E22-CF63-4461-84C4-64625EC9BE02}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{DF609E22-CF63-4461-84C4-64625EC9BE02}.Debug|Mixed Platforms.Build.0 = Debug|x86
 		{DF609E22-CF63-4461-84C4-64625EC9BE02}.Debug|x86.ActiveCfg = Debug|x86
 		{DF609E22-CF63-4461-84C4-64625EC9BE02}.Debug|x86.Build.0 = Debug|x86
+		{DF609E22-CF63-4461-84C4-64625EC9BE02}.Release|Any CPU.ActiveCfg = Release|x86
+		{DF609E22-CF63-4461-84C4-64625EC9BE02}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{DF609E22-CF63-4461-84C4-64625EC9BE02}.Release|Mixed Platforms.Build.0 = Release|x86
 		{DF609E22-CF63-4461-84C4-64625EC9BE02}.Release|x86.ActiveCfg = Release|x86
 		{DF609E22-CF63-4461-84C4-64625EC9BE02}.Release|x86.Build.0 = Release|x86
+		{6F1C7791-0D42-4540-BC6C-F0620D2FFA70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F1C7791-0D42-4540-BC6C-F0620D2FFA70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F1C7791-0D42-4540-BC6C-F0620D2FFA70}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{6F1C7791-0D42-4540-BC6C-F0620D2FFA70}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{6F1C7791-0D42-4540-BC6C-F0620D2FFA70}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6F1C7791-0D42-4540-BC6C-F0620D2FFA70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F1C7791-0D42-4540-BC6C-F0620D2FFA70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F1C7791-0D42-4540-BC6C-F0620D2FFA70}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{6F1C7791-0D42-4540-BC6C-F0620D2FFA70}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{6F1C7791-0D42-4540-BC6C-F0620D2FFA70}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
