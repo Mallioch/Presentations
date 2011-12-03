@@ -48,5 +48,20 @@ namespace MyToDoListApp.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public ActionResult Delete(int? id)
+        {
+            var task = _db.Single(id.Value);
+            ViewBag.Description = task.Description;
+            ViewBag.TaskId = task.TaskId;
+
+            return View();
+        }
+
+        public ActionResult DeleteForRealz(int? id)
+        {
+            _db.Delete(id.Value);
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = "Delete";
+}
+
+<p>Are you sure you want to delete the task "@ViewBag.Description?"</p>
+
+<form action="/home/DeleteForRealz/@ViewBag.TaskId" method="delete">
+    <input type="submit" value="delete" />
+    <a href="/">Cancel</a>
+</form>

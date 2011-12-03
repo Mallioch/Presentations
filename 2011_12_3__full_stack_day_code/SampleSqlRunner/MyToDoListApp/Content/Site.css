@@ -1,75 +1,140 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+h1
+{
+    font-family: helvetica, Verdana, Sans-Serif;
+    font-weight: bold;
+    margin: 10px 0 10px 0;
+}
+
+header
+{
+    background-color: Yellow;
+    box-shadow: 1px 25px 20px #CCC;
+    height: 150px;
+    margin: 0 0 20px 20px;
+    padding: 10px;
+    width: 150px;
+    -webkit-transform: rotate(-7deg);
+    
+    background: rgb(234,225,46); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(234,225,46,1) 0%, rgba(229,223,137,1) 11%, rgba(234,225,46,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(234,225,46,1)), color-stop(11%,rgba(229,223,137,1)), color-stop(100%,rgba(234,225,46,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(234,225,46,1) 0%,rgba(229,223,137,1) 11%,rgba(234,225,46,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(234,225,46,1) 0%,rgba(229,223,137,1) 11%,rgba(234,225,46,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(234,225,46,1) 0%,rgba(229,223,137,1) 11%,rgba(234,225,46,1) 100%); /* IE10+ */
+    background: linear-gradient(top,  rgba(234,225,46,1) 0%,rgba(229,223,137,1) 11%,rgba(234,225,46,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eae12e', endColorstr='#eae12e',GradientType=0 ); /* IE6-9 */
+
+}
+
+p
+{
+    margin: 5px 0 5px 0;
+}
+
 body
 {
-    font-size: .85em;
-    font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif;
-    color: #232323;
-    background-color: #fff;
+    background-color: #eee;
 }
 
-header,
-footer,
-nav,
-section {
-    display: block;
-}
-
-/* Styles for basic forms
------------------------------------------------------------*/
-
-fieldset 
+li
 {
-    border:1px solid #ddd;
-    padding:0 1.4em 1.4em 1.4em;
-    margin:0 0 1.5em 0;
+    background-color: #EEE;
+    box-shadow: 1px 5px 5px #CCC;
+    border: solid 1px #CCC;
+    border-radius: 25px;
+    float: left;
+    height: 120px;
+    margin: 5px;
+    padding: 5px;
+    width: 120px;
+    -webkit-transform: rotate(7deg);
+    text-align: center;
 }
 
-legend 
+input.fancyButtons
 {
-    font-size:1.2em;
-    font-weight: bold;
+    
 }
 
-textarea 
+#mainContent
 {
-    min-height: 75px;
+    background-color: #FFF;
+    border: solid 1px #888;
+    margin: 0 auto 0 auto;
+    padding: 15px;
+    width: 580px;
 }
 
-.editor-label 
+.clearFloat
 {
-    margin: 1em 0 0 0;
-}
-
-.editor-field 
-{
-    margin:0.5em 0 0 0;
+    clear: both;
 }
 
 
-/* Styles for validation helpers
------------------------------------------------------------*/
-.field-validation-error
-{
-    color: #ff0000;
-}
 
-.field-validation-valid
-{
-    display: none;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .input-validation-error
 {
-    border: 1px solid #ff0000;
-    background-color: #00FF00;
-}
-
-.validation-summary-errors
-{
-    font-weight: bold;
-    color: #ff0000;
-}
-
-.validation-summary-valid
-{
-    display: none;
 }
