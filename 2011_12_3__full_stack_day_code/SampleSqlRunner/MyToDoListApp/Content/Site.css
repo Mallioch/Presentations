@@ -121,20 +121,17 @@ input.fancyButtons
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.input-validation-error
+@media screen and (min-width: 960px)
 {
+    li
+    {
+        
+    }
 }
+
+
+
+
+
+
+
