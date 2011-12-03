@@ -43,3 +43,11 @@ GO
 INSERT INTO TaskType (TaskTypeId, TaskTypeName) VALUES (1, 'at home')
 INSERT INTO TaskType (TaskTypeId, TaskTypeName) VALUES (2, 'at work')
 INSERT INTO TaskType (TaskTypeId, TaskTypeName) VALUES (3, 'at the store')
+
+
+/*
+INSERT INTO Task (Description) VALUES ('foo')
+UPDATE Task SET Description = 'go home' WHERE CreateDate = '2011-12-03 09:07:37.813'
+DELETE FROM Task WHERE TaskId = 16
+SELECT * FROM Task
+*/
