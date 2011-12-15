@@ -70,11 +70,23 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\json2.js" />
+    <Content Include="Content\Spine\ajax.js" />
+    <Content Include="Content\Spine\list.js" />
+    <Content Include="Content\Spine\local.js" />
+    <Content Include="Content\Spine\manager.js" />
+    <Content Include="Content\Spine\my_app.js" />
+    <Content Include="Content\Spine\relation.js" />
+    <Content Include="Content\Spine\route.js" />
+    <Content Include="Content\Spine\spine.js" />
+    <Content Include="Content\Spine\tabs.js" />
+    <Content Include="Content\Spine\tmpl.js" />
     <Content Include="Content\style.css">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>style.scss</DependentUpon>
     </Content>
+    <Content Include="Content\underscore.js" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -88,8 +100,6 @@
   <ItemGroup>
     <Folder Include="App_Code\" />
     <Folder Include="Content\Backbone\" />
-    <Folder Include="Content\Spine\" />
-    <Folder Include="Models\" />
     <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
