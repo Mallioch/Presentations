@@ -1,7 +1,6 @@
 ﻿@{
     Layout = null;
 }
-
 <!DOCTYPE html>
 
 <html>
@@ -12,7 +11,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <script src="/content/underscore.js" type="text/javascript"></script>
     <script src="/content/Spine/spine.js" type="text/javascript"></script>
-    <script src="/content/Spine/local.js" type="text/javascript"></script>
+    <script src="/content/Spine/ajax.js" type="text/javascript"></script>
     <script src="/content/Spine/my_app.js" type="text/javascript"></script>
 
 
@@ -21,9 +20,19 @@
 <body>
     <div id="page">
 
-        <div class="card">
-        </div>
+        <div id="app">
+            <div id="cardHolder">
+                <div id="card">
+                </div>
+
+                <button id="back">&lt;</button>
+                <button id="forward">&gt;</button>
+            </div>
         
+            <div id="addForm">
+            
+            </div>
+        </div>
     </div>
 </body>
 </html>

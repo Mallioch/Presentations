@@ -58,3 +58,11 @@ h2 {
   background-color: #FFF;
   padding: 20px;
   max-width: 920px; }
+
+#cardHolder {
+  border: solid 1px #000;
+  height: 200px;
+  width: 400px; }
+
+#card {
+  height: 100%; }

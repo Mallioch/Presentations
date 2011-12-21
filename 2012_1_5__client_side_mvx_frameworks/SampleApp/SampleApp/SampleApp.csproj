@@ -58,6 +58,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\Api\ApiAreaRegistration.cs" />
+    <Compile Include="Areas\Api\Controllers\CardController.cs" />
     <Compile Include="Code\Massive.cs" />
     <Compile Include="Code\CardRepository.cs" />
     <Compile Include="Code\Card.cs" />
@@ -99,6 +101,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
+    <Folder Include="Areas\Api\Models\" />
+    <Folder Include="Areas\Api\Views\Shared\" />
     <Folder Include="Content\Backbone\" />
     <Folder Include="Views\Shared\" />
   </ItemGroup>
@@ -106,6 +110,7 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Api\Views\Web.config" />
     <None Include="Content\style.scss">
       <Generator>ScssGenerator</Generator>
       <LastGenOutput>style.css</LastGenOutput>
