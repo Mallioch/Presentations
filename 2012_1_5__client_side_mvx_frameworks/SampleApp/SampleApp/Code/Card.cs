@@ -10,6 +10,7 @@ namespace SampleApp.Code
         public int correctCount { get; set; }
         public int incorrectCount { get; set; }
         public bool isArchived { get; set; }
+        public int userId { get; set; }
     }
 
 }

@@ -12,8 +12,11 @@
     <script src="/content/underscore.js" type="text/javascript"></script>
     <script src="/content/Spine/spine.js" type="text/javascript"></script>
     <script src="/content/Spine/ajax.js" type="text/javascript"></script>
+    <script src="/content/pubsub.js" type="text/javascript"></script>
+    <script src="/content/models/card.js" type="text/javascript"></script>
+    <script src="/content/controllers/cards.js" type="text/javascript"></script>
+    <script src="/content/controllers/modifyform.js" type="text/javascript"></script>
     <script src="/content/Spine/my_app.js" type="text/javascript"></script>
-
 
 
 </head>
@@ -21,16 +24,34 @@
     <div id="page">
 
         <div id="app">
+
             <div id="cardHolder">
                 <div id="card">
                 </div>
 
                 <button id="back">&lt;</button>
                 <button id="forward">&gt;</button>
+                <button id="showModifyFormForEdit" style="display: none;">edit</button>
+                <button id="archive">archive</button>
             </div>
         
-            <div id="addForm">
-            
+            <div id="modifyForm" style="display: none;">
+                <form>
+                    <input type="text" id="rectoInput" placeholder="recto" />
+                    <input type="text" id="versoInput" placeholder="verso" />
+                    <input type="button" value="add" id="save" />
+                </form>
+            </div>
+
+
+
+            <!-- The following are managed by the app controller -->
+            <div id="pageSwitcher">
+                <button id="showModifyForm">Add</button>
+                <button id="hideModifyForm" style="display: none;">Cancel</button>
+            </div>
+            <div id="messenger">
+                <p></p>
             </div>
         </div>
     </div>

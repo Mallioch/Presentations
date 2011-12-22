@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.Mvc;
 using SampleApp.Code;
 using System.Dynamic;
-using System.Threading;
 
 namespace SampleApp.Areas.Api.Controllers
 {
@@ -21,8 +20,6 @@ namespace SampleApp.Areas.Api.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            //Thread.Sleep(2000);
-
             var cards = _repo.All();
 
             var vm = new List<Card>();
@@ -35,8 +32,9 @@ namespace SampleApp.Areas.Api.Controllers
                         verso = card.Verso,
                         correctCount = card.TimesCorrect,
                         incorrectCount = card.TimesIncorrect,
-                        isArchived = Convert.ToBoolean(card.IsArchived)
-                    });
+                        isArchived = Convert.ToBoolean(card.IsArchived),
+                        userId = card.UserId
+                });
             }
 
             return Json(vm, JsonRequestBehavior.AllowGet);
@@ -51,6 +49,21 @@ namespace SampleApp.Areas.Api.Controllers
             data.Verso = card.verso;
             data.TimesCorrect = card.correctCount;
             data.TimesIncorrect = card.incorrectCount;
+            data.IsArchived = card.isArchived;
+            data.UserId = 1;
+
+            _repo.Save(data);
+
+            return new EmptyResult();
+        }
+
+        [HttpPut]
+        [ActionName("Index")]
+        public ActionResult Update(Card card)
+        {
+            var data = _repo.Single(card.id);
+            data.Recto = card.recto;
+            data.Verso = card.verso;
             data.IsArchived = card.isArchived;
 
             _repo.Save(data);

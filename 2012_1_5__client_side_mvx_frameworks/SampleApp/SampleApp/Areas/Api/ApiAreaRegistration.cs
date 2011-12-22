@@ -16,7 +16,7 @@ namespace SampleApp.Areas.Api
         {
             context.MapRoute(
                 "Api_default",
-                "Api/{controller}/{action}/{id}",
+                "Api/{controller}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
         }

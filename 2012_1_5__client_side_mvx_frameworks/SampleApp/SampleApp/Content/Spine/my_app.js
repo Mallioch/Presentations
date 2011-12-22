@@ -1,98 +1,84 @@
-﻿(function (exports) {
+﻿(function (exports, PubSub, Card, Cards) {
 
-    var Card = Spine.Model.setup('Card', ['recto', 'verso']);
-    Card.extend(Spine.Model.Ajax);
-    Card.extend({
-        url: '/api/card'
-    });
-    Card.bind('refresh', function () {
-        console.log('refreshing', Card.all());
-    });
-
-    var cards;
     var createControllers = function () {
 
-        //Cards controller
-        var Cards = Spine.Controller.create({
-            init: function () {
-                Card.bind('refresh change', this.proxy(this.start));
-            },
-
-            events: {
-                'click #forward': 'forward',
-                'click #back': 'back',
-                'click #card': 'flip'
-            },
-
-            start: function () {
-                cardList = Card.all();
-                cardList.sort(function () { return 0.5 - Math.random() });
-                this.index = 0;
-                this.side = 'recto';
-                this.updateCard();
-            },
-
-            forward: function () {
-                this.index++;
-                this.side = 'recto';
-
-                if (this.index === cardList.length)
-                    this.index = 0;
-                this.updateCard();
-            },
-
-            back: function () {
-                this.index--;
-                this.side = 'recto';
-
-                if (this.index === -1)
-                    this.index = cardList.length - 1;
-                this.updateCard();
-            },
-
-            flip: function () {
-                if (this.side === 'verso')
-                    this.side = 'recto';
-                else
-                    this.side = 'verso';
-                this.updateCard();
-            },
-
-            updateCard: function () {
-                this.model = cardList[this.index];
-                this.render();
-            },
-
-            render: function () {
-                $('#card', this.el).html('<p>' + this.model[this.side] + '</p>');
-            }
-        });
-
-        //AppController
         window.App = Spine.Controller.create({
             el: $('#app'),
 
             elements: {
                 '#cardHolder': 'cardHolderEl',
-                '#addForm': 'addFormEl'
+                '#modifyForm': 'modifyFormEl',
+                '#hideModifyForm': 'hideModifyFormEl',
+                '#showModifyForm': 'showModifyFormEl',
+                '#messenger p': 'messengerEl'
+            },
+
+            events: {
+                'click #showModifyForm': 'add',
+                'click #hideModifyForm': 'switchToCardMode'
             },
 
             init: function () {
-                this.cardHolder = Cards.init({
+                this.cardHolder = exports.Cards.init({
                     el: this.cardHolderEl
                 });
 
+                this.modifyForm = ModifyForm.init({
+                    el: this.modifyFormEl
+                });
+
                 Card.fetch();
-            }
+
+                PubSub.subscribe('editCard', this.proxy(this.edit));
+                PubSub.subscribe('editCardFinished', this.proxy(this.switchToCardMode));
+                PubSub.subscribe('flashMessage', this.proxy(this.flashMessage));
+                PubSub.subscribe('showMessage', this.proxy(this.showMessage));
+            },
+
+            edit: function (card) {
+            
+                console.log('in edit', card);
+
+                this.modifyForm.model = card;
+                this.modifyForm.mode = 'edit';
+                this.showModifyForm();
+            },
+
+            add: function () {
+                this.modifyForm.mode = 'add';
+                this.showModifyForm();
+            },
+
+            showModifyForm: function () {
+                this.cardHolder.hide();
+                this.modifyForm.show();
+                this.hideModifyFormEl.show();
+                this.showModifyFormEl.hide();
+            },
+
+            switchToCardMode: function () {
+                this.modifyForm.hide();
+                this.cardHolder.show();
+                this.hideModifyFormEl.hide();
+                this.showModifyFormEl.show();
+            },
+
+            flashMessage: function (message) {
+                this.messengerEl.html(message);
+                this.messengerEl.show();
+                this.messengerEl.fadeOut(1200);
+            },
+
+            showMessage: function (message) {
+                this.messengerEl.html(message);
+                this.messengerEl.show();
+            },
 
         }).init();
     }
-
-    var cardList;
-    var index = 0;
 
     $(document).ready(function () {
         createControllers();
     });
 
-})(this);
+})(this, this.PubSub, this.Card, this.Cards);

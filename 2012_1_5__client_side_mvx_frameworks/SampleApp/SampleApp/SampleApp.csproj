@@ -72,7 +72,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\controllers\cards.js" />
+    <Content Include="Content\controllers\modifyform.js" />
     <Content Include="Content\json2.js" />
+    <Content Include="Content\models\card.js" />
+    <Content Include="Content\pubsub.js" />
     <Content Include="Content\Spine\ajax.js" />
     <Content Include="Content\Spine\list.js" />
     <Content Include="Content\Spine\local.js" />
