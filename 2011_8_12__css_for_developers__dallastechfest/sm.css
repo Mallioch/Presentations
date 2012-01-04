@@ -1,0 +1,177 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+body
+{
+    background-color: #0a5ea4;
+}
+
+#page
+{
+    background-color: #FFF;
+    background-image: url(smbackground.jpg);
+    background-repeat: no-repeat;
+    box-shadow: 5px 5px 5px #000;
+    margin: 0 auto 0 auto;
+    width: 960px;
+}
+
+h1
+{
+    font-family: Impact, Verdana, Sans-Serif;
+    font-weight: bold;
+    font-size: 6em;
+    padding: 10px 10px 0 10px;
+    text-transform: uppercase;
+}
+
+h2
+{
+    font-family: Georgia, Sans-Serif;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+h3
+{
+    font-family: Verdana, Sans-Serif;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+header h2
+{
+    padding: 0 0 0 20px;
+}
+
+p, blockquote, li
+{
+    font-family: Verdana, Sans-Serif;
+    font-size: .9em;
+    line-height: 1.4em;
+}
+
+ul li
+{
+    margin: 0 0 0 20px;
+    list-style-type: disc;
+}
+
+
+nav
+{
+    background-color: #000;
+    border: solid 1px #000;
+    height: 20px;
+    margin: 5px 0 0 0;
+}
+
+nav ul li
+{
+    float: left;
+    list-style-type: none;
+}
+
+nav ul li a
+{
+    color: #FFF;
+    font-weight: bold;
+    font-size: .8em;
+}
+
+#sidebar
+{
+    background-color: #da051b;
+    border-bottom-right-radius: 10px;
+    color: #FFF;
+    float: left;
+    padding: 10px 10px 20px 10px;
+    width: 300px;
+}
+
+#sidebar p
+{
+    margin: 10px 0 10px 0;
+}
+
+#sidebar a
+{
+    color: #FFF;
+}
+
+#content
+{
+    float: right;
+    margin: 10px;
+    width: 600px;
+}
+
+#content p
+{
+    margin: 10px 0 10px 0;
+}
+
+blockquote
+{
+    background-color: #EEE;
+    border: solid 1px #CCC;
+    color: #444;
+    margin: 0 0 0 30px;
+    padding: 10px;
+}
+
+footer
+{
+    background-color: #000;
+    clear: both;
+    color: #DDD;
+    font-size: .9em;
+    padding: 10px 0 10px 0;
+    text-align: center;
+}
