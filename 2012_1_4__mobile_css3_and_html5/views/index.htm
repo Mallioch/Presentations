@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fun Times with Css and Html 5</title>
+        <link type="text/css" rel="Stylesheet" href="/public/style.css" />
+        <script src="/public/modernizr-2.0.6.js" type="text/javascript"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/public/communicators.js" type="text/javascript"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    </head>
+    <body>
+        <div id="pages">
+
+            <!-- section 1 -->
+            <section id="start">
+                <h1>Go Here</h1>
+                <p><a href="http://mobilehtml5.nodester.com">mobilehtml5.nodester.com</a></p>
+            </section>
+
+            <section id="assumptions">
+                <p>I assume that you think mobile is important.</p>
+            </section>
+
+            <section id="about_code">
+                <p>This talk is about what you <strong>can</strong> and <strong>cannot</strong> do in Html 5 and Css 3 <strong>today</strong>.</p>
+            </section>
+
+            <section id="on_your_own_device">
+                <h1>Keep It Real Yo</h1>
+                <p>Let's see this on our own devices.</p>
+                <p class="small">(when possible)</p>
+            </section>
+
+            <section id="what_we_are_using_now">
+                <h1>What We Are Using Now</h1>
+            </section>
+
+            <section id="modernizr">
+                <h1>modernizr</h1>
+            </section>
+
+            <section id="modernizr_code_css">
+                <h1>modernizr</h1>
+                <pre>
+if (Modernizr.websockets) { 
+    //cool stuff
+}
+                </pre>
+            </section>
+
+            <section id="modernizr_code_javascript">
+                <h1>modernizr</h1>
+                <pre>
+.no-csstransforms3d div.coolThing
+{
+    display: none;
+}
+                </pre>
+            </section>
+
+            <section id="websockets">
+                <p class="icanhazwebsockets"><img src="http://presoimages.ericsowell.com/icanhazwebsockets-yes.jpg" height="200" /></p>
+                <p class="ihaznotwebsockets"><img src="http://presoimages.ericsowell.com/icanhazwebsockets-no.jpg" height="200" /></p>
+            </section>
+
+            <section id="websockets_code1">
+            <h1>websockets</h1>
+<pre>
+var connection = new 
+    WebSocket('ws://foo.com/echo');
+</pre>
+            </section>
+            
+            <section id="websockets_code2">
+            <h1>websockets</h1>
+<pre>
+connection.onopen = function () {
+  connection.send('Ping');
+};
+</pre>
+            </section>
+            
+            <section id="websockets_code3">
+            <h1>websockets</h1>
+<pre>
+connection.onmessage = 
+  function (e) {
+    console.log(e.data);
+  };
+</pre>
+            </section>
+
+            <section id="server">
+                <h1>The Codez</h1>
+                <p>node.js</p>
+                <p>socket.io</p>
+                <p>jQuery</p>
+            </section>
+            
+            
+<section id="boxshadow">
+    <h1>boxshadow</h1>
+
+    <div class="standardBox">
+        This is a box.
+    </div>
+</section>
+
+<style type="text/css">
+    #boxshadow div
+    {
+        box-shadow: 5px 10px 5px #CCC;
+    }
+</style>
+
+<section id="boxshadow_code">
+    <h1>boxshadow</h1>
+
+<pre>
+box-shadow: 5px 10px 5px #CCC;
+</pre>
+</section>
+
+<section id="boxshadow2">
+    <h1>boxshadow</h1>
+
+    <div class="standardBox">
+        This is a box.
+    </div>
+</section>
+
+<style type="text/css">
+    #boxshadow2 div
+    {
+        box-shadow: 0px 0px 35px red;
+    }
+</style>
+
+<section id="boxshadow2_code">
+    <h1>boxshadow</h1>
+
+<pre>
+box-shadow: 0px 0px 35px red;
+</pre>
+</section>
+
+<section id="mediaqueries">
+<h1>mediaqueries</h1>
+
+<p>Media queries allow you to change your css depending on your media type and size.</p>
+</section>
+
+
+<section id="mediaqueries_code">
+<pre>
+@media screen 
+    and (max-width: 320px)
+{
+    p, pre {
+        font-size: 2em;
+    }
+}
+</pre>
+</section>
+
+<section id="viewport_meta_tag">
+<h1>viewport meta tag</h1>
+<pre>
+&lt;meta name="viewport" 
+  content="width=device-width,
+  initial-scale=1,
+  maximum-scale=1"&gt;
+</pre>
+</section>
+
+
+
+
+<!-- Css 3 -->
+
+
+<section id="css3">
+<h1>Css 3</h1>
+</section>
+
+
+<!-- =============================================== -->
+<section id="text_shadow">
+    <h1>Text Shadow</h1>
+    <div class="standardBox">
+        This is a box.
+    </div>
+</section>
+
+<style type="text/css">
+    #text_shadow div
+    {
+        font-size: 2em;
+        text-shadow: 3px 3px 2px #AAA;
+    }
+</style>
+
+<section id="text_shadow_code">
+<h1>Text Shadow</h1>
+    <pre>
+text-shadow: 3px 3px 2px #AAA;
+    </pre>
+</section>
+
+
+<!-- =============================================== -->
+<section id="border_radius">
+    <h1>border radius</h1>
+    <div class="standardBox">
+        This is a box.
+    </div>
+</section>
+
+<style type="text/css">
+    #border_radius div
+    {
+        border-radius: 10px;
+    }
+</style>
+
+<section id="border_radius_code">
+<h1>border radius</h1>
+<pre>
+border-radius: 10px;
+</pre>
+</section>
+
+
+<!-- =============================================== -->
+<section id="opacity">
+<h1>opacity</h1>
+    <div class="other">
+        behind
+    </div>
+    <div class="standardBox">
+        This is a box.
+    </div>
+</section>
+
+<style type="text/css">
+
+    #opacity div
+    {
+        font-size: 2em;
+        font-weight: bold;
+    }
+
+    #opacity .other
+    {
+        background-color: red;
+        color: #FFF;
+        left: 50px;
+        position: absolute;
+        top: 140px;
+        text-align: center;
+        width: 200px;
+        z-index: 1;
+    }
+
+    #opacity .standardBox
+    {
+        background-color: #FFF;
+        left: 50px;
+        opacity: .5;
+        position: absolute;
+        top: 70px;
+        z-index: 10;
+    }
+</style>
+
+<section id="opacity_code">
+<h1>opacity</h1>
+<pre>
+opacity: .5;
+</pre>
+</section>
+
+
+<!-- =============================================== -->
+<section id="rgba">
+    <h1>rgba</h1>
+
+    <div class="other">
+        behind
+    </div>
+    <div class="standardBox">
+        This is a box.
+    </div>
+</section>
+
+<style type="text/css">
+
+    #rgba div
+    {
+        font-size: 2em;
+        font-weight: bold;
+        position: absolute;
+    }
+
+    #rgba .other
+    {
+        background-color: red;
+        color: #FFF;
+        left: 50px;
+        top: 140px;
+        text-align: center;
+        width: 200px;
+        z-index: 1;
+    }
+
+    #rgba .standardBox
+    {
+        background-color: rgba(255, 255, 255, .5);
+        left: 50px;
+        top: 70px;
+        z-index: 10;
+    }
+</style>
+
+<section id="rgba_code">
+<h1>rgba</h1>
+
+<pre>
+background-color: 
+    rgba(255, 255, 255, .5);
+</pre>
+</section>
+
+
+<!-- =============================================== -->
+<section id="generated_content">
+    <h1>generated content</h1>
+
+    <div class="standardBox">
+        This is a box.
+    </div>
+</section>
+
+<style type="text/css">
+
+    #generated_content .standardBox:after
+    {
+        content: 'THIS IS SO FANCY';
+        font-weight: bold;
+        position: relative;
+        top: 10px;
+        text-align: center;
+    }
+</style>
+
+<section id="generated_content_code">
+<pre>
+.standardBox:after {
+    content: 'THIS IS SO FANCY';
+    font-weight: bold;
+    position: relative;
+    top: 10px; 
+    text-align: center;
+}
+</pre>
+</section>
+
+
+<!-- =============================================== -->
+<section id="css_gradients">
+    <h1>css gradients</h1>
+
+    <div class="standardBox">
+        This is a box.
+    </div>
+
+    <p>http://www.colorzilla.com/gradient-editor</p>
+
+</section>
+
+<style type="text/css">
+    #css_gradients div
+    {
+        color: #FFF;
+        background: -moz-linear-gradient(top, rgba(30,87,153,1) 0%, rgba(125,185,232,1) 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(30,87,153,1)), color-stop(100%,rgba(125,185,232,1))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, rgba(30,87,153,1) 0%,rgba(125,185,232,1) 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, rgba(30,87,153,1) 0%,rgba(125,185,232,1) 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, rgba(30,87,153,1) 0%,rgba(125,185,232,1) 100%); /* IE10+ */
+        background: linear-gradient(top, rgba(30,87,153,1) 0%,rgba(125,185,232,1) 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
+    }
+</style>
+
+<section id="css_gradients_code">
+<h1>css gradients</h1>
+
+<pre>
+background: -moz-linear-gradient(top, rgba(30,87,153,1) 0%, rgba(125,185,232,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(30,87,153,1)), color-stop(100%,rgba(125,185,232,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(30,87,153,1) 0%,rgba(125,185,232,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(30,87,153,1) 0%,rgba(125,185,232,1) 100%); /* Opera 11.10+ */
+</pre>
+
+</section>
+
+<section id="css_gradients_code_2">
+<h1>css gradients</h1>
+
+<pre>
+background: -ms-linear-gradient(top, rgba(30,87,153,1) 0%,rgba(125,185,232,1) 100%); /* IE10+ */
+background: linear-gradient(top, rgba(30,87,153,1) 0%,rgba(125,185,232,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
+</pre>
+
+</section>
+
+
+<!-- =============================================== -->
+<section id="multiple_backgrounds">
+    <div>
+        I pitty the fool who doesn't know about multiple backgrounds in css 3.
+    </div>
+</section>
+
+
+<style type="text/css">
+    #multiple_backgrounds div
+    {
+        background-image: url(http://presoimages.ericsowell.com/transparent_overlay.png),
+            url(http://presoimages.ericsowell.com/me.jpg);
+        background-position: center bottom, left top;
+        background-repeat: no-repeat;
+        border: solid 1px black;
+        color: #FFF;
+        max-height: 230px;
+        margin: 0 auto 0 auto;
+        overflow: hidden;
+        padding: 170px 0 0 0;
+        text-align: center;
+        width: 230px;
+    }
+</style>
+
+
+<section id="multiple_backgrounds_code">
+<h1>multiple_backgrounds</h1>
+<pre>
+background-image: url(http://presoimages.ericsowell.com/transparent_overlay.png),
+    url(http://presoimages.ericsowell.com/me.jpg);
+background-position: center bottom, left top;
+background-repeat: no-repeat;
+</pre>
+</section>
+
+
+<!-- =============================================== -->
+<section id="transforms">
+    <h1>transforms</h1>
+
+    <div class="standardBox div1">
+        This is a box.
+    </div>
+
+    <div class="standardBox div2">
+        This is a box.
+    </div>
+
+    <div class="standardBox div3">
+        This is a box.
+    </div>
+
+    <div class="standardBox div4">
+        This is a box.
+    </div>
+</section>
+
+<style type="text/css">
+    #transforms div
+    {
+        float: left;
+        height: 30px;
+        margin: 0 5px 0 5px;
+        width: 60px;
+    }
+
+    #transforms .div1
+    {
+        -moz-transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+    }
+
+    #transforms .div2
+    {
+        -moz-transform: skew(-25deg);
+        -webkit-transform: skew(-25deg);
+        -ms-transform: skew(-25deg);
+    }
+
+    #transforms .div3
+    {
+        -moz-transform: scale(0.5);
+        -webkit-transform: scale(0.5);
+        -ms-transform: scale(0.5);
+        border: solid 2px #CCC;
+    }
+
+
+    #transforms .div4
+    {
+        -moz-transform: rotate(90deg) skew(-25deg) scale(1.2);
+        -webkit-transform: rotate(90deg) skew(-25deg) scale(1.2);
+        -ms-transform: rotate(90deg) skew(-25deg) scale(1.2);
+    }
+</style>
+
+<section id="transforms_code_1">
+<h1>transforms</h1>
+<pre>
+-moz-transform: rotate(90deg);
+-webkit-transform: rotate(90deg);
+-ms-transform: rotate(90deg);
+</pre>
+</section>
+
+<section id="transforms_code_2">
+<h1>transforms</h1>
+<pre>
+-moz-transform: skew(-25deg);
+-webkit-transform: skew(-25deg);
+-ms-transform: skew(-25deg);
+</pre>
+</section>
+
+<section id="transforms_code_3">
+<h1>transforms</h1>
+<pre>
+-moz-transform: scale(0.5);
+-webkit-transform: scale(0.5);
+-ms-transform: scale(0.5);
+border: solid 2px #CCC;
+</pre>
+</section>
+
+<section id="transforms_code_4">
+<h1>transforms</h1>
+<pre>
+-moz-transform: rotate(90deg) skew(-25deg) scale(1.2);
+-webkit-transform: rotate(90deg) skew(-25deg) scale(1.2);
+-ms-transform: rotate(90deg) skew(-25deg) scale(1.2);
+</pre>
+</section>
+
+
+<!-- =============================================== -->
+<section id="transition">
+    <h1>transitions</h1>
+    <div class="standardBox">
+        This is a box.
+    </div>
+</section>
+
+<style type="text/css">
+    #transition div
+    {
+        background-color: #FFF;
+        color: #000;
+        -webkit-transition: all 1s ease-in-out;
+        -moz-transition: all 1s ease-in-out;
+        -o-transition: all 1s ease-in-out;
+        -ms-transition: all 1s ease-in-out;
+    }
+
+    #transition div:hover
+    {
+        background-color: #000;
+        color: #FFF;
+    }
+</style>
+
+<section id="transition_code_1">
+<pre>
+    #transition div{ 
+        background-color: #FFF;
+        color: #000;
+        -webkit-transition: all 1s ease-in-out;
+        -ms-transition: all 1s ease-in-out;
+    }
+</pre>
+</section>
+
+
+<section id="transition_code_2">
+<pre>
+    #transition div:hover
+    {
+        background-color: #000;
+        color: #FFF;
+    }
+</pre>
+</section>
+
+<!-- =============================================== -->
+<section id="animation_prep">
+<p><img src="http://presoimages.ericsowell.com/unleash_the_fury.jpg" /></p>
+</section>
+
+<section id="animation">
+    <h1>The Animitron 5000</h1>
+    <p><button>toggle animation</button></p>
+    <div class="standardBox">
+        This is a box.
+    </div>
+</section>
+
+<style type="text/css">
+@-webkit-keyframes changify
+{
+    0%
+    {
+        background-color: #000;
+        border-radius: 0px;
+        box-shadow: 0 0 0 #000;
+        color: #FFF;
+        margin-left: 0;
+        opacity: 0;
+        padding-top: 0;
+        width: 50px;
+	}
+    100%
+    {
+        background-color: #FFF;
+        border-radius: 50px;
+        box-shadow: 10px 10px 10px #000;
+        color: #000;
+        margin-left: 250px;
+        opacity: 1;
+        padding-top: 50px;
+        width: 100px;
+	}
+}
+
+@-moz-keyframes changify
+{
+    0%
+    {
+        background-color: #000;
+        border-radius: 0px;
+        box-shadow: 0 0 0 #000;
+        color: #FFF;
+        margin-left: 0;
+        opacity: 0;
+        padding-top: 0;
+        width: 50px;
+	}
+    100%
+    {
+        background-color: #FFF;
+        border-radius: 50px;
+        box-shadow: 10px 10px 10px #000;
+        color: #000;
+        margin-left: 250px;
+        opacity: 1;
+        padding-top: 50px;
+        width: 100px;
+	}
+}
+
+@-ms-keyframes changify
+{
+    0%
+    {
+        background-color: #000;
+        border-radius: 0px;
+        box-shadow: 0 0 0 #000;
+        color: #FFF;
+        margin-left: 0;
+        opacity: 0;
+        padding-top: 0;
+        width: 50px;
+	}
+    100%
+    {
+        background-color: #FFF;
+        border-radius: 50px;
+        box-shadow: 10px 10px 10px #000;
+        color: #000;
+        margin-left: 250px;
+        opacity: 1;
+        padding-top: 50px;
+        width: 100px;
+	}
+}
+
+    
+.complexAnimation
+{
+	-webkit-animation-name: changify;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-direction: alternate;
+
+	-moz-animation-name: changify;
+	-moz-animation-duration: 1s;
+	-moz-animation-iteration-count: infinite;
+	-moz-animation-direction: alternate;
+
+    -moz-animation-name: changify;
+	-moz-animation-duration: 1s;
+	-moz-animation-iteration-count: infinite;
+	-moz-animation-direction: alternate;
+}
+</style>
+
+<script type="text/javascript">
+
+    $(document).ready(function() {
+        $('#animation button').click(function() {
+            $('#animation div').toggleClass('complexAnimation');
+        });
+    });
+
+</script>
+
+<section id="animation_code1">
+<pre>
+@-webkit-keyframes changify {
+    0%{ 
+        background-color: #000;
+	}
+    100%{ 
+        background-color: #FFF; } }
+</pre>
+</section>
+
+<section id="animation_code2">
+<pre>
+-webkit-animation-name: changify;
+-webkit-animation-duration: 1s;
+-webkit-animation-iteration-count: infinite;
+-webkit-animation-direction: alternate;
+</pre>
+</section>
+
+
+
+
+
+
+<!-- =============================================== -->
+<section id="css_over">
+<p><img src="http://presoimages.ericsowell.com/success_kid.jpg" /></p>
+</section>
+
+
+
+
+
+
+            <!-- Html 5 -->
+<!-- =============================================== -->
+<section id="html5">
+<h1>Html 5</h1>
+</section>
+
+
+<!-- =============================================== -->
+<section id="video">
+<h1>video</h1>
+<video poster="http://www.html5rocks.com/en/tutorials/video/basics/star.png" controls>
+<source src="http://www.html5rocks.com/en/tutorials/video/basics/Chrome_ImF.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+<source src="http://www.html5rocks.com/en/tutorials/video/basics/Chrome_ImF.webm" type='video/webm; codecs="vp8, vorbis"' />
+<source src="http://www.html5rocks.com/en/tutorials/video/basics/Chrome_ImF.ogv" type='video/ogg; codecs="theora, vorbis"' />
+No Html 5 for you.
+</video>
+</section>
+
+<section id="video_code">
+<pre>
+&lt;video poster="http://www.html5rocks.com/en/tutorials/video/basics/star.png" controls&gt;
+&lt;source src="http://www.html5rocks.com/en/tutorials/video/basics/Chrome_ImF.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' /&gt;
+&lt;source src="http://www.html5rocks.com/en/tutorials/video/basics/Chrome_ImF.webm" type='video/webm; codecs="vp8, vorbis"' /&gt;
+&lt;source src="http://www.html5rocks.com/en/tutorials/video/basics/Chrome_ImF.ogv" type='video/ogg; codecs="theora, vorbis"' /&gt;
+No Html 5 for you.
+&lt;/video&gt;
+</pre>
+</section>
+
+
+<!-- =============================================== -->
+<section id="audio">
+<h1>audio</h1>
+<audio controls preload="auto" autobuffer>
+  <source src="http://presoimages.ericsowell.com/hut.wav" />
+  wav audio is not supported, yo.
+</audio>
+</section>
+
+<section id="audio_2">
+<h1>audio #2</h1>
+
+<audio controls preload="auto" autobuffer>
+  <source src="http://presoimages.ericsowell.com/in_ur_base.mp3" />
+  mp3 audio is not supported, yo.
+</audio>
+
+</section>
+
+<section id="audio_code">
+<h1>audio</h1>
+<pre>
+&lt;audio controls preload="auto"&gt;
+  &lt;source src="http://url/hut.wav" /&gt;
+  wav audio is not supported, yo.
+&lt;/audio&gt;
+</pre>
+</section>
+
+<!-- =============================================== -->
+<section id="forms">
+<h1>forms</h1>
+
+<input type="text" placeholder="this is placeholder text" />
+<input type="text" readonly value="this one is read only" />
+<input type="number" />
+<input type="range" />
+</section>
+
+<section id="forms_2">
+<h1>forms, pt 2</h1>
+
+<input type="datetime" />
+<input type="date" />
+<input type="month" />
+<input type="time" />
+</section>
+
+<style type="text/css">
+    #forms input, #forms_2 input
+    {
+        display: block;
+        margin: 15px auto 0 auto;
+    }
+</style>
+
+<section id="forms_1_code">
+<h1>forms</h1>
+<pre>
+&lt;input type="text" placeholder="this is placeholder text" /&gt;
+&lt;input type="text" readonly value="this one is read only" /&gt;
+&lt;input type="number" /&gt;
+&lt;input type="range" /&gt;
+</pre>
+</section>
+
+<section id="forms_2_code">
+<h1>forms</h1>
+<pre>
+&lt;input type="datetime" /&gt;
+&lt;input type="date" /&gt;
+&lt;input type="month" /&gt;
+&lt;input type="time" /&gt;
+</pre>
+</section>
+
+
+<!-- =============================================== -->
+<section id="offline">
+<h1>application cache</h1>
+
+<p class="doesnot">Your browser does not support the application cache.</p>
+<p class="does">Your browser supports the application cache. Hurray!</p>
+
+</section>
+
+<style type="text/css">
+    #offline p
+    {
+        display: none;
+    }
+
+    .applicationcache #offline .does
+    {
+        display: block;
+    }
+
+    .no-applicationcache #offline .doesnot
+    {
+        display: block;
+    }
+</style>
+
+<section id="offline_htmltag">
+<h1>application cache</h1>
+
+<pre>
+&lt;html 
+    manifest="/cache.appcache"&gt;
+</pre>
+</section>
+
+<section id="offline_manifest">
+<h1>application cache</h1>
+<pre>
+CACHE MANIFEST
+NETWORK:
+/api/some/url/not/to/cache
+CACHE:
+/somecool.css
+</pre>
+</section>
+
+
+<!-- =============================================== -->
+<section id="geolocation">
+<h1>geolocation</h1>
+
+<p class="nope">Your device does not support geolocation.</p>
+<p class="yep">Your device supports geolocation. Hit this button to find your coordinates: <input type="button" value="hit me" /></p>
+
+</section>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#geolocation input').click(function() {
+
+            var success = function(position) {
+                alert('lat: ' + position.coords.latitude + ', long: ' + position.coords.longitude);
+            };
+
+            var error = function() { alert('something bad happened'); }    
+            navigator.geolocation.getCurrentPosition(success, error);
+        });
+    });
+</script>
+
+<style type="text/css">
+    #geolocation p
+    {
+        display: none;
+    }
+
+    .geolocation #geolocation p.yep
+    {
+        display: block;
+    }
+
+    .no-geolocation #geolocation p.nope
+    {
+        display: block;
+    }
+</style>
+
+<section id="geolocation_code">
+<h1>geolocation</h1>
+<pre>
+var success = function(position) {
+    alert('lat: ' + position.coords.latitude + ', long: ' + position.coords.longitude);
+};  
+navigator.geolocation.getCurrentPosition(success);
+</pre>
+</section>
+
+
+<!-- =============================================== -->
+<section id="canvas">
+<h1>canvas</h1>
+
+<canvas id="drawOnMe" width="250" height="180"></canvas>
+<input value="drawSomething" type="button" />
+
+</section>
+
+<style type="text/css">
+    #canvas input
+    {
+        float: right;
+        height: 60px;
+        padding: 10px;
+    }
+
+    #canvas canvas
+    {
+        border: solid 1px #000;
+    }
+</style>
+
+<script type="text/javascript">
+    function rand(maxSize)
+    {
+        return Math.floor(Math.random() * maxSize);
+    }
+
+    $(document).ready(function() {
+        $('#canvas input').click(function() {
+            var canvas = document.getElementById('drawOnMe');
+            var context = canvas.getContext('2d');
+
+            var r = rand(255);
+            var g = rand(255);
+            var b = rand(255);
+
+            var size = rand(50);
+            var x = rand(250);
+            var y = rand(170);
+
+            context.fillStyle = 'rgb(' + r + ',' + g + ',' + b + ')';
+            context.fillRect(x, y, size, size);
+        });
+    });
+</script>
+
+<section id="canvas_code">
+<h1>canvas code</h1>
+<pre>
+var canvas = document.getElementById('drawOnMe');
+var context = canvas.getContext('2d');
+context.fillStyle = 'rgb(255,255,255)';
+context.fillRect(x, y, width, height);
+</pre>
+</section
+
+<!-- =============================================== -->
+<section id="webworkers">
+<h1>web workers</h1>
+
+<div class="has">
+    <button class="start">start web worker</button>
+    <button class="stop" style="display: none">stop web worker</button>
+
+    <p class="message"></p>
+</div>
+
+<div class="hasNot">
+    <p>Your browser does not support web workers. I am deeply sorry.</p>
+</div>
+
+</section>
+
+<style type="text/css">
+    #webworkers div
+    {
+        display: none;
+    }
+    .webworkers #webworkers div.has
+    {
+        display: block;
+    }
+    .no-webworkers #webworkers div.hasNot
+    {
+        display: block;
+    }
+</style>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        var self = this;
+
+        $('#webworkers button.start').click(function() {
+            self.mywebworker = new Worker('/public/webworker.js');
+            self.mywebworker.postMessage();
+
+            self.mywebworker.addEventListener('message', function(event) {  
+                $('p.message').html(event.data.message);
+            }, false); 
+                
+            $('#webworkers button.start').hide();
+            $('#webworkers button.stop').show();    
+        });
+
+        $('#webworkers button.stop').click(function() {
+            self.mywebworker.terminate();
+            $('#webworkers button.start').show();
+            $('#webworkers button.stop').hide();
+        });
+    
+    });
+</script>
+
+<section id="webworkers_code_1">
+<h1>webworkers</h1>
+<pre>
+this.mywebworker = new Worker('/public/webworker.js');
+this.mywebworker.postMessage();
+this.mywebworker.addEventListener('message', function(event) {  
+    $('p.message').html(event.data.message);
+}, false); 
+</pre>
+</section>
+
+<section id="webworkers_code_2">
+<pre>
+self.onmessage = function(event) {  
+  this.times = 0;
+  setInterval(function() {
+      var text = 'Hi! I have said this ' + this.times + ' time(s) before.';
+      this.times++;
+      self.postMessage({ message: text });
+  }, 500);  
+}; 
+</pre>
+</section>
+
+
+<!-- =============================================== -->
+<section id="history">
+<h1>js history api</h1>
+
+<div class="has">
+<input type="text" placeholder="change your url, dawg" />
+<button>change it, dawg</button>
+</div>
+
+<div class="hasNot">
+    <p>Your browser does not support the history api.</p>
+</div>
+
+</section>
+
+<style type="text/css">
+    #history div
+    {
+        display: none;
+    }
+
+    .history #history .has
+    {
+        display: block;
+    }
+
+    .no-history #history .hasNot
+    {
+        display: block;
+    }
+</style>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#history button').click(function() {
+            history.pushState({foo: 'bar'}, 'title', $('#history input').val());
+        });
+    });
+</script>
+
+<section id="history_code">
+<h1>js history api</h1>
+<pre>
+history.pushState({foo: 'bar'}, 
+    'title', //does not seem to work
+    'whateveryouwantontheurl');
+</pre>
+</section>
+
+
+
+<!-- =============================================== -->
+<section id="webstorage">
+<h1>webstorage</h1>
+<p class="has">Your browser supports the webstorage api. #winning</p>
+
+<p class="hasNot">Your browser does not support the webstorage api.</p>
+</section>
+
+<section id="webstorage_code">
+<h1>webstorage code</h1>
+<pre>
+sessionStorage.setItem('shoeSize','13');
+console.log(sessionStorage.getItem('shoeSize'));
+
+localStorage.setItem('pantLength','36');
+console.log(localStorage.getItem('pantLength'));
+</pre>
+</section>
+
+<style type="text/css">
+
+    #webstorage p
+    {
+        display: none;
+    }
+
+    .localstorage #webstorage p.has
+    {
+        display: block;
+    }
+
+    .no-localstorage #webstorage p.hasNot
+    {
+        display: block;
+    }
+</style>
+
+
+<!-- =============================================== -->
+<section id="final_thoughts">
+<h1>final thoughts</h1>
+</section>
+
+<section id="progressive_enhancement">
+<h1>progressive enhancement</h1>
+<p>Every webpage does not need to look the same in every browser.</p>
+</section>
+
+<section id="argument_of_speed">
+<h1>the need for speed</h1>
+<p>In general, it faster to use a html5/css3 equivalent than to cut images or hack to make the web do what you want. Use that.</p>
+</section>
+
+<section id="tomorrow">
+<h1>dallas c# sig tomorrow</h1>
+<p>http://dallas-csharp-sig.com/</p>
+<p>What Client-Side MV* Frameworks Can Do For You</p>
+</section>
+
+<section id="about_me">
+<h1>me</h1>
+<p>twitter: @mallioch</p>
+<p>homepage: ericsowell.com</p>
+<p class="small">geek blog: thecodinghumanist.com</p>
+<p class="small">this code: https://github.com/Mallioch/Presentations</p>
+<p class="small"><a href="http://svy.mk/ADJ67E">http://svy.mk/ADJ67E</a></p>
+</section>
+
+           
+
+        </div>
+
+        <div id="tehNav">
+            <input type="password" id="tehInput" />
+            <button id="tehButton">Send Message</button>
+            <button id="previous">previous</button>
+            <button id="next">next</button>
+        </div>
+
+        <script>
+
+            var pageChangeCallback = function(message) {
+                //console.log('message from server', message);
+                $('#pages section').hide();
+                $('#' + message).show();
+                window.scrollTo(0, 1);
+            }
+
+            var communicator;
+
+            if (Modernizr.websockets) { 
+                communicator = window.SocketCommunicator;
+            }
+            else {
+                communicator = window.IECommunicator;
+            }
+
+            communicator.register(pageChangeCallback);
+
+            $(document).ready(function() {
+                $('#tehButton').click(function() {
+
+                    if (!Modernizr.websockets)
+                        return;
+
+                    var data = {
+                        message: $('#tehInput').val()
+                    };
+
+                    communicator.sendMessage(data);
+                });
+
+                $('#previous').click(function() {
+				
+					console.log('clicked previous');
+
+                    if (!Modernizr.websockets)
+                        return;
+
+                    communicator.previous();
+                });
+
+                $('#next').click(function() {
+				
+					console.log('clicked next');
+
+                    if (!Modernizr.websockets)
+                        return;
+
+                    communicator.next();
+                });
+            });
+        </script>
+    </body>
+</html>
