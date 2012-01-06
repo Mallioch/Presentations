@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script type="text/javascript" src="knockout-2.0.0.js"></script>
+	</head>
+	<body>
+		<h1>Todos</h1>
+
+		<button data-bind="click: addTask">add</button>
+		<input type="text" id="task" placeholder="task name" />
+		
+		<ul data-bind="foreach: tasks">
+			<li><a href="#" data-bind="click: $root.removeTask">Remove</a> - <span data-bind="text: name"></span></li>
+		</ul>
+		
+		
+		<script type="text/javascript">
+		
+		function Task(name) {
+			var self = this;
+			self.name = name;
+		}
+		
+		function TasksViewModel() {
+			var self = this;
+			
+			self.tasks = ko.observableArray([]);
+			
+			self.addTask = function() {
+				
+				var name = $('#task').val();
+				self.tasks.push(new Task(name));
+				$('#task').val('');
+			}
+			
+			self.removeTask = function(task) {
+				self.tasks.remove(task)
+			}
+		}
+		
+		ko.applyBindings(new TasksViewModel());
+		</script>
+	</body>
+</html>
