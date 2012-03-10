@@ -1,0 +1,370 @@
+﻿/* Note that the organization of this css is targetted more for the presentation than the best way to organize things. */
+
+/* ============ Let's get fluid! ============ */
+
+@media screen and (max-width: 960px) 
+{
+    /* Menu at the very top of the screen. */
+    /*
+    #top-menu
+    {
+        min-width: 0;
+        width: auto;
+    }
+    
+    #top-menu-content
+    {
+        width: auto;
+    }
+    */
+    
+    
+    /* The header text stuff */
+    /*
+    #header
+    {
+        min-width: 0;
+    }
+
+    #branding
+    {
+        max-width: 980px;
+        width: auto;
+    }
+
+    .logo
+    {
+        float: none;
+    }
+    */
+
+
+    /* This search bar is a problem */
+    /*
+    #searchbar
+    {
+        display: inline;
+        height: 17px;
+        margin: 0 5px 0 5px;
+        float: none;
+    }
+    
+    #searchbar form
+    {
+        height: 17px;
+    }
+    */
+    
+    
+    /* Primary navigation menu. */
+    /*
+    #nav
+    {
+        min-width: 0;
+    }
+    
+    #nav-content
+    {
+        width: auto;
+    }
+    */
+
+    
+    /* Slide-share widget. Being Flash, this isn't going to display on a lot of devices. Hide for now. */
+    /*
+    #daikos-text-7
+    {
+        display: none;
+    }
+    */
+    
+    
+    /* The middle content area. */
+    /*
+    #main
+    {
+        max-width: 960px;
+        width: auto;
+    }
+
+    .sidebar
+    {
+        float: none;
+    }
+    
+    #container
+    {
+        width: auto;
+        float: none;
+    }
+    
+    #content
+    {
+        width: auto;
+    }
+    */    
+
+    
+    /* This footer is too big, dawg. */
+    /*
+    #footer
+    {
+        max-width: 980px;
+        width: auto;
+    }
+    
+    .footer-sidebar-container
+    {
+        display: none !important;
+    }
+    */
+    
+
+    /* The slideshow widget. This will at least get it close. Images are the real problem here. */
+    /*
+    #featured-slideshow
+    {
+        max-width: 640px;
+        overflow: hidden;
+    }
+    
+    .featured-slideshow-inner .featured-entry
+    {
+        height: 150px !important;
+        max-width: 305px;
+    }
+    
+    #controls
+    {
+        max-width: 610px;
+        width: 90%;
+    }
+    
+    #controls .next
+    {
+        left: auto;
+        right: -20px;
+    }
+    */
+
+
+    /* ============ Now let's make it look better! ============ */
+
+
+    
+    /* Latest Headlines. The current css works well in wider viewports but behave inconsistently at this smaller size. */
+    /*
+    .hfeed li .entry-cat
+    {
+        display: block;
+        float: none;
+        width: auto;
+    }
+    
+    .hfeed li .entry-cat h3
+    {
+        float: none;
+    }
+    
+    .posts-line
+    {
+        margin-bottom: 5px;
+    }
+    
+    #index-news .navigation
+    {
+        margin-bottom: 20px;
+    }
+    */
+    
+    
+    /* These are empty on the page but are taking up some room, so they need to be hidden */
+    /*
+    #bottom-content-1, #bottom-content-2
+    {
+        display: none;
+    }
+    */
+    
+    
+    /*This is the subscribe section of his sidebar. Left-alignment is a looks a bit weird next to the material above it. */
+    /*
+    #text-86652482 h5, #text-86652482 p
+    {
+        text-align: center;
+    }
+    */
+    
+    
+    /* The categories section of the sidebar. Let's keep going with our centering motif */
+    /*
+    #categories-128007151 h5
+    {
+        text-align: center;
+    }
+    
+    #categories-128007151 ul
+    {
+        margin: 0;
+    }
+    
+    #categories-128007151 li
+    {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        text-align: center;
+    }
+    */
+}
+
+@media screen and (max-width: 320px) 
+{
+
+    /* The searchbar sizing doesn't work at 320 pixels. The icon wraps. */
+    /*
+    #searchbar input[type=text]
+    {
+        margin-left: 15px;
+        width: 280px;
+    }
+    
+    .searchform
+    {
+        border: none;
+        padding: 6px 0;
+        width: 100%;
+    }
+    */
+    
+    
+    /* Two-column main menu, text centered */
+    /*
+    #menu-main li
+    {
+        width: 50%;
+        text-align: center;
+    }
+    */
+    
+    
+    /* The quick nav contains those small images with links to his rss feed, twitter, and facebook */
+    /*
+    .quick-nav
+    {
+        display: inline-block;
+        margin: 0 auto 10px auto;
+        float: none;
+        width: 80px;
+    }
+    */
+    
+    
+    /* The primary posts list. */
+    /*
+    .posts-default li
+    {
+        width: auto;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    .posts-default .entry-thumbnails
+    {
+        display: block;
+        margin: 0 auto 0 auto;
+    }
+    
+    .posts-default .entry-title, .posts-default .entry-summary
+    {
+        margin-left: 10px;
+    }
+    */
+    
+    
+    /* Secondary featured posts area */
+    /*
+    #index-featured2
+    {
+        margin-left: 5px;
+    }
+    */
+    
+    /* Let's fix up that footer */
+    /*
+    #footer .footer-message
+    {
+        padding: 7px 0 0 0;
+    }
+    
+    #footer .footer-message p
+    {
+        float: none;
+        margin-left: 0;
+        text-align: center;
+    }
+    */
+    
+    /* Those quick-nav buttons will be hard to click */
+    /*
+    .quick-nav
+    {
+        margin: 0 auto;
+        width: 140px;
+    }
+    
+    .quick-nav li
+    {
+        padding: 10px 15px;
+    }
+    */
+    
+    /* hfeed text size. Let's make it more readable. */
+    /*
+    .hfeed li .entry-summary
+    {
+        font-size: 1.2em;
+    }
+    */
+    
+    /* The categories are too hard to click on */
+    /*
+    #categories-128007151 li
+    {
+        font-size: 1.2em;
+        margin-top: 17px;
+    }
+    */
+    
+    /* The blog post sizing is whack, yo */
+    /*
+    #fb-root iframe
+    {
+        max-width: 300px;
+    }
+    */
+    
+    /* Make the blog post text bigger */
+    /*
+    .post .entry-content
+    {
+        font-size: 1.3em;
+    }
+    */
+    
+    /* Make images more awesome */
+    /*
+    .post .entry-content img
+    {
+        max-width: 100%;
+    }
+    */
+}
+
+@media screen and (max-width: 320px) 
+{
+    #header h1.blog-name a
+    {
+        
+    }
+}

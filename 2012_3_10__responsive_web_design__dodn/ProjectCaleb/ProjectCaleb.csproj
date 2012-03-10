@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E75606B2-DD21-4AE0-92FF-09C47FE4A590}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProjectCaleb</RootNamespace>
+    <AssemblyName>ProjectCaleb</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="content\113608382011785.975.1897935822.png" />
+    <Content Include="content\2292438426_5eec26ef8b.jpg" />
+    <Content Include="content\2386892288_130f284ac0.jpg" />
+    <Content Include="content\2386892300_76bd1182f5.jpg" />
+    <Content Include="content\2386892304_2b27426b64.jpg" />
+    <Content Include="content\2403774046_3bd92e7e4c.jpg" />
+    <Content Include="content\24077.png" />
+    <Content Include="content\2605906021_35d352c504_o.png" />
+    <Content Include="content\2c-r-fixed.css" />
+    <Content Include="content\3-events-640x130.png" />
+    <Content Include="content\715321544.1765.163620559.png" />
+    <Content Include="content\base.css" />
+    <Content Include="content\calejenkins-tulsatechfest2007-115x115.jpg" />
+    <Content Include="content\collapsFunctions.js" />
+    <Content Include="content\comments.gif" />
+    <Content Include="content\dropdown.png" />
+    <Content Include="content\effects.js" />
+    <Content Include="content\external-tracking.min.js" />
+    <Content Include="content\facebook.png" />
+    <Content Include="content\feed-icon16x16.png" />
+    <Content Include="content\feed-title-white.jpg" />
+    <Content Include="content\feedburner.gif" />
+    <Content Include="content\flowplayer-3.2.6.min.js" />
+    <Content Include="content\form.jpg" />
+    <Content Include="content\hcardmapper.js" />
+    <Content Include="content\hoverIntent.js" />
+    <Content Include="content\image %281%29.png" />
+    <Content Include="content\image %282%29.png" />
+    <Content Include="content\image-115x115.png" />
+    <Content Include="content\image.png" />
+    <Content Include="content\image1.png" />
+    <Content Include="content\image10.png" />
+    <Content Include="content\image2 %281%29.png" />
+    <Content Include="content\image2.png" />
+    <Content Include="content\image3.png" />
+    <Content Include="content\image4-640x250.png" />
+    <Content Include="content\image_thumb.png" />
+    <Content Include="content\image_thumb1.png" />
+    <Content Include="content\jquery.cycle.min.js" />
+    <Content Include="content\jquery.js" />
+    <Content Include="content\jquery.ui.core.min.js" />
+    <Content Include="content\jquery.ui.tabs.min.js" />
+    <Content Include="content\jquery.ui.widget.min.js" />
+    <Content Include="content\lights_ws.png" />
+    <Content Include="content\main-jump-2-115x115.jpg" />
+    <Content Include="content\new-year-608x250.jpg" />
+    <Content Include="content\next.png" />
+    <Content Include="content\NinjaBook.jpg" />
+    <Content Include="content\prev.png" />
+    <Content Include="content\prototype.js" />
+    <Content Include="content\responsive.css" />
+    <Content Include="content\rhino_.jpg" />
+    <Content Include="content\rss.png" />
+    <Content Include="content\scrum-115x115.jpg" />
+    <Content Include="content\searchsubmit %281%29.gif" />
+    <Content Include="content\searchsubmit.gif" />
+    <Content Include="content\shadowbox-init.js" />
+    <Content Include="content\shadowbox.css" />
+    <Content Include="content\shadowbox.js" />
+    <Content Include="content\shBrushCSharp.js" />
+    <Content Include="content\shCore.css" />
+    <Content Include="content\shCore.js" />
+    <Content Include="content\shThemeMidnight.css" />
+    <Content Include="content\smartpaginator.min.js" />
+    <Content Include="content\solid_thumb.jpg" />
+    <Content Include="content\superfish.js" />
+    <Content Include="content\tech-fav-1.png" />
+    <Content Include="content\topnav.jpg" />
+    <Content Include="content\twitter.png" />
+    <Content Include="content\twittercount.png" />
+    <Content Include="content\wp-scriptaculous.js" />
+    <Content Include="content\WP_001760_thumb.jpg" />
+    <Content Include="content\WP_001762_thumb.jpg" />
+    <Content Include="content\WP_001765_thumb.jpg" />
+    <Content Include="content\WP_002185-195x110.jpg" />
+    <Content Include="content\WP_002185-640x250.jpg" />
+    <Content Include="content\wrox-book-thumb.jpg" />
+    <Content Include="content\wrox-mvp-book-collage-115x115 %281%29.jpg" />
+    <Content Include="content\wrox-mvp-book-collage-115x115.jpg" />
+    <Content Include="content\wrox-mvp-book-collage-195x110.jpg" />
+    <Content Include="content\xtrain_logo.png" />
+    <Content Include="Global.asax" />
+    <Content Include="content\Site.css" />
+    <Content Include="steps.txt" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\ContentPage.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>32243</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
