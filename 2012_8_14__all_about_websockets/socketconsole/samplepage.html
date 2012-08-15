@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html>
+    <title></title>
+    <body>
+
+        <h1>Look, a random number: <span id="put-stuff-here"></span></h1>
+
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:4000/foo/");
+
+            socket.onopen = function () {
+                console.log("Socket has been opened!");
+            }
+
+            socket.onmessage = function (message) {
+                var element = document.querySelector('#put-stuff-here');
+                console.log('stuff', element);
+                element.innerHTML = message.data;
+                console.log('message', message);
+            }
+
+        </script>
+
+    </body>
+</html>
