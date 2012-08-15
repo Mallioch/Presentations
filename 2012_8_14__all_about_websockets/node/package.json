@@ -1,0 +1,22 @@
+{
+  "name": "all-about-websockets",
+  "author": {
+    "name": "Nodejitsu Inc.",
+    "email": "support@nodejitsu.com"
+  },
+  "scripts": {
+    "start": "app.js"
+  },
+  "version": "0.1.0-38",
+  "dependencies": {
+    "socket.io": "v0.8.x",
+    "express": "v2.5.x"
+  },
+  "analyze": false,
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  },
+  "subdomain": "all-about-websockets"
+}
