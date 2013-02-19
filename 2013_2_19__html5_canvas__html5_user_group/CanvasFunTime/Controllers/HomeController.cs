@@ -19,6 +19,11 @@ namespace CanvasFunTime.Controllers
             return View();
         }
 
+        public ActionResult Playground()
+        {
+            return View();
+        }
+
         public ActionResult Isometric()
         {
             return View();

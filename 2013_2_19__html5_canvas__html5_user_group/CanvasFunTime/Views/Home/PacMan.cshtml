@@ -22,16 +22,16 @@
 
 <script type="text/javascript">
 
-  window.onload = function () {
-    var canvas = document.getElementById('canvas');
-    var c = canvas.getContext('2d');
+  var c, canvas;
 
-    pacman.init(c);
+  window.onload = function () {
+    canvas = document.getElementById('canvas');
+    c = canvas.getContext('2d');
+    c.fillStyle = '#FF0';
 
     var drawFrame = function (timestamp) {
 
       c.clearRect(0, 0, canvas.width, canvas.height);
-      pacman.move(6);
       pacman.draw();
       
       window.requestAnimationFrame(drawFrame);
@@ -44,54 +44,38 @@
 
     x: 50,
     direction: 1,
-    mouthPhase: 1,
-    mouthPosition: 0,
-
-    init: function (c) {
-      this.c = c;
-    },
-    
-    move: function (amount) {
-
-      if (this.x > 600)
-        this.direction = -1;
-      if (this.x < 50)
-        this.direction = 1;
-
-      this.x += (amount * this.direction);
-      this.mouthPosition += (5 * this.mouthPhase);
-
-      if (this.mouthPosition > 40 || this.mouthPosition < 0)
-        this.mouthPhase = this.mouthPhase * -1;
-    },
+    lipPosition: 0,
+    lipDirection: 1,
 
     draw: function () {
-      this.c.beginPath();
+      console.log('drawing');
+
+      if (this.x > canvas.width - 50)
+        this.direction = -1;
+      if (this.x <= 50)
+        this.direction = 1;
+
+      if (this.lipPosition >= 50)
+        this.lipDirection = -1;
+      else if (this.lipPosition <= 0)
+        this.lipDirection = 1;
+
+      this.lipPosition += (5 * this.lipDirection);
+
+      this.x += (5 * this.direction);
+
+      c.beginPath();
 
       if (this.direction === 1) {
-        this.c.arc(this.x, 50, 50, (Math.PI / 180) * (this.mouthPosition), (Math.PI / 180) * (360 - this.mouthPosition));
+        c.arc(this.x, 100, 50, (Math.PI / 180) * this.lipPosition, (Math.PI / 180) * (360 - this.lipPosition));
       }
       else {
-        var upperLip = (220 - this.mouthPosition),
-          lowerLip = (140 + this.mouthPosition);
-
-        if (upperLip <= 180) {
-          upperLip = 181;
-        }
-        if (lowerLip > 180) {
-          lowerLip = 180;
-        }
-
-        console.log('drawing', upperLip, lowerLip);
-        this.c.arc(this.x, 50, 50, (Math.PI / 180) * lowerLip, (Math.PI / 180) * upperLip, true);
+        c.arc(this.x, 100, 50, (Math.PI / 180) * (179 - this.lipPosition), (Math.PI / 180) * (180 + this.lipPosition), true);
       }
+      c.lineTo(this.x, 100);
+      c.fill();
 
-      this.c.lineTo(this.x, 50);
-
-      this.c.fillStyle = '#FF0;'
-      this.c.fill();
     }
-
-  };
+  }
 
 </script>
