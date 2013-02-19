@@ -1,0 +1,97 @@
+﻿@{
+    ViewBag.Title = "Pac Man";
+}
+
+<style type="text/css">
+
+  body {
+    background-color: #000;
+  }
+
+  h1 {
+    color: #FFF;
+  }
+
+</style>
+
+<h1>Pac Man</h1>
+
+<canvas style="border: solid 1px #222;" width="800" id="canvas">
+
+</canvas>
+
+<script type="text/javascript">
+
+  window.onload = function () {
+    var canvas = document.getElementById('canvas');
+    var c = canvas.getContext('2d');
+
+    pacman.init(c);
+
+    var drawFrame = function (timestamp) {
+
+      c.clearRect(0, 0, canvas.width, canvas.height);
+      pacman.move(6);
+      pacman.draw();
+      
+      window.requestAnimationFrame(drawFrame);
+    }
+
+    window.requestAnimationFrame(drawFrame);
+  }
+
+  var pacman = {
+
+    x: 50,
+    direction: 1,
+    mouthPhase: 1,
+    mouthPosition: 0,
+
+    init: function (c) {
+      this.c = c;
+    },
+    
+    move: function (amount) {
+
+      if (this.x > 600)
+        this.direction = -1;
+      if (this.x < 50)
+        this.direction = 1;
+
+      this.x += (amount * this.direction);
+      this.mouthPosition += (5 * this.mouthPhase);
+
+      if (this.mouthPosition > 40 || this.mouthPosition < 0)
+        this.mouthPhase = this.mouthPhase * -1;
+    },
+
+    draw: function () {
+      this.c.beginPath();
+
+      if (this.direction === 1) {
+        this.c.arc(this.x, 50, 50, (Math.PI / 180) * (this.mouthPosition), (Math.PI / 180) * (360 - this.mouthPosition));
+      }
+      else {
+        var upperLip = (220 - this.mouthPosition),
+          lowerLip = (140 + this.mouthPosition);
+
+        if (upperLip <= 180) {
+          upperLip = 181;
+        }
+        if (lowerLip > 180) {
+          lowerLip = 180;
+        }
+
+        console.log('drawing', upperLip, lowerLip);
+        this.c.arc(this.x, 50, 50, (Math.PI / 180) * lowerLip, (Math.PI / 180) * upperLip, true);
+      }
+
+      this.c.lineTo(this.x, 50);
+
+      this.c.fillStyle = '#FF0;'
+      this.c.fill();
+    }
+
+  };
+
+</script>

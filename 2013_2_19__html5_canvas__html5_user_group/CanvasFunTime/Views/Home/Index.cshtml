@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Html5 Canvas Fun Time</title>
+    <link rel="stylesheet" href="/content/canvascore/style.css" type="text/css" />
+</head>
+<body>
+    <h1>Html5 Canvas Fundamentals</h1>
+    <div id="mainContent">
+
+        <div class="options">
+            <label>Alpha</label>
+            <select id="alpha-select">
+                <option value="0">0%</option>
+                <option value=".25">25%</option>
+                <option value=".5">50%</option>
+                <option value=".75">75%</option>
+                <option value="1" selected="selected">100%</option>
+            </select>
+
+            <label>Global Composite Operation</label>
+            <select id="global-composite-operation-select">
+                <option value="source-over" selected="selected">source-over</option>
+                <option value="destination-over">destination-over</option>
+            </select>
+
+            <button id="update-settings">Update Settings</button>
+        </div>
+
+        <button id="save-canvas">save canvas</button>
+        <button id="clear">clear</button>
+
+        <section id="fundamentals">
+            <label>Fundamentals</label>
+            <div class="controls">
+                <button id="draw-a-line">draw a line</button>
+                <button id="draw-a-polygon">draw a polygon</button>
+                <button id="draw-a-circle">draw a circle</button>
+                <button id="draw-quadratic-bezier">draw a quadratic bezier curve</button>
+                <button id="draw-a-bezier">draw a bezier curve</button>
+                <button id="draw-an-image">draw an image</button>
+                <button id="draw-text">draw text</button>
+            </div>
+            <label>More Difficult</label>
+            <div class="controls">
+                <button id="rotate-a-square">rotate a square</button>
+                <button id="skew-time">skew time</button>
+                <button id="sign-here-please">sig</button>
+                <button id="fun-bezier">fun bezier</button>
+                <button id="controllable-fun-bezier">controllable fun bezier</button>
+                <button id="chart">chart</button>
+            </div>
+        </section>
+ 
+        <canvas width="450" height="200">
+            Your browser does not support canvas.
+        </canvas>
+
+        <br />
+        <img src="/content/canvascore/canvas_interesting.jpg" id="sample-image" style="visibility: hidden;" />
+    </div>
+
+    <script type="text/javascript" src="/content/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="/content/bezier.js"></script>
+    <script type="text/javascript" src="/content/canvascore/fundamentals.js"></script>
+    <script type="text/javascript" src="/content/canvascore/transforms.js"></script>
+    <script type="text/javascript" src="/content/canvascore/fun.js"></script>
+    <script type="text/javascript" src="/content/canvascore/core.js"></script>
+</body>
+</html>
