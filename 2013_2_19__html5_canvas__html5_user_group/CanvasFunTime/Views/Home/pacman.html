@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PacMan</title>
+
+    <style>
+      pre {
+        background-color: #EEE;
+        border: solid 1px #CCC;
+        padding: 10px;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <h1>Introduction to HTML5 Canvas with PacMan Action</h1>
+
+    <p>HTML5 Canvas is undoubtedly one of the coolest features of HTML5 and is my personal favorite,
+      followed closely by WebSockets. There are a number of interesting business applications (I will
+      have to share a few at some point) but I find it most interesting because it is great for
+      building games. Let$#8217s dig into drawing and look into animation a bit to learn a bit about
+      Canvas. Since this is all client-side, we&#8217ll make everything work right here in the browser. That way
+      you don&#8217t have to download the samples to see them run. All you need is a moderately recent
+      browser.
+    </p>
+
+    <p>We start with a basic canvas tag. Nothing fancy. We put a border around it so we can see it and set
+      its width and height as a part of the tag. We do <em>not</em> set its dimensions through CSS since
+      that will actually skew the dimensions of the drawing. A canvas tag would look something like this:
+    </p>
+
+    <pre>
+&lt;canvas width="800" height="200" style="border: solid 1px #000;" id="canvas0"&gt;
+&lt;/canvas&gt;
+    </pre>
+
+    <p>There isn&#8217t actually much to canvas in HTML, even though it is bona fide HTML5. Almost
+      everything about canvas is implemented through JavaScript. Let&#8217s get started and see what
+      that looks like.
+    </p>
+
+    <h2>Canvas and Context</h2>
+
+    <p>To get access to the canvas object and start drawing, we need to write a little script to get it
+      like so:
+    </p>
+
+<pre>
+&lt;script&gt;
+  window.onload = function () {
+    var canvas = document.getElementById('canvas');
+    var c = canvas.getContext('2d');
+  }
+&lt;/script&gt;
+</pre>
+
+    <p>This script gets us two things. First, it gets us access to the canvas element itself, which we
+      will rarely use. Second, it gets us the 2d context of the canvas, which is what we will use most
+      of the time when programming our canvas.
+    </p>
+
+    <p>The name of the canvas fits well; the canvas is something you paint on, like a painters canvas.
+      This metaphor works well for the element. The nomenclature of the context doesn't fit well at all
+      into the metaphor though. I find it is best to think of the context as your brush. How do you
+      paint things on the canvas? Well, you use your brush! Let&#8217s look at a simple example.
+    </p>
+
+    <canvas width="800" height="200" style="border: solid 1px #000;" id="canvas0">
+    </canvas>
+
+    <script>
+      (function () {
+        window.onload = function () {
+          var canvas = document.getElementById('canvas0');
+          var c = canvas.getContext('2d');
+
+          c.beginPath();
+          c.moveTo(0, 0);
+          c.lineTo(100, 50);
+          c.lineWidth = 2;
+          c.strokeStyle = '#000';
+          c.stroke();
+        }
+      })();
+    </script>
+
+<pre>
+  (function () {
+    window.onload = function () {
+      var canvas = document.getElementById('canvas0');
+      var c = canvas.getContext('2d');
+
+      c.beginPath(); //To start drawing a line, you begin your path.
+      c.moveTo(0, 0); //You have to start somewhere!
+      c.lineTo(100, 50); //This is where you want to go. In other words, the second point.
+      c.lineWidth = 2; //Sets the width of the line.
+      c.strokeStyle = '#000'; //Sets the color of the line.
+      c.stroke(); //Tells the context to draw the stroke.
+    }
+  })();
+</pre>
+    <p>I wrapped all the JavaScript in a self-executing function so that the code doesn&#8217st polute the global
+      scope. Then we get the canvas and its context, then start drawing. From c.beginPath() up until c.stroke(), 
+      all you are doing is defining a path. The stroke function tells the context, your brush, to draw the path.
+    </p>
+    <p>One thing that you will immediately notice is that all canvas drawing involves writing code. Canvas is
+      not a markup/declarative-style drawing system like some others (notably XAML for those of you who are
+      Silverlight/WPF/Windows 8 fans). There may be projects out there to do this for canvas and if not
+      you could certainly create one but the api for canvas is all code.
+    </p>
+
+    <h2>Let&#8217s Animate!</h2>
+
+    <p>So that was simple drawing. We should now do some simple animation. For animating things over time, you
+      basically have two options, using setInterval (old school) or by using requestAnimationFrame. Let&#8217s
+      try both on for size. Since we want to create PacMan, we will leave our line behind and start using the
+      canvas arc api. To create an animated circle, we could do something like this. Click on the canvas to
+      start the animation (you will probably notice a problem).
+    </p>
+
+    <canvas width="800" height="200" style="border: solid 1px #000; background-color: #000;" id="canvas1">
+    </canvas>
+
+    <script>
+      (function () {
+        var canvas, c;
+
+        window.addEventListener('load', function () {
+          canvas = document.getElementById('canvas1');
+          c = canvas.getContext('2d');
+
+          canvas.addEventListener('click', function () {
+            setInterval(function () {
+              pacman.x += 1;
+              pacman.draw();
+            }, 16)
+          }, false
+          );
+        }, false);
+
+        var pacman = {
+
+          x: 100,
+
+          draw: function () {
+            c.arc(this.x, 100, 50, (Math.PI / 180) * 0, (Math.PI / 180) * 360);
+            c.fillStyle = '#FF0';
+            c.fill();
+          }
+        };
+      })();
+    </script>
+
+<pre>
+var canvas, c;
+
+window.addEventListener('load', function () {
+  canvas = document.getElementById('canvas1');
+  c = canvas.getContext('2d');
+
+  //Whenever the canvas is clicked, update and draw the circle every 16 milliseconds.
+  canvas.addEventListener('click', function () {
+      setInterval(function () {
+        pacman.x += 1;
+        pacman.draw();
+      }, 16)
+    }, false
+  );
+}, false);
+
+//Separating our PacMan object out. Better organized code FTW.
+var pacman = {
+
+  x: 100,
+
+  draw: function () {
+    //These arguments are...
+    //  this.x - x position of the center of the circle
+    //  100 - y position of the center of the circle
+    //  50 - the radius of the circle
+    //  (Math.PI / 180) * 0 - The angle to start drawing
+    //  (Math.PI / 180) * 360 - The angle to stop drawing
+    c.arc(this.x, 100, 50, (Math.PI / 180) * 0, (Math.PI / 180) * 360);
+    c.fillStyle = '#FF0';
+    c.fill();
+  }
+};
+</pre>
+
+    <p>Two important things to discuss here. First, you do not draw circles on the canvas, you draw
+      arcs. If you want a circle, you draw an arc to make one. The length of an arc is defined in
+      radians and a circle has 2pie radians, so about 6.283. If you are like you, you are more used
+      to thinking in angles, so a simople equation to use to convert radians to 0-360 angles is
+      the following: (Math.PI / 180) * angle. That&#8217s why you see that in the code sample above.
+    </p>
+
+    <p>If you ran the sample above (by clicking on it), you probably noticed that instead of a circle
+      going across the screen you saw an elongating yellow shape. If you go back to the painting canvas
+      metaphor, this actually makes a lot of sense. If you paint a circle on a canvas and then another,
+      the first once does not disappear. To make it go away, you have to paint over it or remove the
+      paint. The HTML5 canvas works exactly the same way. To get our circle going across the screen
+      properly, we have to clear the canvas before we draw again. The easiest way to do that is to
+      add the following right above where the draw() method of PacMan is called.
+    </p>
+
+<pre>
+  c.clearRect(0, 0, canvas.width, canvas.height);
+</pre>
+
+    <p>This call erases the canvas and given the parameters supplied, it erases all of it. And there is
+      one more thing we need to do. The arc is a path just like the line was above. We need to call
+      beginPath() on the context each time. Otherwise the path will just keep growing and everytime
+      we paint we will paint every circle. There is no endPath() method so we don't need to call it.
+      Calling beginPath() will end the previous and start a new path for us.
+    </p>
+
+    <canvas width="800" height="200" style="border: solid 1px #000; background-color: #000;" id="canvas2">
+    </canvas>
+
+    <script>
+      (function () {
+        var canvas, c;
+
+        window.addEventListener('load', function () {
+          canvas = document.getElementById('canvas2');
+          c = canvas.getContext('2d');
+
+          canvas.addEventListener('click', function () {
+            setInterval(function () {
+              pacman.x += 1;
+              c.clearRect(0, 0, canvas.width, canvas.height);
+              pacman.draw();
+            }, 16)
+          }, false
+          );
+        }, false);
+
+        var pacman = {
+
+          x: 100,
+
+          draw: function () {
+            c.beginPath();
+            c.arc(this.x, 100, 50, (Math.PI / 180) * 0, (Math.PI / 180) * 360);
+            c.fillStyle = '#FF0';
+            c.fill();
+          }
+        };
+      })();
+    </script>
+
+<pre>
+var canvas, c;
+
+window.addEventListener('load', function () {
+  canvas = document.getElementById('canvas2');
+  c = canvas.getContext('2d');
+
+  canvas.addEventListener('click', function () {
+    setInterval(function () {
+      pacman.x += 1;
+      <strong>c.clearRect(0, 0, canvas.width, canvas.height);</strong>
+      pacman.draw();
+    }, 16)
+  }, false
+  );
+}, false);
+
+var pacman = {
+
+  x: 100,
+
+  draw: function () {
+    <strong>c.beginPath();</strong>
+    c.arc(this.x, 100, 50, (Math.PI / 180) * 0, (Math.PI / 180) * 360);
+    c.fillStyle = '#FF0';
+    c.fill();
+  }
+};
+</pre>
+
+    <p>There is a better way to control your canvas painting than setInterval and that is to use requestAnimationFrame.
+      This api is better for animation because, unlike setInterval, this will get fired when the browser thinks it is
+      ready to draw (up to 60 frames per second), not when your setTimout thinks it is time to draw, so it is a more
+      performance friendly approach. And related to that, requestAnimationFrame will sometimes stop be called at all
+      when the browser (or browser tab) is no longer in the foreground (in my testing Chrome puts it to sleep entirely),
+      so it doesn&#8217t chew up your CPU when it is not necessary.
+    </p>
+
+    <p>Of course the negative to this approach is that it isn&#8217t as well supported as we would hope. It is in
+      current versions of Firefox, Chrome and Internet Explorer but is not in Internet Explorer 9, so a polyfill would
+      be helpful. Fortunately, <a href="http://paulirish.com/2011/requestanimationframe-for-smart-animating/">Paul 
+      Irish has already done this</a> and I can just borrow his. I will now update our script from before with this
+      new polyfill and we&#8217ll see what we have.
+    </p>
+
+    <canvas width="800" height="200" style="border: solid 1px #000; background-color: #000;" id="canvas3">
+    </canvas>
+
+    <script>
+      (function () {
+
+        window.requestAnimationFrame = (function () {
+          return window.requestAnimationFrame ||
+                  window.webkitRequestAnimationFrame ||
+                  window.mozRequestAnimationFrame ||
+                  window.oRequestAnimationFrame ||
+                  window.msRequestAnimationFrame ||
+                  function (callback) {
+                    window.setTimeout(callback, 1000 / 60);
+                  };
+        })();
+
+        var canvas, c;
+
+        window.addEventListener('load', function () {
+          canvas = document.getElementById('canvas3');
+          c = canvas.getContext('2d');
+
+          canvas.addEventListener('click', function () {
+              window.requestAnimationFrame(drawLoop);
+            }, false
+          );
+        }, false);
+
+        function drawLoop() {
+          pacman.x += 5; //It was going a bit slow. I sped it up.
+          c.clearRect(0, 0, canvas.width, canvas.height);
+          pacman.draw();
+
+          window.requestAnimationFrame(drawLoop);
+        }
+
+        var pacman = {
+
+          x: 100,
+
+          draw: function () {
+            c.beginPath();
+            c.arc(this.x, 100, 50, (Math.PI / 180) * 0, (Math.PI / 180) * 360);
+            c.fillStyle = '#FF0';
+            c.fill();
+          }
+        };
+      })();
+    </script>
+
+<pre>
+//This is our polyfill.
+<strong>
+window.requestAnimationFrame = (function () {
+  return window.requestAnimationFrame ||
+          window.webkitRequestAnimationFrame ||
+          window.mozRequestAnimationFrame ||
+          window.oRequestAnimationFrame ||
+          window.msRequestAnimationFrame ||
+          function (callback) {
+            window.setTimeout(callback, 1000 / 60);
+          };
+})();
+</strong>
+var canvas, c;
+
+window.addEventListener('load', function () {
+  canvas = document.getElementById('canvas3');
+  c = canvas.getContext('2d');
+
+  canvas.addEventListener('click', function () {
+      <strong>window.requestAnimationFrame(drawLoop);</strong>
+    }, false
+  );
+}, false);
+<strong>
+function drawLoop() {
+  pacman.x += 5; //It was going a bit slow. I sped it up.
+  c.clearRect(0, 0, canvas.width, canvas.height);
+  pacman.draw();
+
+  window.requestAnimationFrame(drawLoop);
+}</strong>
+
+var pacman = {
+
+  x: 100,
+
+  draw: function () {
+    c.beginPath();
+    c.arc(this.x, 100, 50, (Math.PI / 180) * 0, (Math.PI / 180) * 360);
+    c.fillStyle = '#FF0';
+    c.fill();
+  }
+};
+
+</pre>
+
+    <p>There are several things to note about these changes. First, the draw loop needs to be callable by
+      requestAnimationFrame so it was a little helpful to change it from being an anonymous function to a
+      declared one. Second, note that drawLoop() calls requestAnimationFrame passing in itself. This is
+      necessary for the animation to work. Third, note that the polyfill at the top ultimately downgrades
+      to a setInterval for browsers that have no implementation of the feature.
+    </p>
+
+  </body>
+</html>
