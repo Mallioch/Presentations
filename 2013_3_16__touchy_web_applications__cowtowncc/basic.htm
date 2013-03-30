@@ -1,0 +1,451 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="jquery-1-9-0.js"></script>
+</head>
+<body>
+    
+
+
+
+
+
+<style>
+.touch-box {
+  border: solid 1px #000;
+}
+
+  h2 {
+    border-top: solid 2px #000;
+    margin-top: 25px;
+    padding-top: 10px;
+    font-family: sans-serif;
+  }
+
+</style>
+
+<h1>Basic Touch Apis</h1>
+
+<p>These are the device and browser combinations tested:</p>
+
+<ul>
+  <li>iPad - iOS 6.1/Safari</li>
+  <li>iPod - iOS 4.0/Safari</li>
+  <li>iPhone - iOS 6.1/Safari</li>
+  <li>S3[chr] - Galaxy S3/Chrome</li>
+  <li>S3[def] - Galaxy S3/Default browser</li>
+  <li>LG - LG Nitro/Android 2.3.5/Default browser</li>
+  <li>Nexus[chr] - Galaxy Nexus/Android 4.1.1/Chrome</li>
+  <li>Nexus[def] - Galaxy Nexus/Android 4.1.1/Default browser</li>
+  <li>L820 - Lumia 820/Windows Phone 8/IE</li>
+  <li>L900 - Lumia 900/Windows Phone 7.5/IE</li>
+  <li>BB10 - Blackberry 10</li>
+  <li>Win8T[chr] - Windows 8/Touch Screen/Chrome</li>
+  <li>Win8T[def] - Windows 8/Touch Screen/Internet Explorer</li>
+  <li>Win8MT[def] - Windows 8/Metro Touch Screen/Internet Explorer</li>
+  <li>Win8M[chr] - Windows 8/Mouse/Chrome</li>
+  <li>Win8M[def] - Windows 8/Mouse/Internet Explorer</li>
+  <li>Win8MM[def] - Windows 8/Metro Mouse/Internet Explorer</li>
+  <li>FireHD - Kindle Fire HD</li>
+</ul>
+
+<!-- ============================================================================================= -->
+<h2>click</h2>
+<p>The click event, the same one we have been using for years for desktop browsers, is handled well universally
+  on mobile devices. The only drawback is that on most mobile browsers there is a 300ms delay on the click event.
+</p>
+<p><strong>Supported By:</strong> iPad, iPod, iPhone, S3[chr], LG[def], Nexus[chr], Nexus[def], L820, L900, BB10, Win8T[chr], Win8T[def], Win8MT[def], FireHD</p>
+<p><strong>Not Supported By:</strong> none</p>
+<p><strong>Dunno:</strong> Win8M[chr], Win8M[def], Win8MM[def]</p>
+
+<canvas class="touch-box" id="click" width="250" height="200">&nbsp</canvas>
+<script>
+
+  (function () {
+
+    var canvas = document.getElementById('click');
+
+    canvas.addEventListener('click', function (evt) {
+      evt.preventDefault();
+      drawSpotOnCanvas(canvas, canvas.relMouseCoords(evt));
+    });
+  })();
+
+</script>
+
+
+<!-- ============================================================================================= -->
+<h2>mousedown, mousemove, mouseup</h2>
+<p>Mouse events are emulated, like mousedown, mousemove and mouseup. So these will still fire on mobile devices
+  that don't use mice.
+</p>
+<p><strong>Supported By:</strong> iPad, iPod, iPhone, LG[def], Nexus[chr], Nexus[def], L820, L900, BB10,
+  Win8T[chr], Win8T[def], Win8MT[def], FireHD
+</p>
+<p><strong>Not Supported By:</strong> </p>
+<p><strong>Dunno:</strong> L900, Win8M[chr], Win8M[def], Win8MM[def]</p>
+
+<canvas class="touch-box" id="mousy" width="250" height="200">&nbsp</canvas>
+<script>
+
+  (function () {
+    var canvas = document.getElementById('mousy');
+    canvas.addEventListener('mousedown', function (evt) {
+      evt.preventDefault();
+      drawSpotOnCanvas(canvas, canvas.relMouseCoords(evt), '#0F0');
+    });
+
+    canvas.addEventListener('mousemove', function (evt) {
+      evt.preventDefault();
+      drawSpotOnCanvas(canvas, canvas.relMouseCoords(evt), '#F00');
+    });
+
+    canvas.addEventListener('mouseup', function (evt) {
+      evt.preventDefault();
+      drawSpotOnCanvas(canvas, canvas.relMouseCoords(evt), '#00F');
+    });
+
+  })();
+</script>
+
+<!-- ============================================================================================= -->
+<h2>touchstart, touchmove, touchend</h2>
+<p>Testing touch* events</p>
+<p><strong>Supported By:</strong> iPad, iPod (slow), iPhone, Nexus[chr], Nexus[def], LG (slow), Win8T[chr], FireHD</p>
+<p><strong>Not Supported By:</strong> L820, L900, Win8T[def], Win8MT[def]</p>
+<p><strong>Dunno:</strong> S3[chr], S3[def], Win8M[chr], Win8M[def], Win8MM[def]</p>
+<canvas class="touch-box" id="touch-events" width="250" height="200">&nbsp</canvas>
+<script>
+
+  (function () {
+
+    var i;
+
+    var canvas = document.getElementById('touch-events');
+    canvas.addEventListener('touchstart', function (evt) {
+      evt.preventDefault();
+
+      for (i = 0; i < evt.touches.length; i++) {
+        drawSpotOnCanvas(canvas, getPositionFromTouch(evt.touches[i]), '#0F0');
+      }
+    });
+
+    canvas.addEventListener('touchmove', function (evt) {
+      evt.preventDefault();
+
+      for (var i = 0; i < evt.touches.length; i++) {
+        drawSpotOnCanvas(canvas, getPositionFromTouch(evt.touches[i]), '#F00');
+      }
+    });
+
+    canvas.addEventListener('touchend', function (evt) {
+      evt.preventDefault();
+
+      for (var i = 0; i < evt.touches.length; i++) {
+        drawSpotOnCanvas(canvas, getPositionFromTouch(evt.touches[i]), '#00F');
+      }
+    });
+  })();
+
+
+</script>
+
+
+<!-- ============================================================================================= -->
+<h2>gesturestart, gesturechange, gestureend</h2>
+<p>Testing gesture* events</p>
+
+<p><strong>Supported By:</strong> iPad, iPod, iPhone</p>
+<p><strong>Not Supported By:</strong> S3[chr], S3[def], LG, Nexus[chr], Nexus[def], L820, L900, BB10, Win8T[chr], Win8T[def], Win8MT[def], Win8M[chr], Win8M[def], Win8MM[def], FireHD</p>
+
+
+
+<canvas class="touch-box" id="gesture-events" width="250" height="200">&nbsp</canvas>
+<script>
+
+  (function () {
+    var canvas = document.getElementById('gesture-events');
+    var c = canvas.getContext('2d');
+    canvas.addEventListener('gesturestart', function (evt) {
+      evt.preventDefault();
+      drawSquare(evt.scale, evt.rotation);
+    });
+
+    canvas.addEventListener('gesturechange', function (evt) {
+      evt.preventDefault();
+
+      drawSquare(evt.scale, evt.rotation);
+    });
+
+    canvas.addEventListener('gestureend', function (evt) {
+      evt.preventDefault();
+
+      drawSquare(evt.scale, evt.rotation);
+    });
+
+    drawSquare(1, 0);
+
+    var canvasWidth = 250,
+      canvasHeight = 200;
+
+    function drawSquare(scale, rotation) {
+
+      c.fillStyle = '#FFF';
+      c.fillRect(0, 0, 250, 200);
+      c.fill();
+
+      scale = scale || 1;
+      rotation = rotation || 0;
+
+      c.save();
+
+      var xTranslate = 100 * (1 - scale); //for scale
+      var yTranslate = 75 * (1 - scale); //for scale
+
+      c.translate(xTranslate, yTranslate);
+      c.scale(scale, scale);
+      c.rotate(rotation * (Math.PI / 180));
+
+      c.fillStyle = '#000';
+      c.fillRect(100, 75, 50, 50);
+      c.fill();
+
+      c.restore();
+    }
+
+  })();
+
+</script>
+
+
+<!-- ============================================================================================= -->
+<h2>mouseenter, mouseleave</h2>
+<p>Testing mouseenter/mouseleave events. This may be IE proprietary.</p>
+<p><strong>Supported By:</strong> L820, L900, Win8T[def], Win8MT[def]</p>
+<p><strong>Not Supported By:</strong> iPad, iPod, iPhone, LG, Nexus[chr], Nexus[def], BB10, Win8T[chr], FireHD</p>
+<p><strong>Dunno:</strong> S3[chr], S3[def], Win8M[chr], Win8M[def], Win8MM[def]</p>
+
+<canvas class="touch-box" id="mouseenter-events" width="250" height="200">&nbsp</canvas>
+<script>
+  (function () {
+    var canvas = document.getElementById('mouseenter-events');
+    canvas.addEventListener('mouseenter', function (evt) {
+      evt.preventDefault();
+      drawSpotOnCanvas(canvas, canvas.relMouseCoords(evt), '#0F0');
+    });
+
+    canvas.addEventListener('mouseleave', function (evt) {
+      evt.preventDefault();
+      drawSpotOnCanvas(canvas, canvas.relMouseCoords(evt), '#00F');
+    });
+  })();
+</script>
+
+
+<!-- ============================================================================================= -->
+<h2>MS Pointer Events</h2>
+<p>MS Pointer Events!</p>
+<p><strong>Supported By:</strong> Win8T[def], Win8MT[def], L820</p>
+<p><strong>Not Supported By:</strong> iPad, iPod, iPhone, S3[chr], LG[def], Nexus[chr], Nexus[def], L900, BB10, FireHD, Win8T[chr]</p>
+<p><strong>Dunno:</strong> Win8M[chr], Win8M[def], Win8MM[def]</p>
+
+<canvas class="touch-box" id="ms-pointer" width="250" height="200" style="-ms-touch-action: none;">&nbsp</canvas>
+<script>
+
+  (function () {
+
+    var canvas = document.getElementById('ms-pointer');
+
+    msPointerEvent('MSPointerDown', function (x, y) {
+      drawSpotOnCanvas(canvas, { x: x, y: y }, '#00F')
+    });
+    msPointerEvent('MSPointerMove', function (x, y) {
+      drawSpotOnCanvas(canvas, { x: x, y: y }, '#F00')
+    });
+    msPointerEvent('MSPointerUp', function (x, y) {
+      drawSpotOnCanvas(canvas, { x: x, y: y }, '#0F0')
+    });
+    msPointerEvent('MSPointerOver', function (x, y) {
+      drawSpotOnCanvas(canvas, { x: x, y: y }, '#0FF')
+    });
+    msPointerEvent('MSPointerOut', function (x, y) {
+      drawSpotOnCanvas(canvas, { x: x, y: y }, '#FF0')
+    });
+    msPointerEvent('MSPointerHover');
+
+    function msPointerEvent(eventName, func) {
+
+      canvas.addEventListener(eventName, function (evt) {
+        evt.preventDefault();
+
+        outputEvent(evt);
+        if (func)
+          func(evt.offsetX, evt.offsetY);
+      });
+
+    }
+  })();
+
+</script>
+
+
+<script>
+
+  (function () {
+
+    return;
+
+    var canvas = document.getElementById('ms-gesture');
+
+
+    try {
+      var gesture = new MSGesture();
+    }
+    catch (exc) {
+      return;
+    }
+
+
+    gesture.target = canvas;
+
+    canvas.addEventListener('MSPointerDown', listen, false);
+
+    canvas.addEventListener('MSGestureStart', listen, false);
+    canvas.addEventListener('MSGestureEnd', listen, false);
+    canvas.addEventListener('MSGestureChange', listen, false);
+    canvas.addEventListener('MSIntertialStart', listen, false);
+    canvas.addEventListener('MSGestureHold', listen, false);
+    canvas.addEventListener('MSGestureDown', listen, false);
+
+
+
+    function listen(evt) {
+      if (evt.type == 'MSPointerDown') {
+        gesture.addPointer(evt.pointerId);
+        return;
+      }
+    }
+
+
+    function msPointerEvent(eventName, func) {
+
+      canvas.addEventListener(eventName, function (evt) {
+        evt.preventDefault();
+
+        outputEvent(evt);
+        if (func)
+          func(evt.offsetX, evt.offsetY);
+      });
+
+    }
+  })();
+
+</script>
+
+
+
+<script>
+
+
+  function outputEvent(evt) {
+    console.log(evt.type, '{ x: ' + evt.offsetX + ', y: ' + evt.offsetY + ' }');
+  }
+
+  function outputEventVerbose(evt) {
+
+    var output = '==================================================\r\n';
+
+    for (var key in evt) {
+
+      if (isFunction(evt[key])) {
+        output += key + ': [function]\r\n';
+      }
+      else {
+        output += key + ': ' + evt[key] + '\r\n';
+      }
+    }
+
+    console.log(output);
+    console.log('==================================================\r\n');
+  }
+
+  function isFunction(object) {
+    //return object && getClass.call(object) == '[object Function]';
+    return typeof (object) == "function";
+  }
+
+
+
+
+
+  function drawSpotOnCanvas(canvas, pos, color) {
+
+    //console.log('drawing', pos);
+
+    var c = canvas.getContext('2d');
+    c.beginPath();
+    c.fillStyle = color || '#F00';
+    c.arc(pos.x, pos.y, 30, 0, Math.PI * 2);
+    c.fill();
+
+    setTimeout(function () {
+      c.clearRect(0, 0, canvas.width, canvas.height);
+    }, 4000);
+  }
+
+  function getPositionFromTouch(touch) {
+    return {
+      y: touch.pageY - touch.target.offsetTop,
+      x: touch.pageX - touch.target.offsetLeft
+    };
+  }
+
+  //Found this nifty function here: http://stackoverflow.com/questions/55677/how-do-i-get-the-coordinates-of-a-mouse-click-on-a-canvas-element
+  function relMouseCoords(evt) {
+
+    if (Object.prototype.toString.call(evt) == '[object MouseEvent]') {
+      $('#touch-display .mouse-event').show();
+
+      $('.client').html(evt.clientX + ', ' + evt.clientY);
+      $('.layer').html(evt.layerX + ', ' + evt.layerY);
+      $('.offset').html(evt.offsetX + ', ' + evt.offsetY);
+      $('.page').html(evt.pageX + ', ' + evt.pageY);
+      $('.screen').html(evt.screenX + ', ' + evt.screenY);
+      $('.pos').html(evt.x + ', ' + evt.y);
+    }
+    else {
+    }
+
+    if (navigator.userAgent.indexOf('Firefox') == -1) {
+      return { x: evt.offsetX, y: evt.offsetY };
+    }
+    else {
+
+      var totalOffsetX = 0;
+      var totalOffsetY = 0;
+      var canvasX = 0;
+      var canvasY = 0;
+      var currentElement = this;
+
+      do {
+        totalOffsetX += currentElement.offsetLeft - currentElement.scrollLeft;
+        totalOffsetY += currentElement.offsetTop - currentElement.scrollTop;
+      }
+      while (currentElement = currentElement.offsetParent)
+
+      canvasX = evt.pageX - totalOffsetX;
+      canvasY = evt.pageY - totalOffsetY;
+
+      return { x: canvasX, y: canvasY }
+    }
+  }
+
+  HTMLCanvasElement.prototype.relMouseCoords = relMouseCoords;
+
+</script>
+</body>
+</html>

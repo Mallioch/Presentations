@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Touchable</title>
+    <script src="jquery-1-9-0.js"></script>
+</head>
+<body>
+    
+
+
+
+<h2>Touchable</h2>
+
+<style>
+  #carousel {
+    border: solid 1px #000;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    width: 290px;
+  }
+
+  #carousel-slider {
+    position: absolute;
+    width: 4000px;
+    left: 0px;
+  }
+
+  .carousel-item {
+    float: left;
+    margin: 0 5px;
+  }
+
+  html {
+    -ms-touch-action: none;
+  }
+</style>
+
+
+<div id="carousel">
+  <div id="carousel-slider">
+    <img class="carousel-item" src="images/avengers_200.jpg" />
+    <img class="carousel-item" src="images/bacon_200.jpg" />
+    <img class="carousel-item" src="images/cod_200.jpg" />
+    <img class="carousel-item" src="images/DandD_200.jpg" />
+    <img class="carousel-item" src="images/css_200.jpg" />
+    <img class="carousel-item" src="images/DandD_200.jpg" />
+    <img class="carousel-item" src="images/dice_200.jpg" />
+    <img class="carousel-item" src="images/dragonlance_200.jpg" />
+    <img class="carousel-item" src="images/greek_200.jpg" />
+    <img class="carousel-item" src="images/hogan_200.jpg" />
+    <img class="carousel-item" src="images/lolwut_200.jpg" />
+    <img class="carousel-item" src="images/marvel_200.jpg" />
+    <img class="carousel-item" src="images/mitt_200.jpg" />
+    <img class="carousel-item" src="images/noooooo_200.jpg" />
+    <img class="carousel-item" src="images/ready_200.jpg" />
+  </div>
+</div>
+
+<script>
+  (function () {
+    window.onload = function () {
+      setup();
+    };
+
+    function setup() {
+
+      var carouselDiv = document.getElementById('carousel');
+      carousel.slider = document.getElementById('carousel-slider');
+
+      if (carouselDiv.hasOwnProperty('ontouchmove')) {
+
+        carouselDiv.addEventListener('touchstart', function (evt) {
+          evt.preventDefault();
+          carousel.moving = true;
+          carousel.startX = carousel.lastX = evt.touches[0].pageX - carouselDiv.offsetLeft;
+        }, true);
+
+        carouselDiv.addEventListener('touchmove', function (evt) {
+          evt.preventDefault();
+          var currentLocation = evt.touches[0].pageX - carouselDiv.offsetLeft;
+          carousel.startX = evt.touches[0].pageX - carouselDiv.offsetLeft;
+          carousel.move(currentLocation);
+        }, true);
+
+        carouselDiv.addEventListener('touchend', function (evt) {
+          evt.preventDefault();
+          carousel.moving = false;
+
+        }, true);
+      }
+      else if (window.navigator.msPointerEnabled) {
+        carouselDiv.addEventListener('MSPointerDown', function (evt) {
+          carousel.moving = true;
+          carousel.startX = carousel.lastX = evt.pageX - carouselDiv.offsetLeft;
+        },
+        true);
+        carouselDiv.addEventListener('MSPointerMove', function (evt) {
+          var currentLocation = evt.pageX - carouselDiv.offsetLeft;
+          carousel.startX = evt.pageX - carouselDiv.offsetLeft;
+          carousel.move(currentLocation);
+        },
+        true);
+        carouselDiv.addEventListener('MSPointerUp', function (evt) {
+          carousel.moving = false;
+        },
+        true);
+      }
+      else {
+
+        carouselDiv.addEventListener('mousedown', function (evt) {
+          evt.preventDefault();
+          carousel.moving = true;
+          carousel.startX = evt.pageX - carouselDiv.offsetLeft;
+        }, true);
+
+        carouselDiv.addEventListener('mouseup', function (evt) {
+          evt.preventDefault();
+          carousel.moving = false;
+        }, true);
+
+        carouselDiv.addEventListener('mousemove', function (evt) {
+          evt.preventDefault();
+          var currentLocation = evt.pageX - carouselDiv.offsetLeft;
+          carousel.move(currentLocation);
+        },
+        true);
+      }
+
+
+    }
+
+    function getPositionFromTouch(touch) {
+      return {
+        y: touch.pageY - touch.target.offsetTop,
+        x: touch.pageX - touch.target.offsetLeft
+      };
+    }
+
+    var carousel = {
+      moving: false,
+      startX: 0,
+      current: 0,
+      lastX: 0,
+      slider: null,
+
+      move: function (currentX) {
+
+        if (carousel.moving) {
+
+          var diff = carousel.lastX - currentX;
+          carousel.current -= diff;
+
+          if (carousel.current < -2900)
+            carousel.current = -2900;
+          if (carousel.current > 0)
+            carousel.current = 0;
+
+          this.slider.style.left = carousel.current + 'px';
+        }
+
+        carousel.lastX = currentX;
+
+      }
+    };
+
+    function outputEventVerbose(evt) {
+
+      var output = '==================================================\r\n';
+
+      for (var key in evt) {
+
+        if (isFunction(evt[key])) {
+          output += key + ': [function]\r\n';
+        }
+        else {
+          output += key + ': ' + evt[key] + '\r\n';
+        }
+      }
+
+    }
+
+    function isFunction(object) {
+      //return object && getClass.call(object) == '[object Function]';
+      return typeof (object) == "function";
+    }
+
+  })();
+</script>
+</body>
+</html>

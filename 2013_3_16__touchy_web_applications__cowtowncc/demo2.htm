@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Hammer</title>
+    <script src="jquery-1-9-0.js"></script>
+    <script src="hammer.js"></script>
+</head>
+<body>
+    
+
+
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    background-color: #000;
+    color: #FFF;
+    margin: 0;
+    padding: 15px;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    border: solid 1px #000;
+    list-style-type: none;
+    padding: 25px 0 25px 15px;
+    position: relative;
+  }
+
+  button {
+    background: #a90329; /* Old browsers */
+    background: -moz-linear-gradient(top,  #a90329 0%, #8f0222 44%, #6d0019 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a90329), color-stop(44%,#8f0222), color-stop(100%,#6d0019)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #a90329 0%,#8f0222 44%,#6d0019 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #a90329 0%,#8f0222 44%,#6d0019 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #a90329 0%,#8f0222 44%,#6d0019 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #a90329 0%,#8f0222 44%,#6d0019 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=0 ); /* IE6-9 */
+    border-radius: 5px;
+    color: #FFF;
+    padding: 7px 15px;
+    position: absolute;
+    right: 20px;
+    top: 13px;
+  }
+</style>
+
+<h1>Hammer</h1>
+<ul>
+  <li>First</li>
+  <li>Second</li>
+  <li>Third</li>
+  <li>Fourth</li>
+  <li>Fifth</li>
+  <li>Sixth</li>
+  <li>Seventh</li>
+  <li>Eighth</li>
+  <li>Ninth</li>
+  <li>Tenth</li>
+  <li>Eleventh</li>
+  <li>Twelfth</li>
+  <li>Thirteenth</li>
+  <li>Fourteenth</li>
+  <li>Fifteenth</li>
+  <li>Sixteenth</li>
+  <li>Seventeenth</li>
+</ul>
+
+<script>
+  $('li').hammer().on('swipeleft swiperight', function () {
+
+    var li = $(this).append('<button>delete</button>');
+
+    $('button', $(this)).on('click', function () {
+      li.remove();
+    });
+
+  });
+</script>
+</body>
+</html>
