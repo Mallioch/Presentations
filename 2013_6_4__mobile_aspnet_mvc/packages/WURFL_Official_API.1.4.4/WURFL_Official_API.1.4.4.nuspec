@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>WURFL_Official_API</id>
+    <version>1.4.4</version>
+    <title>The official WURFL API for .NET</title>
+    <authors>ScientiaMobile, Inc.</authors>
+    <owners>ScientiaMobile, Inc.</owners>
+    <licenseUrl>http://www.gnu.org/licenses/agpl.html</licenseUrl>
+    <iconUrl>http://wurfl.sourceforge.net/logos/wurfl_logo_main_114px.gif</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>The official ASP.NET API for WURFL. WURFL is a data repository containing the descriptions of thousands of mobile devices. You use the library to query browser and device capabilities from the user-agent string.</description>
+    <releaseNotes>The WURFL API 1.4.4 for .NET contains some bug fixes.</releaseNotes>
+    <copyright>ScientiaMobile, Inc. 2012</copyright>
+    <language />
+    <tags>Mobile Phone ASP.NET WURFL Browser DDR Device Detection Data</tags>
+  </metadata>
+</package>

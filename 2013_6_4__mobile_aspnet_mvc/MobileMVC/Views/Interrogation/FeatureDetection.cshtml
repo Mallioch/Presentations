@@ -1,0 +1,32 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>FeatureDetection</title>
+</head>
+<body>
+    <div>
+        <h1>Feature Detection</h1>
+    </div>
+
+    <script>
+        window.onload = function () {
+            if (!window.WebGLRenderingContext) {
+                //WebGL is not supported :(
+                //Hide the WebGL widget or perhaps show a message
+                alert('WebGL is not supported.');
+            }
+            else {
+                //WebGL IS SUPPORTED! :)
+                //Unleash the awesome
+                alert('WebGL is supported!');
+            }
+        }
+    </script>
+</body>
+</html>

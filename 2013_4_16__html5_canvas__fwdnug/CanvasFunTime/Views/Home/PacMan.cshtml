@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "Pac Man";
+}
+
+<style type="text/css">
+
+  body {
+    background-color: #000;
+  }
+
+  h1 {
+    color: #FFF;
+  }
+
+</style>
+
+<h1>Pac Man</h1>
+
+<canvas style="border: solid 1px #222;" width="800" id="canvas">
+
+</canvas>
+
+<script type="text/javascript">
+
+  var c, canvas;
+
+  window.onload = function () {
+    canvas = document.getElementById('canvas');
+    c = canvas.getContext('2d');
+    c.fillStyle = '#FF0';
+
+    var drawFrame = function (timestamp) {
+
+      c.clearRect(0, 0, canvas.width, canvas.height);
+      pacman.draw();
+      
+      window.requestAnimationFrame(drawFrame);
+    }
+
+    window.requestAnimationFrame(drawFrame);
+  }
+
+  var pacman = {
+
+    x: 50,
+    direction: 1,
+    lipPosition: 0,
+    lipDirection: 1,
+
+    draw: function () {
+      console.log('drawing');
+
+      if (this.x > canvas.width - 50)
+        this.direction = -1;
+      if (this.x <= 50)
+        this.direction = 1;
+
+      if (this.lipPosition >= 50)
+        this.lipDirection = -1;
+      else if (this.lipPosition <= 0)
+        this.lipDirection = 1;
+
+      this.lipPosition += (5 * this.lipDirection);
+
+      this.x += (5 * this.direction);
+
+      c.beginPath();
+
+      if (this.direction === 1) {
+        c.arc(this.x, 100, 50, (Math.PI / 180) * this.lipPosition, (Math.PI / 180) * (360 - this.lipPosition));
+      }
+      else {
+        c.arc(this.x, 100, 50, (Math.PI / 180) * (179 - this.lipPosition), (Math.PI / 180) * (180 + this.lipPosition), true);
+      }
+      c.lineTo(this.x, 100);
+      c.fill();
+
+    }
+  }
+
+</script>

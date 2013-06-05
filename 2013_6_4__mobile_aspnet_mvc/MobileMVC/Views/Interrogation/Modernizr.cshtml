@@ -1,0 +1,44 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Modernizr</title>
+</head>
+<body>
+    <div>
+        <h1>Modernizr test page</h1>
+    </div>
+
+    <div class="postal">
+        <label>Postal Code: </label><input type="text" id="postal" />
+    </div>
+
+    <button id="the-button">Does this browser support geolocation?</button>
+
+    <style>
+        .geolocation .postal {
+            display: none;
+        }
+    </style>
+    <script src="/content/modernizr.js"></script>
+    
+    <script>
+        window.onload = function () {
+            var button = document.getElementById('the-button');
+            button.addEventListener('click', function () {
+                if (Modernizr.geolocation) {
+                    alert('yes!');
+                }
+                else {
+                    alert('no!');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

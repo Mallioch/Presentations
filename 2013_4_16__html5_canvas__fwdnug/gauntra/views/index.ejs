@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gauntra</title>
+	<link type="text/css" rel="Stylesheet" href="/stylesheets/style.css" />
+	
+	<script type="text/javascript" src="javascripts/lib/jquery.js"></script>
+	<script type="text/javascript" src="javascripts/lib/socket.io.js"></script>	
+	<script type="text/javascript" src="javascripts/lib/lucid.js"></script>
+	<script type="text/javascript" src="javascripts/lib/mustache.js"></script>	
+		
+	<script type="text/javascript" src="javascripts/namespaces.js"></script>
+	
+	<script type="text/javascript" src="javascripts/game-heart.js"></script>
+	<script type="text/javascript" src="javascripts/movable-object.js"></script>
+	<script type="text/javascript" src="javascripts/user.js"></script>
+	<script type="text/javascript" src="javascripts/projectile.js"></script>
+	<script type="text/javascript" src="javascripts/key-manager.js"></script>
+	<script type="text/javascript" src="javascripts/game-heart.js"></script>
+	<script type="text/javascript" src="javascripts/bootstrap.js"></script>
+	
+	<script type="text/javascript" src="javascripts/titleparticles.js"></script>
+	<script type="text/javascript" src="javascripts/titleanimations.js"></script> 	
+	
+	<script type="text/javascript" src="javascripts/pages/game-page.js"></script>
+	<script type="text/javascript" src="javascripts/pages/room-page.js"></script>
+	<script type="text/javascript" src="javascripts/pages/rooms-page.js"></script>
+	<script type="text/javascript" src="javascripts/pages/start-page.js"></script>
+
+</head>
+<body>
+	<div id="staticheader" style="display:none">
+		<h1><span>Gauntra</span><img src="/images/gauntra.png" /></h1>	
+	</div>
+
+	<div id="particleheader">
+		<canvas id="titleparticles" width=573 height=150></canvas>
+		<div id="titleparticlescratch" style="display: none"></div>
+	</div>
+	
+	<div id="welcome">
+		
+		<p>An adventure created by <a href="http://ericsowell.com">Eric B. Sowell</a>.</p>
+		
+		<button id="singlePlayer">single player</button>
+		<button id="multiPlayer">multi player</button>
+	</div>
+	<div id="rooms" style="display: none;">
+		<h2>Rooms</h2>
+		<div id="roomsMessaging"></div>
+		<table id="roomList">
+		</table>
+		
+		<button id="newRoom">new room</button>
+	</div>
+	<div id="room" style="display: none;">
+		<h2>Room</h2>
+		
+		<button id="startGameButton">Start Game!</button>
+	</div>
+	<div id="adventure" style="display: none; position: relative;">
+	
+		<ul id="stuff" style="position: absolute; right: 0;">
+		</ul>
+		<canvas width="700" height="400" id="primaryCanvas" style="border: solid 1px #000;"></canvas>
+		
+		<ul id="keypad" style="display: none;">
+			<li id="up">up</li>
+			<li id="down">down</li>
+			<li id="left">left</li>
+			<li id="right">right</li>
+		</ul>
+		
+		<canvas id="user" height="19" width="19" />
+		<img src="images/gauntlet2-heroes.png" style="margin-top: 100px; display: none;" id="heroSprite"/>
+		<img src="images/plain-gray.png" style="display: none;" id="background-plain-gray" />
+	
+	</div>
+	
+	<script type="text/html" id="roomListItemTemplate">
+		<tr><td>Room: {{id}}</td><td><button data-room-id="{{id}}">join</button></td></tr>
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+
+    <canvas id="theCanvas" width="700" height="200" style="background-color: #000;">
+
+    </canvas>
+
+    <script>
+
+      window.onload = function () {
+
+        var canvas = document.getElementById('theCanvas');
+        var c = canvas.getContext('2d');
+
+        thingy.init(canvas, c);
+
+        window.requestAnimationFrame(drawLoop);
+
+      };
+
+      function drawLoop(time) {
+        console.log(time);
+        thingy.update();
+        thingy.draw();
+        window.requestAnimationFrame(drawLoop);
+      }
+
+      var thingy = {
+
+        init: function (canvas, c) {
+          this.canvas = canvas;
+          this.c = c;
+          this.x = 75;
+          this.horizontalDirection = 1;
+          this.lipDirection = 1;
+          this.lipLocation = 0;
+        },
+
+        update: function () {
+          this.x += (3 * this.horizontalDirection);
+
+          if (this.x > this.canvas.width - 100) {
+            this.horizontalDirection = -1;
+          }
+          else if (this.x < 100) {
+            this.horizontalDirection = 1;
+          }
+
+          this.lipLocation += (5 * this.lipDirection);
+          if (this.lipLocation > 50) {
+            this.lipDirection = -1;
+          }
+          else if (this.lipLocation <= 0) {
+            this.lipDirection = 1;
+          }
+        },
+
+        draw: function () {
+
+          this.c.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+          this.c.beginPath();
+
+          if (this.horizontalDirection === 1)
+            this.c.arc(this.x, 75, 50, (Math.PI / 180) * this.lipLocation, (Math.PI / 180) * (360 - this.lipLocation));
+          else
+            this.c.arc(this.x, 75, 50, (Math.PI / 180) * (179 - this.lipLocation), (Math.PI / 180) * (180 + this.lipLocation), true);
+          this.c.lineTo(this.x, 75);
+          this.c.fillStyle = '#0F0';
+          this.c.fill();
+        }
+
+      }
+
+    </script>
+
+  </body>
+</html>

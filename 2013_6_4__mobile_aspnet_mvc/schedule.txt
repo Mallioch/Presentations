@@ -1,0 +1,45 @@
+
+================================
+Adaptive Rendering
+================================
+
+Why?
+Display modes (default)
+Custom display mode
+Custom view engine
+
+
+================================
+Interrogating the Browser
+================================
+
+Server side
+1. User agents
+2. Wurfl
+
+Client-side
+1. Custom
+2. Modernizr
+
+================================
+Performance
+================================
+
+Tools
+1. Chrome network tab
+2. Fiddler
+
+Perf
+1. Reduce HTTP requests
+2. Use Gzip
+3. Combine and Minify
+4. Cache client-side
+
+
+
+
+
+
+
+
+

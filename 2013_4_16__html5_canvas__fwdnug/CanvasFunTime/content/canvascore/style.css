@@ -1,0 +1,51 @@
+body {
+  background-color: #787878;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  background-color: #000;
+  color: #FFF;
+  margin: 0;
+  padding: 5px 20px;
+}
+
+#mainContent {
+  padding: 1px 15px 10px 15px;
+  max-width: 920px;
+}
+
+h1 {
+  font-family: Helvetica, Verdana;
+}
+
+p {
+  font-family: Georgia, serif;
+  font-size: 1.1em;
+  line-height: 1.5em;
+}
+
+canvas {
+  border: solid 1px #BBB;
+}
+
+textarea {
+  height: 150px;
+  width: 420px;
+}
+
+.draw-area {
+  border: solid 5px #808080;
+  vertical-align: top;
+}
+
+label {
+  color: #FFF;
+  font-family: Helvetica, Verdana, sans-serif;
+}
+
+button {
+  padding: 10px 5px;
+}
+

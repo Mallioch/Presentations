@@ -1,0 +1,6 @@
+﻿h2:after {
+  content: 'Mobile CSS';
+  display: block;
+  font-size: .8em;
+  font-weight: normal;
+}
