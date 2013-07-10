@@ -34,6 +34,7 @@ Perf
 2. Use Gzip
 3. Combine and Minify
 4. Cache client-side
+5. CSS Spriting
 
 
 
