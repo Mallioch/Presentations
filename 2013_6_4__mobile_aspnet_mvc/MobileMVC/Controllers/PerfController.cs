@@ -25,10 +25,10 @@ namespace MobileMVC.Controllers
 
         public ActionResult ClientSideCaching()
         {
-            //Response.Cache.SetExpires(DateTime.Now.AddMinutes(2));
-            //Response.Cache.SetSlidingExpiration(true);
-            //Response.Cache.SetCacheability(HttpCacheability.Public);
-            //Response.Cache.SetMaxAge(new TimeSpan(DateTime.Now.AddMinutes(2).Ticks));
+            Response.Cache.SetExpires(DateTime.Now.AddSeconds(20));
+            Response.Cache.SetSlidingExpiration(true);
+            Response.Cache.SetCacheability(HttpCacheability.Public);
+            Response.Cache.SetMaxAge(new TimeSpan(0, 0, 20));
 
             return View();
         }

@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Touchy Web Applications - Touch Events</title>
+  <link href="preso.css" rel="stylesheet" />
+</head>
+<body>
+
+  <h1>Touch* Events</h1>
+
+<pre>
+var domElement = document.getElementById('element');
+
+domElement.addEventListener('touchstart', function(evt) {
+  //code goes here
+});
+</pre>
+
+  <p>Also <code>touchmove</code>, <code>touchend</code> and <code>touchcancel</code>. The touch 
+    event contains an array of all touches as well as scale and rotation values.</p>
+
+  <p>This is the core event for touch programming for all webkit-based browsers and Firefox.</p>
+
+  <div class="nav">
+    <div class="prev"><a href="mouse-direction-events.html"><</a></div>
+    <div class="next"><a href="gesture-events.html">></a></div>
+  </div>
+
+</body>
+</html>

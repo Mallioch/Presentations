@@ -23,7 +23,9 @@ namespace MobileMVC
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
             #region WP8 Display Mode
+
             /*
+
             Func<HttpContextBase, bool> condition = (context) =>
             {
                 return context.GetOverriddenUserAgent()
@@ -37,27 +39,25 @@ namespace MobileMVC
             */
             #endregion
             #region Custom View Engine
-            /*
 
             DisplayModeProvider.Instance.Modes.RemoveAt(0);
 
             ViewEngines.Engines.Clear();
             ViewEngines.Engines.Add(new CustomViewEngine());
 
-            */
             #endregion
 
 
             #region Setup Wurfl
-            
             /*
+
             string wurflDataPath = Server.MapPath(@"~/App_Data/wurfl-latest.zip");
             var configurer = new InMemoryConfigurer().MainFile(wurflDataPath);
             _wurflManager = WURFLManagerBuilder.Build(configurer);
-            */
+
             #endregion
             #region Setup Wurfl-based Display Modes
-            /*
+
             var superMode = new DefaultDisplayMode("super");
             superMode.ContextCondition = (context) =>
             {
@@ -99,12 +99,11 @@ namespace MobileMVC
             DisplayModeProvider.Instance.Modes.Insert(0, basicMode);
             DisplayModeProvider.Instance.Modes.Insert(0, superMode);
             */
-
             #endregion
 
 
             #region System.Web.Optimization
-            /*
+
 
             var css = new Bundle("~/content/allcss", new CssMinify());
             css.Include("~/content/minify/cssfile1.css",
@@ -122,7 +121,6 @@ namespace MobileMVC
             BundleTable.Bundles.Add(css);
             BundleTable.Bundles.Add(js);
 
-            */
             #endregion
         }
     }

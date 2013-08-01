@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Touchy Web Applications - Where Are You?</title>
+  <script src="/content/jquery-1-9-0.js"></script>
+  <link href="preso.css" rel="stylesheet" />
+  <script src="preso.js" type="text/javascript"></script>
+</head>
+<body>
+
+  <h1>Where Are You?</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>iOS Safari Touch</th>
+        <th>IE Pointer Event</th>
+        <th>IE Mouse</th>
+        <th>Android Default Browser</th>
+        <th>Android Chrome</th>
+        <th>Firefox Desktop</th>
+        <th>Firefox OS</th>
+        <th>Chrome Desktop</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>x/y</td>
+        <td>-</td>
+        <td>35/24</td>
+        <td>35/21</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>34/21</td>
+      </tr>
+      <tr>
+        <td>client x/y</td>
+        <td>34/22</td>
+        <td>35/24</td>
+        <td>35/21</td>
+        <td>33/31</td>
+        <td>28/30</td>
+        <td>32/19</td>
+        <td>31/20</td>
+        <td>34/21</td>
+      </tr>
+      <tr>
+        <td>layer x/y</td>
+        <td>-</td>
+        <td>35/24</td>
+        <td>35/21</td>
+        <td>-</td>
+        <td>-</td>
+        <td>32/2072</td>
+        <td>-</td>
+        <td>34/2053</td>
+      </tr>
+      <tr>
+        <td>offset x/y</td>
+        <td>-</td>
+        <td>14/6</td>
+        <td>4/4</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>4/2</td>
+      </tr>
+      <tr>
+        <td>page x/y</td>
+        <td>34/2071</td>
+        <td>35/2069</td>
+        <td>35/2066</td>
+        <td>33/2062</td>
+        <td>28/2058</td>
+        <td>32/2072</td>
+        <td>31/2092</td>
+        <td>34/2053</td>
+      </tr>
+      <tr>
+        <td>screen x/y</td>
+        <td>34/2071</td>
+        <td>35/79</td>
+        <td>35/76</td>
+        <td>33/31</td>
+        <td>57/70</td>
+        <td>317/114</td>
+        <td>31/20</td>
+        <td>320/103</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <pre>
+function getPositionFromTarget(evt, target) {
+
+  return {
+    y: evt.pageY - target.offsetTop,
+    x: evt.pageX - target.offsetLeft
+  };
+}
+  </pre>
+
+  <div class="nav">
+    <div class="prev"><a href="ms-gesture-events.html"><</a></div>
+    <div class="next"><a href="browser-event-behavior.html">></a></div>
+  </div>
+
+</body>
+</html>

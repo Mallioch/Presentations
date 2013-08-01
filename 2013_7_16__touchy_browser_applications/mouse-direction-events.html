@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Touchy Web Applications - Mouse Direction Events</title>
+  <link href="preso.css" rel="stylesheet" />
+</head>
+<body>
+  
+  <h1>Mouse* Direction Events</h1>
+
+<pre>
+var domElement = document.getElementById('element');
+
+domElement.addEventListener('mousedown', function(evt) {
+  //code goes here
+});
+</pre>
+
+  <p>Also <code>mouseup</code>, <code>mousemove</code>, <code>mouseenter</code>, <code>mouseleave</code>. 
+    The latter two are only supported by Internet Explorer.</p>
+
+  <p>Useful for desktop but not for touch.</p>
+
+  <div class="nav">
+    <div class="prev"><a href="click-event.html"><</a></div>
+    <div class="next"><a href="touch-events.html">></a></div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,347 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Touchy Web Applications - Taking Someone's Signature</title>
+  <link href="preso.css" rel="stylesheet" />
+  <script src="preso.js" type="text/javascript"></script>
+</head>
+<body>
+
+  <h1>Taking Someone's Signature</h1>
+
+  <canvas id="theCanvas" height="300" width="960" style="-ms-touch-action: none;">
+  </canvas>
+
+  <p>Improving Our Implementation</p>
+
+  <pre>
+canvas.addEventListener('click', function (evt) {
+  var position = getPositionFromTarget(evt, evt.target);
+  touches.push(position);
+});
+
+var requestAnimFrame = window.requestAnimationFrame ||
+  window.mozRequestAnimationFrame ||
+  window.webkitRequestAnimationFrame ||
+  window.msRequestAnimationFrame ||
+  function(callback){
+    window.setTimeout(callback, 1000 / 60);
+  };
+
+function draw() {
+  context.fillStyle = '#FFF';
+  context.fillRect(0, 0, canvas.width, canvas.height);
+
+  var i;
+  for (i = 0; i < touches.length; i++) {
+    drawSegment(touches[i]);
+  }
+
+  requestAnimFrame(draw);
+}
+
+function drawSegment(segment) {
+  var i, firstTouch = true;
+  for (i = 0; i < segment.length; i++) {
+    var touch = segment[i];
+
+    if (firstTouch) {
+      firstTouch = false;
+      context.beginPath();
+      context.moveTo(touch.x, touch.y);
+      continue;
+    }
+
+    context.lineTo(touch.x, touch.y);
+  }
+
+  context.strokeStyle = '#000';
+  context.stroke();
+}
+
+requestAnimFrame(function () {
+  draw();
+});</pre>
+
+
+  <p>Mouse</p>
+  <pre>
+var isWriting = false;
+
+canvas.addEventListener('mousedown', function (evt) {
+  var position = getPositionFromTarget(evt, evt.target);
+  touches.push([]);
+  addTouch(position);
+  isWriting = true;
+});
+
+canvas.addEventListener('mousemove', function (evt) {
+  if (isWriting) {
+    var position = getPositionFromTarget(evt, evt.target);
+    addTouch(position);
+  }
+});
+
+canvas.addEventListener('mouseup', function (evt) {
+  var position = getPositionFromTarget(evt, evt.target);
+  addTouch(position);
+  isWriting = false;
+});
+
+function addTouch(position) {
+  var touchArray = touches[touches.length - 1];
+  touchArray.push(position);
+}</pre>
+
+  <p>Touch</p>
+
+  <pre>
+var currentTouchId;
+
+canvas.addEventListener('touchstart', function (evt) {
+  evt.preventDefault();
+  currentTouchId = evt.touches[0].identifier;
+  console.log('touch id', currentTouchId, evt);
+  touches.push([]);
+
+  position = getPositionFromTarget(evt.touches[0], evt.touches[0].target);
+  addTouch(position);
+});
+
+canvas.addEventListener('touchmove', function (evt) {
+  evt.preventDefault();
+
+  var i, position;
+  for (i = 0; i < evt.changedTouches.length; i++) {
+    if (evt.changedTouches[i].identifier !== currentTouchId)
+      continue;
+    position = getPositionFromTarget(evt.changedTouches[i], evt.changedTouches[i].target);
+    addTouch(position);
+  }
+});</pre>
+
+  <p>Pointer Events</p>
+
+<pre>
+canvas.addEventListener('MSPointerDown', function (evt) {
+  if (currentTouchId)
+    return; //there is already an active touch, don’t start a new one
+
+  currentTouchId = evt.pointerId;
+  touches.push([]);
+  var position = getPositionFromTarget(evt, evt.target);
+  addTouch(position);
+});
+
+canvas.addEventListener('MSPointerMove', function (evt) {
+  if (evt.pointerId !== currentTouchId)
+    return;
+
+  var position = getPositionFromTarget(evt, evt.target);
+  addTouch(position);
+});
+
+canvas.addEventListener('MSPointerUp', function (evt) {
+  //delete the touch id so we can start a new touch
+  currentTouchId = undefined;
+});</pre>
+
+  <p>Do you want to save it to the server?</p>
+
+  <pre>
+function saveCanvas() {
+  var imageData = canvas.toDataURL('image/jpeg', 1);
+
+  var formData = new FormData();
+  formData.append('fileData', imageData);
+
+  var xhr = new XMLHttpRequest();
+
+  xhr.addEventListener('load', function () { alert('uploaded!'); });
+
+  xhr.open('POST', "/touch/upload", true);
+  xhr.send(formData);
+}  </pre>
+
+  <div class="nav">
+    <div class="prev"><a href="simple-sample.html"><</a></div>
+    <div class="next"><a href="links.html">></a></div>
+  </div>
+
+
+<script>
+
+  var canvas, context, touches = [], isWriting = false, lastContactPoint, currentTouchId;
+
+  var requestAnimFrame = window.requestAnimationFrame ||
+    window.mozRequestAnimationFrame ||
+    window.webkitRequestAnimationFrame ||
+    window.msRequestAnimationFrame ||
+    function (callback) {
+      window.setTimeout(callback, 1000 / 60);
+    };
+
+  function draw() {
+    context.fillStyle = '#FFF';
+    context.fillRect(0, 0, canvas.width, canvas.height);
+
+    var i;
+    for (i = 0; i < touches.length; i++) {
+      drawSegment(touches[i]);
+    }
+
+    requestAnimFrame(draw);
+  }
+
+  function drawSegment(segment) {
+    var i, firstTouch = true;
+    for (i = 0; i < segment.length; i++) {
+      var touch = segment[i];
+
+      if (firstTouch) {
+        firstTouch = false;
+        context.beginPath();
+        context.moveTo(touch.x, touch.y);
+        continue;
+      }
+
+      context.lineTo(touch.x, touch.y);
+    }
+
+    context.strokeStyle = '#000';
+    context.stroke();
+  }
+
+  function addTouch(position) {
+    var touchArray = touches[touches.length - 1];
+    touchArray.push(position);
+  }
+
+  requestAnimFrame(function () {
+    draw();
+  });
+
+  function load() {
+    canvas = document.getElementById('theCanvas');
+    context = canvas.getContext('2d');
+
+    canvas.addEventListener('touchstart', function (evt) {
+      evt.preventDefault();
+      currentTouchId = evt.touches[0].identifier;
+      console.log('touch id', currentTouchId, evt);
+      touches.push([]);
+
+      position = getPositionFromTarget(evt.touches[0], evt.touches[0].target);
+      addTouch(position);
+    });
+
+    canvas.addEventListener('touchmove', function (evt) {
+      evt.preventDefault();
+
+      var i, position;
+      for (i = 0; i < evt.changedTouches.length; i++) {
+        if (evt.changedTouches[i].identifier !== currentTouchId)
+          continue;
+        position = getPositionFromTarget(evt.changedTouches[i], evt.changedTouches[i].target);
+        addTouch(position);
+      }
+    });
+
+    if (window.navigator.msPointerEnabled) {
+      canvas.addEventListener('MSPointerDown', function (evt) {
+        if (currentTouchId)
+          return;
+
+        currentTouchId = evt.pointerId;
+        touches.push([]);
+        var position = getPositionFromTarget(evt, evt.target);
+        addTouch(position);
+      });
+
+      canvas.addEventListener('MSPointerMove', function (evt) {
+        if (evt.pointerId !== currentTouchId)
+          return;
+
+        var position = getPositionFromTarget(evt, evt.target);
+        addTouch(position);
+      });
+
+      canvas.addEventListener('MSPointerUp', function (evt) {
+        currentTouchId = undefined;
+      });
+    }
+    else {
+      canvas.addEventListener('mousedown', function (evt) {
+        var position = getPositionFromTarget(evt, evt.target);
+        touches.push([]);
+        addTouch(position);
+        isWriting = true;
+      });
+
+      canvas.addEventListener('mousemove', function (evt) {
+        if (isWriting) {
+          var position = getPositionFromTarget(evt, evt.target);
+          addTouch(position);
+        }
+      });
+
+      canvas.addEventListener('mouseup', function (evt) {
+        var position = getPositionFromTarget(evt, evt.target);
+        addTouch(position);
+        isWriting = false;
+      });
+    }
+
+    var saveButton = document.getElementById('save');
+    console.log('the save button', saveButton);
+    saveButton.addEventListener('click', function () {
+      saveCanvas();
+      console.log('click save');
+    });
+
+  }
+
+  window.addEventListener('load', load);
+
+  function drawCircle(x, y) {
+    context.fillStyle = '#00F';
+
+    var radius = 6;
+    var startRadian = 0;
+    var endRadian = Math.PI * 2;
+
+    context.beginPath();
+    context.arc(x, y, radius, startRadian, endRadian);
+    context.fill();
+  }
+
+
+
+  function getPositionFromTarget(evt, target) {
+
+    return {
+      y: evt.pageY - target.offsetTop,
+      x: evt.pageX - target.offsetLeft
+    };
+  }
+
+  function saveCanvas() {
+    var imageData = canvas.toDataURL('image/jpeg', 1);
+
+    console.log('data', imageData);
+
+    var formData = new FormData();
+    formData.append('fileData', imageData);
+
+    var xhr = new XMLHttpRequest();
+
+    xhr.addEventListener('load', function () { alert('uploaded!'); });
+
+    xhr.open('POST', "/touch/upload", true);
+    xhr.send(formData);
+  }
+
+</script>
+
+</body>
+</html>

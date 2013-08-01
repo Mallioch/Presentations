@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Touchy Web Applications - [$$$Title$$$]</title>
+  <link href="preso.css" rel="stylesheet" />
+  <script src="preso.js" type="text/javascript"></script>
+</head>
+<body>
+
+  <h1>Browser Event Behavior</h1>
+
+  <pre>
+element = document.getElementById('anElement');
+
+element.addEventListener('mousedown', function () { console.log('mousedown'); });
+element.addEventListener('mousemove', function () { console.log('mousemove'); });
+element.addEventListener('mouseup', function () { console.log('mouseup'); });
+element.addEventListener('click', function () { console.log('click'); });
+element.addEventListener('touchstart', function () { console.log('touchstart'); });
+element.addEventListener('touchmove', function () { console.log('touchmove'); });
+element.addEventListener('touchend', function () { console.log('touchend'); });
+element.addEventListener('touchcancel', function () { console.log('touchcancel'); });
+element.addEventListener('MSPointerDown', function () { console.log('MSPointerDown'); });
+element.addEventListener('MSPointerUp', function () { console.log('MSPointerUp'); });
+element.addEventListener('MSPointerEnter', function () { console.log('MSPointerEnter'); });
+element.addEventListener('MSPointerCancel', function () { console.log('MSPointerCancel'); });
+element.addEventListener('MSPointerLeave', function () { console.log('MSPointerLeave'); });
+element.addEventListener('MSPointerMove', function () { console.log('MSPointerMove'); });
+element.addEventListener('MSPointerOut', function () { console.log('MSPointerOut'); });
+element.addEventListener('MSPointerLeave', function () { console.log('MSPointerLeave'); });
+element.addEventListener('MSPointerOver', function () { console.log('MSPointerOver'); });</pre>
+
+  <p>On my iPhone 4S running iOS 6...</p>
+
+  <pre>
+touchstart
+touchend
+mousemove
+mousedown
+mouseup
+click  </pre>
+
+  <p>If I try to scroll...</p>
+
+<pre>
+touchstart
+touchmove
+touchmove
+…
+touchend</pre>
+
+  <p>If I call <code>preventDefault</code> on the event object, I also get the mouse and 
+    click events cancelled, as well as scrolling.</p>
+
+  <p>If I do the same thing on Internet Explorer 10...</p>
+
+<pre>
+mousemove
+MSPointerOver
+MSPointerDown
+mousedown
+MSPointerUp
+mouseup
+click
+MSPointerOut</pre>
+
+  <p>If I try to cancel the events</p>
+
+<pre>
+mousemove
+MSPointerOver
+MSPointerDown
+MSPointerUp
+click
+MSPointerOut</pre>
+
+  <p>To prevent scrolling, I have to do this:</p>
+
+<pre>
+  -ms-touch-action: none;</pre>
+  
+  <p>Since calling <code>preventDefault</code> doesn't cancel the some of the events, I
+    have to manually turn them off in IE 10.
+  </p>
+
+<pre>
+if (window.navigator.msPointerEnabled) {
+  //attach pointer events
+}
+else {
+  //attach click or mouse events
+}</pre>
+
+  <div class="nav">
+    <div class="prev"><a href="where-are-you.html"><</a></div>
+    <div class="next"><a href="simple-sample.html">></a></div>
+  </div>
+
+</body>
+</html>
