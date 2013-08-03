@@ -1256,7 +1256,7 @@ context.fillRect(x, y, width, height);
         var self = this;
 
         $('#webworkers button.start').click(function() {
-            self.mywebworker = new Worker('/content/preso/html5andcss3today/webworker.js');
+            self.mywebworker = new Worker('/scripts/webworker.js');
             self.mywebworker.postMessage();
             self.mywebworker.addEventListener('message', function(event) {  
                 $('p.message').html(event.data.message);
