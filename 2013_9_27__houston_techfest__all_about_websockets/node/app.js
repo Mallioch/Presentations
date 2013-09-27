@@ -14,18 +14,15 @@ app.configure(function(){
 var stepNumber = 0;
 var steps = [
     { text: 'Intro', value: '#intro' },
-    { text: 'Go Here', value: '#go-here' },
     { text: 'The Normal Web', value: '#the-norm' },
     { text: 'The Normal Web - Step 2', value: '#the-norm-step-2' },
     { text: 'The Normal Web - Step 3', value: '#the-norm-step-3' },
     { text: 'The Normal Web - Step 4', value: '#the-norm-step-4' },
     { text: 'The Normal Web - Step 5', value: '#the-norm-step-5' },
     { text: 'caniuse.com', value: '#can-i-use' },
-    { text: 'websockets-test', value: '#websockets-test' },
     { text: 'socket code', value: '#socket-code' },
     { text: 'chat', value: '#chat' },
     { text: 'so-sockets', value: '#so-sockets' },
-    { text: 'but-sockets', value: '#but-sockets' },
     { text: 'fini', value: '#fini' }
 ];
 
@@ -97,5 +94,5 @@ socket.emit('ping', { msg: 'Hello. I know socket.io.' });
 
 });
 
-
+console.log('listening at localhost:8080');
 app.listen(8080);

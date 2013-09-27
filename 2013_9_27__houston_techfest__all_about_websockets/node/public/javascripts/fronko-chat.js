@@ -12,7 +12,6 @@ window.FronkoChat = (function (socket) {
     }
 
     function userListUpdated(users) {
-        //console.log('userListUpdated', users);
         var ul = $('.list ul');
         ul.empty();
         for (var key in users) {

@@ -21,7 +21,7 @@ namespace socketconsole
 
         private static void Start()
         {
-            string uri = String.Format("http://localhost:4000/bar/");
+            string uri = String.Format("http://localhost:4000/foo/");
             var listener = new WebsocketListener();
             listener.Listen(uri);
             
