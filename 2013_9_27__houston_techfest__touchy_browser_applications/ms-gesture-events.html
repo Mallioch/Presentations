@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Touchy Web Applications - MSGesture* Events</title>
+  <link href="preso.css" rel="stylesheet" />
+  <script src="preso.js" type="text/javascript"></script>
+</head>
+<body>
+
+  <h1>MSGesture* Events</h1>
+
+<pre>
+var domElement = document.getElementById('element');
+
+var gesture = new MSGesture();
+gesture.target = domElement;
+
+domElement.addEventListener('MSGestureStart', function(evt) {
+    if (evt.type == "MSPointerDown") {
+      gesture.addPointer(evt.pointerId);
+      return;
+    }
+  
+  //do gesture stuff
+});
+
+</pre>
+
+  <p>The code required to set these gestures up is significanly more than the iOS-specific
+    gesture* events previously mentioned. This is unfortunate.
+  </p>
+
+  <div class="nav">
+    <div class="prev"><a href="ms-pointer-events.html"><</a></div>
+    <div class="next"><a href="where-are-you.html">></a></div>
+  </div>
+
+</body>
+</html>

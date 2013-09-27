@@ -1,0 +1,142 @@
+<!doctype HTML>
+<html>
+  <head>
+    <title>All About the WebSockets</title>
+
+    <!-- Socket.io serves its client-side code over this route automatically -->
+    <script src="/socket.io/socket.io.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link type="text/css" rel="Stylesheet" href="/stylesheets/style.css" />
+    <style>
+	section
+	{
+		display: none;
+	}
+    </style>
+
+  </head>
+  <body>
+		<section id="intro" style="display: none;">
+			<h1>All About the WebSockets</h1>
+
+			<h2>Eric B. Sowell</h2>
+			<h3>@mallioch</h3>
+			<h3>eric.sowell@gmail.com</h3>
+			<h3>http://ericsowell.com</h3>
+		</section>
+
+		<section id="go-here" style="display: none;">
+			<h3>Go here</h3>
+			<h2>http://all-about-websockets.jitsu.com</h2>
+		</section>
+
+		<section id="the-norm" style="display: none;">
+			<h3>The Normal Web</h3>
+
+			<div class="figure">
+				<img src="/images/no-connection.png" class="computer" />
+			</div>
+		</section>
+
+		<section id="the-norm-step-2" style="display: none;">
+			<h3>The Normal Web</h3>
+
+			<div class="figure">
+				<img src="/images/web-request.png" class="arrow-right" />
+			</div>
+		</section>
+
+		<section id="the-norm-step-3" style="display: none;">
+			<h3>The Normal Web</h3>
+
+			<div class="figure">
+				<img src="/images/web-response.png" class="computer" />
+			</div>
+		</section>
+
+		<section id="the-norm-step-4" style="display: none;">
+			<h3>The Normal Web</h3>
+
+			<div class="figure">
+				<img src="/images/no-connection.png" class="computer" />
+			</div>
+		</section>
+
+		<section id="the-norm-step-5" style="display: none;">
+			<h3>The New Normal(ish) Web</h3>
+
+			<div class="figure">
+				<img src="/images/persistent-connection.png" class="arrow-both-ways" />
+			</div>
+		</section>
+
+		<section id="can-i-use" style="display: none;">
+			<h2>caniuse.com</h2>
+			<img src="/images/can-i-use-websockets.png" />
+		</section>
+
+		<section id="websockets-test" style="display: none;">
+            <img src="/images/icanhazwebsockets-no.jpg" class="websockets-no" />
+			<img src="/images/icanhazwebsockets-yes.jpg" class="websockets-yes" />
+		</section>
+
+		<section id="socket-code" style="display: none;">
+			<h3>socket code</h3>
+			<pre>
+var socket = new WebSocket("ws://localhost:4000/foo/");
+
+socket.onopen = function () {
+    console.log("Socket has been opened!");
+}
+
+socket.onmessage = function (message) {
+    console.log('message', message);
+}
+			</pre>
+		</section>
+
+		<section id="chat" style="display: none;">
+			<div class="app">
+				<header></header>
+				<div class="login">
+					<p>choose a handle</p>
+					<input type="text" placeholder="handle" />
+					<button>sign in</button>
+				</div>
+				<div class="list">
+					<ul></ul>
+				</div>
+				<div class="send-message">
+					<p>send a message to <span class="handle"></span></p>
+					<textarea></textarea>
+					<button>send</button>
+				</div>
+			</div>
+		</section>
+
+		<section id="so-sockets" style="display: none;">
+			<h2>so sockets allow you to connect users and push data to and from very quickly without user interaction</h2>
+			<p>(that's very groovy)</p>
+		</section>
+
+		<section id="but-sockets" style="display: none;">
+			<h2>let's see some code</h2>
+		</section>
+
+
+		<section id="fini" style="display: none;">
+			<h2>Eric Sowell</h2>
+            <h3>@mallioch</h3>
+            <h3>eric.sowell@gmail.com</h3>
+            <h3><a href="http://spkr8.com/t/14821">http://spkr8.com/t/14821</a></h3>
+		</section>
+
+        <script src="/javascripts/lib/jquery-1-7-2.js"></script>
+        <script src="/javascripts/lib/html5shiv.js"></script>
+        <script src="/javascripts/fronko-chat.js"></script>
+        <script src="/javascripts/script.js"></script>
+        <script src="/javascripts/modernizr-websockets.js"></script>
+
+	</body>
+</html>
