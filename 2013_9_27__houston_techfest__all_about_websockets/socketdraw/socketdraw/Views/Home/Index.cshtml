@@ -1,0 +1,26 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>SocketDraw</title>
+        <script src="~/scripts/json2.js"></script>
+        <script src="~/scripts/jquery-1.10.2.js"></script>
+        <script src="~/scripts/jquery.signalR-1.1.2.js"></script>
+        <script src="~/signalr/hubs"></script>
+    </head>
+    <body>
+
+        <div style="margin: 10px 0; text-align: center;">stuff may get drawn here</div>
+
+        <div style="text-align: center;">
+            <canvas id="canvas-advanced" width="280" height="320" style="-ms-touch-action: none; border: solid 1px #555; margin: 0 auto;">
+            </canvas>
+        </div>
+
+        <script src="~/scripts/socketdraw.js"></script>
+    </body>
+</html>
