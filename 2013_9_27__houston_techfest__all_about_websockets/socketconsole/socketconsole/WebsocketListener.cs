@@ -38,7 +38,7 @@ namespace socketconsole
 
             using (WebSocket webSocket = webSocketContext.WebSocket)
             {
-                Random rand = new Random(1);
+                Random rand = new Random();
                 while (webSocket.State == WebSocketState.Open)
                 {
                     string randomValue = rand.Next(1, 5000).ToString();

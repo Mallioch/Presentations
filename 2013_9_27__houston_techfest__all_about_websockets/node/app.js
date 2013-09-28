@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 var express = require("express"),
     app = express.createServer(),
     io = require('socket.io').listen(app); // socket.io may listen to an http
@@ -21,15 +19,14 @@ var steps = [
     { text: 'The Normal Web - Step 5', value: '#the-norm-step-5' },
     { text: 'caniuse.com', value: '#can-i-use' },
     { text: 'socket code', value: '#socket-code' },
-    { text: 'chat', value: '#chat' },
     { text: 'so-sockets', value: '#so-sockets' },
+    { text: 'chat', value: '#chat' },
     { text: 'fini', value: '#fini' }
 ];
 
 var users = {};
 
 io.sockets.on('connection', function (socket) {
-socket.emit('ping', { msg: 'Hello. I know socket.io.' });
     socket.emit('steps', { steps: steps });
 
     socket.emit('new-page', steps[stepNumber]);
