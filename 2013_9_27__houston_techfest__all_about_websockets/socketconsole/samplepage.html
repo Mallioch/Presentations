@@ -17,9 +17,7 @@
 
             socket.onmessage = function (message) {
                 var element = document.querySelector('#put-stuff-here');
-                console.log('stuff', element);
                 element.innerHTML = message.data;
-                console.log('message', message);
             }
 
         </script>

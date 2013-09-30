@@ -19,7 +19,6 @@ var steps = [
     { text: 'The Normal Web - Step 5', value: '#the-norm-step-5' },
     { text: 'caniuse.com', value: '#can-i-use' },
     { text: 'socket code', value: '#socket-code' },
-    { text: 'so-sockets', value: '#so-sockets' },
     { text: 'chat', value: '#chat' },
     { text: 'fini', value: '#fini' }
 ];

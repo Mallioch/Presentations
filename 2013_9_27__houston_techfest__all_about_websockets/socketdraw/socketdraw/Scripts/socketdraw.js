@@ -171,7 +171,6 @@
     },
 
     connect: function () {
-        console.log($);
         var connection = this.connection = $.connection('/signalr/socketdraw');
         var self = this;
 
