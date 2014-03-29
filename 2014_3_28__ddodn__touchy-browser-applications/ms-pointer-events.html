@@ -23,6 +23,17 @@ domElement.addEventListener('MSPointerDown', function(evt) {
 
   <p>This is the core event for touch programming for all Internet Explorer 10+ browsers.</p>
 
+<pre>
+
+if(window.PointerEvent) {
+    elm.addEventListener("pointerdown", foo);
+} else if (window.MSPointerEvent) {
+    elm.addEventListener("MSPointerDown", foo);
+} else {
+    elm.addEventListener("mousedown", foo);
+}
+
+</pre>
   
 
   <div class="nav">
