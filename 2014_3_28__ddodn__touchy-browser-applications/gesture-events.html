@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Touchy Web Applications - Gesture Events</title>
+  <link href="preso.css" rel="stylesheet" />
+  <script src="preso.js" type="text/javascript"></script>
+</head>
+<body>
+
+  <h1>Gesture* Events</h1>
+
+<pre>
+var domElement = document.getElementById('element');
+
+domElement.addEventListener('gesturestart', function(evt) {
+  //code goes here
+});
+</pre>
+
+    <p>Also <code>gesturechange</code> and <code>gestureend</code>. The gesture events 
+    are simply a higher-level encapsulation of touch events for capturing rotation
+    and scale.
+    </p>
+
+  <p>This event is only supported in iOS so its use is limited.</p>
+
+  <div class="nav">
+    <div class="prev"><a href="touch-events.html"><</a></div>
+    <div class="next"><a href="ms-pointer-events.html">></a></div>
+  </div>
+
+</body>
+</html>

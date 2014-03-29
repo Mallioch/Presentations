@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Touchy Web Applications - Swiping</title>
+  <link href="preso.css" rel="stylesheet" />
+
+    <style>
+    #carousel {
+      border: solid 1px #000;
+      height: 100px;
+      margin: 0 auto;
+      overflow: hidden;
+      width: 300px;
+      -ms-touch-action: none;
+    }
+
+    #image-container {
+      width: 600px;
+
+      -moz-transition: all .4s;
+      -webkit-transition: all .4s;
+      -o-transition: all .4s;
+      transition: all .4s;
+    }
+
+    #carousel img {
+      display: block;
+      float: left;
+    }
+
+    .left {
+      -moz-transform: translate3d(-300px, 0, 0);
+      -ms-transform: translate3d(-300px, 0, 0);
+      -o-transform: translate3d(-300px, 0, 0);
+      -webkit-transform: translate3d(-300px, 0, 0);
+      transform: translate3d(-300px, 0, 0);
+    }
+
+    </style>
+</head>
+<body>
+
+    <h1>Swiping</h1>
+
+  <div id="carousel">
+    <div id="image-container">
+      <img class="carousel-item" src="css_100.jpg" />
+      <img class="carousel-item" src="dice_100.jpg" />
+      <img class="carousel-item" src="hogan_100.jpg" />
+      <img class="carousel-item" src="ready_100.jpg" />
+      <img class="carousel-item" src="meat_100.jpg" />
+      <img class="carousel-item" src="dragonfruit_100.jpg" />
+    </div>
+  </div>
+
+  <div class="nav">
+    <div class="prev"><a href="signature.html"><</a></div>
+    <div class="next"><a href="pinch.html">></a></div>
+  </div>
+
+
+  <script src="custom-event-polyfill.js"></script>
+  <script src="lazy-swipe.js"></script>
+
+  <script>
+      window.addEventListener('load', load);
+
+      var carousel, imageContainer;
+
+      function load() {
+          carousel = document.getElementById('carousel');
+          imageContainer = document.getElementById('image-container');
+
+          var gesture = new CustomTouch.LazySwipe(carousel);
+
+          carousel.addEventListener('swipeleft', left);
+          carousel.addEventListener('swiperight', right);
+      }
+
+      function left() {
+          imageContainer.className = 'left';
+      }
+
+      function right() {
+          imageContainer.className = '';
+      }
+
+  </script>
+
+</body>
+</html>

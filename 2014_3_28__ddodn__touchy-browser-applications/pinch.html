@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Touchy Web Applications - Pinching</title>
+  <link href="preso.css" rel="stylesheet" />
+
+<style>
+    #the-picture {
+      height: 200px;
+      margin: 0;
+      width: 200px;
+      position: absolute;
+      -ms-touch-action: none;
+    }
+  </style>
+
+</head>
+<body>
+
+    <h1>Resizing, Rotating and Moving</h1>
+
+    <img src="dragonfruit_500.jpg" id="the-picture" />
+
+<div class="nav">
+    <div class="prev"><a href="swipe.html"><</a></div>
+    <div class="next"><a href="links.html">></a></div>
+  </div>
+
+
+  <script src="pincher.js"></script>
+  <script>
+      window.addEventListener('load', load);
+
+      function load() {
+          var picture = document.getElementById('the-picture');
+
+          var pincher = new window.Pincher(picture);
+      }
+  </script>
+
+
+</body>
+</html>
