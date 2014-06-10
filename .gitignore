@@ -3,3 +3,4 @@
 *.suo
 *.user
 2013_9_27__houston_techfest__all_about_websockets/node/node_modules
+*.DS_Store

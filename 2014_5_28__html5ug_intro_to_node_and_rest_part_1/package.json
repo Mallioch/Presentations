@@ -1,0 +1,18 @@
+{
+  "name": "2014_5_28__html5ug_intro_to_node_and_rest_part_1",
+  "version": "0.0.0",
+  "description": "",
+  "main": "basic.js",
+  "dependencies": {
+    "express": "~4.3.1",
+    "restify" : "2.8.1",
+    "ejs" : "1.0.0",
+    "body-parser" : "1.2.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
