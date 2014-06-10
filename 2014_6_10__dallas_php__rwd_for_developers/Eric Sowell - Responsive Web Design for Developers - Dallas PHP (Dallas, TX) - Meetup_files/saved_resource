@@ -1,0 +1,203 @@
+
+
+
+
+
+
+
+#C_pageBody a,
+#C_pageBody a:link,
+#C_pageBody a:visited,
+#C_pageBody a:hover,
+#C_pageBody a:active,
+#C_pageBody .theme-color--link{
+
+color: #2A9BC7;
+
+}
+#C_pageBody .link-border {
+border-color: rgba(42,155,199,0.25);
+}
+#C_pageBody .link-background {
+background-color: #2A9BC7;
+}
+
+#C_pageBody .theme-color--background {
+color: #DDF2FC;
+}
+#C_pageBody .theme-color--header {
+color: ;
+}
+#C_pageBody .theme-color--action {
+color: #0095CB;
+}
+#C_pageBody .theme-bgcolor--actionlist li:hover {
+background-color: #2A9BC7;
+}
+#C_pageBody .theme-color--actionlist li:hover a {
+color: #ffffff;
+}
+.ie6 #C_page,
+.ie7 #C_page,
+.ie8 #C_page {
+
+}
+#C_page {
+
+
+background-image: url(http://photos3.meetupstatic.com/photos/theme_body/f/a/1/full_64001.jpeg);
+
+background-position: left top;
+background-repeat: repeat;
+
+background-color: #DDF2FC;
+
+}
+
+#chapter-banner {
+background-color: #0095CB;
+
+background-image: -webkit-gradient(radial, 50% 0%, 0, 50% 0%, 429, color-stop(0%, rgba(0,0,0,0)), color-stop(150%, rgba(0,105,140,0.4)));
+background-image: -webkit-radial-gradient(center top, farthest-corner circle, rgba(0,0,0,0) 0%, rgba(0,105,140,0.4) 150%);
+background-image: -moz-radial-gradient(center top, farthest-corner circle, rgba(0,0,0,0) 0%, rgba(0,105,140,0.4) 150%);
+background-image: -ms-radial-gradient(center top, farthest-corner circle, rgba(0,0,0,0) 0%, rgba(0,105,140,0.4) 150%);
+background-image: -o-radial-gradient(center top, farthest-corner circle, rgba(0,0,0,0) 0%, rgba(0,105,140,0.4) 150%);
+background-image: radial-gradient(farthest-corner circle at center top, rgba(0,0,0,0) 0%, rgba(0,105,140,0.4) 150%);
+
+}
+#chapter-banner h1 a {
+text-shadow: none; /*reset base css first; add it again only if applicable*/
+
+color: #F2FCFF!important;
+//text-shadow: rgba(0,0,0,.2) -1px -1px 0;
+
+}
+
+/* dark pill color */
+.chapter-menu > li.open-dropdown a,
+.chapter-menu > li:hover > a,
+.chapter-menu > li:focus > a,
+.chapter-menu > li > a:active,
+.chapter-menu > li.selected > a,
+.chapter-menu > li.selected:hover > a,
+.chapter-menu > li.selected:focus > a,
+.chapter-menu > li.dropdown:hover > a,
+.chapter-menu > li.dropdown:hover > a:after,
+.chapter-menu > li.dropdown:focus > a,
+.chapter-menu > li.selected.dropdown:hover > a,
+.chapter-menu > li.selected.dropdown:focus > a,
+.chapter-menu .dropdown-menu,
+.chapter-menu .dropdown-menu > li > a {
+color: #fff !important;
+background-color: #0095CB;
+}
+/* notificiations */
+.chapter-menu .notify > a:before {
+background-color: #0095CB;
+}
+.chapter-menu .notify:hover > a:before {
+background-color: #fff !important;
+}
+.chapter-menu .dropdown-menu .notify:hover > a:before {
+background-color: #0095CB !important;
+}
+.chapter-menu > li.selected > a:before {
+background-color: #ffffff;
+}
+/* dropdown-specific */
+.chapter-menu .dropdown-menu {
+border-color: #0095CB;
+}
+
+#chapter-banner,
+#chapter-banner h1 {
+padding: 0 !important;
+}
+#chapter-banner h1 a {
+padding: 0 !important;
+background-image: url('http://photos3.meetupstatic.com/photos/theme_head/d/e/2/8/full_3896872.jpeg');
+background-repeat: no-repeat;
+background-position: top center;
+height: 150px;
+display: block;
+}
+#chapter-banner a span {
+display: none;
+}
+
+.featured-callout .featured-text {
+
+color: #F2FCFF!important;
+
+background: #0095CB;
+}
+.featured-callout .featured-pointer {
+border-left-color:#0095CB;
+}
+.featured-callout .featured-ribbon {
+border-right-color:#007399;
+}
+
+/**
+* Sassquatch theme overrides
+*/
+
+/* {{{ Buttons (this is what happens when you author CSS with JSTL instead of Sass) */
+
+#C_pageBody .D_submit,
+#C_pageBody .D_submit_grad,
+#C_pageBody .primary,
+#themePickerControls .primary,
+#C_pageBody .button.primary,
+#themePickerControls .button.primary,
+#C_pageBody .button--primary,
+#themePickerControls .button--primary,
+#C_pageBody input[type="submit"].primary,
+#themePickerControls input[type="submit"].primary,
+#C_pageBody input[type="submit"].button--primary,
+#themePickerControls input[type="submit"].button--primary {
+-moz-box-shadow: #0B5973 0px 2px 0px 0px;
+-webkit-box-shadow: #0B5973 0px 2px 0px 0px;
+-o-box-shadow: #0B5973 0px 2px 0px 0px;
+box-shadow: #0B5973 0px 2px 0px 0px;
+color: rgba(255,255,255,0.9) !important;
+background: #0095CB;
+}
+#C_pageBody .D_submit:active,
+#C_pageBody .D_submit_grad:active,
+#C_pageBody .primary:active,
+#themePickerControls .primary:active,
+#C_pageBody .button.primary:active,
+#themePickerControls .button.primary:active,
+#C_pageBody .button--primary:active,
+#themePickerControls .button--primary:active,
+#C_pageBody input[type="submit"].primary:active,
+#themePickerControls input[type="submit"].primary:active,
+#C_pageBody input[type="submit"].button--primary:active,
+#themePickerControls input[type="submit"].button--primary:active {
+-moz-box-shadow: #0B5973 0px 0px 0px 0px;
+-webkit-box-shadow: #0B5973 0px 0px 0px 0px;
+-o-box-shadow: #0B5973 0px 0px 0px 0px;
+box-shadow: #0B5973 0px 0px 0px 0px;
+-moz-transform: translate(0px, 2px);
+-webkit-transform: translate(0px, 2px);
+-o-transform: translate(0px, 2px);
+transform: translate(0px, 2px);
+}
+#C_pageBody .D_submit:hover,
+#C_pageBody .D_submit_grad:hover,
+#C_pageBody .primary:hover,
+#themePickerControls .primary:hover,
+#C_pageBody .button.primary:hover,
+#themePickerControls .button.primary:hover,
+#C_pageBody .button--primary:hover,
+#themePickerControls .button--primary:hover,
+#C_pageBody input[type="submit"].primary:hover,
+#themePickerControls input[type="submit"].primary:hover,
+#C_pageBody input[type="submit"].button--primary:hover,
+#themePickerControls input[type="submit"].button--primary:hover {
+background: #0988B3 !important;
+}
+
+/* }}} */
+
