@@ -11,11 +11,19 @@ bookApp.config(['$routeProvider',
         templateUrl: 'partials/angular-book-list.html',
         controller: 'BookListCtrl'
       }).
+      when('/book/add', {
+        templateUrl: 'partials/angular-book-add.html',
+        controller: 'BookAddCtrl'
+      }).
       when('/book/:id', {
         templateUrl: 'partials/angular-book-detail.html',
         controller: 'BookDetailCtrl'
       }).
-      otherwise({
-        redirectTo: '/book'
-      });
+      when('/book/edit/:id', {
+        templateUrl: 'partials/angular-book-edit.html',
+        controller: 'BookEditCtrl'
+      });//.
+      //otherwise({
+        //redirectTo: '/book'
+      //});
   }]);

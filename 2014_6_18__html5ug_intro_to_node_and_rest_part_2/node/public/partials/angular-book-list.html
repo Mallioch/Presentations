@@ -1,5 +1,9 @@
 <ul>
     <li ng-repeat="book in books">
-        <a href="#/book/{{book.id}}">{{book.title}}</a> - {{book.id}} - {{book.links.self.href}} - {{book.author}}
+        <a href="#/book/{{book.id}}">{{book.title}}</a>
+        - {{book.id}} - {{book.links.self.href}} - {{book.author}}
+        <a href="#/book/edit/{{book.id}}">edit</a>
     </li>
 </ul>
+
+<a href="#/book/add">new</a>

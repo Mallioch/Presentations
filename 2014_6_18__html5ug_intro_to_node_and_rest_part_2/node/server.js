@@ -100,7 +100,7 @@ server.put('/api/book/:id', function(req, res) {
         var collection  = db.collection('favoritebooks');
         collection.update(
             { _id: new ObjectId(req.params.id) },
-            { $set : { author: book.author} },
+            { $set : { author: book.author, title: book.title, year: book.year } },
             { w: 1 },
             function(err, result) {
                 console.log('after mongo put', err, result);
