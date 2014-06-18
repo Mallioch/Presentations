@@ -22,8 +22,8 @@ bookApp.config(['$routeProvider',
       when('/book/edit/:id', {
         templateUrl: 'partials/angular-book-edit.html',
         controller: 'BookEditCtrl'
-      });//.
-      //otherwise({
-        //redirectTo: '/book'
-      //});
+      }).
+      otherwise({
+        redirectTo: '/book'
+      });
   }]);

@@ -13,16 +13,48 @@ server.use(bodyParser());
 server.set('view engine', 'ejs');
 
 
+function serviceUnavailable(res) {
+    res.statusCode = 503;
+    res.json({ message: 'The service is unavailable. Please try again soon.' });
+    res.end();
+}
+
+function badRequest(res, message) {
+    res.statusCode = 400;
+    res.json({ message: message });
+    res.end();
+}
+
+function notFound(res) {
+    res.statusCode = 404;
+    res.end();
+}
+
 server.get('/api/book/:id', function(req, res) {
 
     mongoClient.connect(mongoPath, function(err, db) {
-        if(!err) {
-            console.log("We are connected");
+        if(err) {
+            serviceUnavailable(res);
+            return;
+        }
+
+
+        var objectId;
+        try {
+            objectId = new ObjectId(req.params.id);
+        } 
+        catch (e) {
+            badRequest(res, 'Invalid id');
+            return;
         }
 
         var collection  = db.collection('favoritebooks');
-        collection.findOne({ _id: new ObjectId(req.params.id) }, function(err, result) {
-            console.log('after mongo get', err, result);
+        collection.findOne({ _id:  objectId}, function(err, result) {
+
+            if (!result) {
+                notFound(res);
+                return;
+            }
 
             res.json(new Book(result._id, result.title, result.author, result.year));
             res.end();        
@@ -35,7 +67,8 @@ server.get('/api/book', function(req, res) {
     mongoClient.connect(mongoPath, function(err, db) {
         
         if(err) {
-            console.log("Bad stuff");
+            serviceUnavailable(res);
+            return;
         }
 
         var collection  = db.collection('favoritebooks');
@@ -57,7 +90,8 @@ server.post('/api/book', function(req, res) {
     mongoClient.connect(mongoPath, function(err, db) {
 
         if(err) {
-            console.log("Problem connecting");
+            serviceUnavailable(res);
+            return;
         }
 
         //Even though we could, we don't want to take everything from the request and dump it into Mongo.
@@ -75,8 +109,6 @@ server.post('/api/book', function(req, res) {
 
             res.json(201, book);
             res.end();        
-
-            console.log('201 Created');
         });
     });
 });
@@ -86,7 +118,8 @@ server.put('/api/book/:id', function(req, res) {
     mongoClient.connect(mongoPath, function(err, db) {
 
         if(err) {
-            console.log("Problem connecting");
+            serviceUnavailable(res);
+            return;
         }
 
         //Even though we could, we don't want to take everything from the request and dump it into Mongo.
@@ -103,7 +136,7 @@ server.put('/api/book/:id', function(req, res) {
             { $set : { author: book.author, title: book.title, year: book.year } },
             { w: 1 },
             function(err, result) {
-                console.log('after mongo put', err, result);
+
                 if (result === 1) {
 
                     //After the PUT we want to return a representation as the links and other state could have changed.
@@ -115,9 +148,8 @@ server.put('/api/book/:id', function(req, res) {
                         });                     
                 }
                 else {
-                    //TODO: What happens when it doesn't find the record? 0?
-                    console.log('bad things happened');
-                    res.end();
+                    notFound(res);
+                    return;
                 }
 
             });
@@ -131,7 +163,8 @@ server.delete('/api/book/:id', function(req, res) {
     mongoClient.connect(mongoPath, function(err, db) {
 
         if(err) {
-            console.log("Problem connecting");
+            serviceUnavailable(res);
+            return;
         }
 
         var collection  = db.collection('favoritebooks');
@@ -145,9 +178,8 @@ server.delete('/api/book/:id', function(req, res) {
                            
                 }
                 else {
-                    //TODO: What happens when it doesn't find the record? 0?
-                    console.log('bad things happened on delete');
-                    res.end();
+                    notFound(res);
+                    return;
                 }
 
             });

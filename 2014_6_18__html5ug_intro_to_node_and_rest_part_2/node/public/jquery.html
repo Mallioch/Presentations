@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html ng-app="bookApp">
+    <head>
+        <title>jQuery Implementation</title>
+        <link rel="Stylesheet" type="text/css" href="/style.css" />
+    </head>
+    <body>
+            <h1>jQuery Implementation</h1>
+
+            <div id="container">
+            </div>
+
+            <a href="#" id="add">add</a>
+
+            <script type="text/template" id="listTemplate">
+                <ul id="books">
+                <% books.forEach(function(book) { %>
+                    <li><%= book.title %> <a href="#" id="view" data-resource="<%= book.links.self.href %>">view</a> <a href="#" id="edit" data-resource="<%= book.links.self.href %>">edit</a></li>
+                <% }); %>
+                </ul>
+            </script>
+
+            <script type="text/template" id="editTemplate">
+                <form>
+
+                    <label>Title:</label>
+                    <input type='text' id="title" value="<%= title %>"/>
+
+                    <label>Author:</label>
+                    <input type='text' id="author" value="<%= author %>"/>
+
+                    <label>Year:</label>
+                    <input type='text' id="year" value="<%= year %>"/>
+
+                    <button type='submit' id="delete">Delete</button>
+                    <button type='submit' id="save">Save</button>
+                    
+                </form>
+            </script>
+
+            <script type="text/template" id="addTemplate">
+                <form>
+
+                    <label>Title:</label>
+                    <input type='text' id="title" />
+
+                    <label>Author:</label>
+                    <input type='text' id="author" />
+
+                    <label>Year:</label>
+                    <input type='text' id="year" />
+
+                    <button type='submit' id="save">Save</button>
+                    
+                </form>
+            </script>
+
+            <script type="text/template" id="detailTemplate">
+                <h2><%= title %></h2>
+                <h3><%= author %></h3>
+                <p><%= year %></p>
+            </script>
+
+            <script type="text/javascript" src="/js/jquery_2_1_1.js"></script>
+            <script type="text/javascript" src="/js/underscore_1_6_0.js"></script>
+            <script type="text/javascript" src="/js/jquery-implementation.js"></script>
+
+    </body>
+</html>
+
+
