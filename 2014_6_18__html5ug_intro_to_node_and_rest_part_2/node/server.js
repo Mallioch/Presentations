@@ -1,5 +1,4 @@
 var express = require('express');
-var ejs = require('ejs');
 var bodyParser = require('body-parser');
 var mongoClient = require('mongodb').MongoClient;
 var ObjectId = require('mongodb').ObjectID;
@@ -10,8 +9,11 @@ var server = express();
 
 server.use(express.static(__dirname + '/public'));
 server.use(bodyParser());
-server.set('view engine', 'ejs');
 
+server.use(function(req, res, next) {
+    console.log('you requested', req.url);
+    next();
+});
 
 function serviceUnavailable(res) {
     res.statusCode = 503;
@@ -134,7 +136,7 @@ server.put('/api/book/:id', function(req, res) {
         collection.update(
             { _id: new ObjectId(req.params.id) },
             { $set : { author: book.author, title: book.title, year: book.year } },
-            { w: 1 },
+            { w: 1 }, //I don't remember what this is for
             function(err, result) {
 
                 if (result === 1) {
