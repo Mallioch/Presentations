@@ -17,5 +17,15 @@ namespace FWDNUG.Controllers
         {
             return View();
         }
+
+        public ActionResult About()
+        {
+            return View();
+        }
+
+        public ActionResult Notes()
+        {
+            return View();
+        }
     }
 }

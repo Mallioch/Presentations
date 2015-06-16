@@ -8,14 +8,22 @@
     <link type="text/css" rel="stylesheet" href="~/content/main.css" />
 </head>
 <body>
-    <h1>My Cool Home Page</h1>
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/home/todo">To-Do App</a></li>
-        </ul>
-    </nav>
+    <div class="wrapper">
+        <header>
+            <h1>Way Cool Home Page</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/home/todo">To-Do App</a></li>
+                    <li><a href="/home/notes">Notes</a></li>
+                    <li><a href="/home/about">About me</a></li>
+                </ul>
+            </nav>
+        </header>
 
-    @RenderBody()
+        <div class="content">
+            @RenderBody()
+        </div>
+    </div>
 </body>
 </html>

@@ -47,7 +47,7 @@ gulp.task('watch-webpack', function () {
 gulp.task('sass', function () {
     gulp.src('assets/sass/main.scss')
     .pipe(sourcemaps.init())
-    .pipe(sass({ style: 'compressed' }))
+    .pipe(sass({ style: 'compressed' }).on('error', sass.logError))
     .pipe(sourcemaps.write('maps'))
     .pipe(gulp.dest('Content'))
 });
