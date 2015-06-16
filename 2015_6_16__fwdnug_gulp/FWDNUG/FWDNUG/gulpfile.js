@@ -7,11 +7,14 @@ var shell = require('gulp-shell');
 var sourcemaps = require('gulp-sourcemaps');
 var typescript = require('gulp-typescript');
 var webpack = require('gulp-webpack');
+var eventStream = require('event-stream');
+
 
 gulp.task('default', ['css', 'js', 'sass', 'react', 'watch-css', 'watch-sass', 'watch-js', 'watch-react']);
 
 gulp.task('css', function () {
     gulp.src(['assets/css/style.css', 'assets/css/calc.css'])
+        .pipe(translate())
         .pipe(sourcemaps.init())
         .pipe(concat('all.css'))
         .pipe(minifyCss())
@@ -92,3 +95,13 @@ gulp.task('ts', function () {
 });
 
 gulp.task('cmd', shell.task(['dosomething.bat']));
+
+
+function translate() {
+    function transform(file, callback) {
+        file.contents = new Buffer(file.contents.toString().replace('[$Yo$]', 'yo dawg'));
+
+        callback(null, file);
+    }
+    return eventStream.map(transform);
+}

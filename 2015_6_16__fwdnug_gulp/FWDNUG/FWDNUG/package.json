@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "event-stream": "^3.3.1",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.5.2",
     "gulp-minify-css": "^1.1.6",
