@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Notes</title>
+</head>
+<body>
+    <h1>Notes</h1>
+
+    <h2>Node</h2>
+
+    <p>Gulp is built on Node. So you should understand Node. When a lot of people think about Node,
+    they think "Just another web stack." Wrong. Imagine is you mentioned the word ".NET" to someone and they said
+    ".NET is just another web framework". As a .NET developer, you know that .NET is much greater than a web framework
+    (like ASP.NET). Though Node is dissimilar than .NET an numerous ways, understand that Node.js is not just another
+    web framework. And if you say that, someone who knows Node may call you on it and you'll look kinda dumb.</p>
+
+    <p>This is how I like to think about Node. Someone took the V8 JavaScript engine of Chrome and decided to make
+    an executable. It is true that the executable they made for node has excellent capabilities for creating a
+    webserver, but what they really did is make an executable that gives you the ability to do file IO type work,
+    networking, cryptography etc. In other words, a library for general stuff.</p>
+
+    <p>Philosophy on what's built-in and what isn't.</p>
+
+    <p>When you install Node, you also get NPM, which is Node's package manager. Think of it like the Nuget of Node.</p>
+
+    <p>Install gulp</p>
+
+    <p>Create gulp file</p>
+
+    <p>Create a default task.</p>
+
+    <p>Two types of task, those that define a task or those that define a series of tasks</p>
+
+    <h2>Style</h2>
+    
+    <p>First, I need to style some things. I can create a single file and that works, but it would be better if 
+    we could split files up. So we can do that with gulp.</p>
+
+<pre>
+gulp.task('css', function () {
+    gulp.src(['assets/css/style.css', 'assets/css/calc.css'])
+        .pipe(concat('all.css'))
+        .pipe(gulp.dest('Content'))
+});
+</pre>
+
+    <p>Discuss streaming</p>
+
+    <h2>Streaming</h2>
+
+<pre>
+gulp.task('css', function () {
+    gulp.src(['assets/css/style.css', 'assets/css/calc.css'])
+        .pipe(concat('all.css'))
+        <b>.pipe(minifyCss())</b>
+        .pipe(gulp.dest('Content'));
+});
+</pre>
+
+    <h2>Sourcemaps</h2>
+
+<pre>
+gulp.task('css', function () {
+    gulp.src(['assets/css/style.css', 'assets/css/calc.css'])
+        .pipe(sourcemaps.init())
+        .pipe(concat('all.css'))
+        .pipe(minifyCss())
+        .pipe(sourcemaps.write('maps'))
+        .pipe(gulp.dest('Content'));
+</pre>
+
+    <h2>JavaScript</h2>
+
+    <p>If the order doesn't matter, you don't have to specify every file and can use wildcards. For my plain js,
+    this will work fine.</p>
+
+<pre>
+gulp.task('js', function () {
+    gulp.src('assets/js/**/*.js')
+        .pipe(concat('all.js'))
+        .pipe(gulp.dest('Content'));
+});
+</pre>
+
+    <h2>Watching</h2>
+
+<pre>
+gulp.task('watch-css', function () {
+    gulp.watch('assets/css/**/*.css', ['css'])
+});
+</pre>
+
+    <h2>Sass</h2>
+
+    <p>!!benefits</p>
+<pre>
+gulp.task('sass', function () {
+    gulp.src('assets/sass/main.scss')
+    .pipe(sourcemaps.init())
+    .pipe(sass({ style: 'compressed' }))
+    .pipe(sourcemaps.write('maps'))
+    .pipe(gulp.dest('Content'))
+});
+</pre>
+
+<pre>
+gulp.task('watch-sass', function () {
+    gulp.watch('assets/sass/**/*.scss', ['sass'])
+});
+</pre>
+
+    <h2>Unit Tests</h2>
+
+<pre>
+gulp.task('js-tests', function () {
+    gulp.src('assets/mocha/**/*.js')
+        .pipe(mocha({ reporter: 'nyan'}));
+});
+</pre>
+
+    <p>It would be best if we could just watch the js files and whenever they change, run some tests. Easy.</p>
+
+<pre>
+gulp.task('watch-js', function () {
+    gulp.watch('assets/js/**/*.js', ['js', 'js-tests']);
+});
+</pre>
+
+    <h2>commonJs and webpack</h2>
+
+    <p>!!commonjs and assets</p>
+
+<pre>
+gulp.task('webpack', function () {
+    gulp.src('assets/webpack/**/webpack.js')
+        .pipe(webpack({
+            output: {
+                filename: 'webpack.js'
+            }
+        }))
+        .pipe(gulp.dest('Content'));
+});
+</pre>
+
+    <h2>React</h2>
+
+<pre>
+gulp.task('react', function () {
+    gulp.src('assets/react/to-do-app.js')
+        .pipe(webpack({
+            output: {
+                filename: 'reactapp.js'
+            },
+            module: {
+                loaders: [
+                    { test: /\.js$/, loader: "jsx-loader?harmony" }
+                ]
+            }
+        }))
+        .pipe(gulp.dest('Content'));
+});
+</pre>
+
+<pre>
+gulp.task('watch-react', function () {
+    gulp.watch('assets/react/**/*.js', ['react'])
+});
+</pre>
+
+    <h2>Typescript</h2>
+
+gulp.task('ts', function () {
+    gulp.src('assets/ts/calc.ts')
+        .pipe(typescript({
+            out: 'calc-ts.js'
+        }))
+        .pipe(gulp.dest('content'))
+});
+
+    <h2>Run a command line script</h2>
+
+<pre>
+gulp.task('cmd', shell.task(['dosomething.bat']));
+</pre>
+
+    <p>bower</p>
+    <p>custom gulp plugin</p>
+
+
+
+
+</body>
+</html>
