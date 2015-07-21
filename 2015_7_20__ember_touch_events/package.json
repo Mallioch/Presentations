@@ -1,0 +1,28 @@
+{
+  "name": "touch-events-meetup",
+  "version": "1.0.0",
+  "description": "Sample site for the Ember Dallas meetup",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mallioch/touch-events-meetup.git"
+  },
+  "keywords": [
+    "browser",
+    "touch",
+    "events"
+  ],
+  "author": "Eric Sowell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Mallioch/touch-events-meetup/issues"
+  },
+  "homepage": "https://github.com/Mallioch/touch-events-meetup",
+  "dependencies": {
+    "express": "^4.13.1"
+  }
+}
