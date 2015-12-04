@@ -1,0 +1,10 @@
+﻿.calc {
+  border: solid 2px #1c244c;
+  margin-top: 20px;
+  padding: 23px;
+}
+
+.calc button {
+  display: block;
+  margin-top: 20px;
+}

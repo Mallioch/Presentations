@@ -1,0 +1,12 @@
+
+$primary-theme-color: #1c244c;
+$primary-theme-color-medium: lighten($primary-theme-color, 20%);
+$primary-theme-color-light: lighten($primary-theme-color, 60%);
+
+$offset-theme-color: #FFF;
+
+$heading-font: Helvetica, Verdana, sans-serif;
+$interface-font: $heading-font;
+$big-font-size: 2.5em;
+$medium-font-size: $big-font-size * .75;
+$primary-font-size: $big-font-size * .50;

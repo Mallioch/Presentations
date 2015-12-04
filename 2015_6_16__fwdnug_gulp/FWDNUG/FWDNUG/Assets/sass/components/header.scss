@@ -1,0 +1,19 @@
+@import "./../_variables.scss";
+
+header {
+    background-color: $primary-theme-color;
+    color: $offset-theme-color;
+    padding: 20px;
+
+    nav {
+        li {
+            display: inline-block;
+            font-family: $heading-font;
+            margin: 25px 20px 5px 0;
+        }
+
+        a {
+            color: $offset-theme-color;
+        }
+    }
+}

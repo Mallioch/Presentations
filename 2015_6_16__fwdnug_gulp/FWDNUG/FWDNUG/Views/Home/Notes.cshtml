@@ -1,0 +1,342 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Notes</h1>
+
+<p>
+    These notes are for a meeting of the Fort Worth .NET User Group. If you weren't there for the meeting you might
+    be able to find something useful there but this will certainly be lacking some of the context that the attendees
+    would have, so YMMV.
+</p>
+
+<p>
+    Our goal today is to learn how we can build a great development workflow with Gulp. To do this, we're
+    going to need to hit a few points. First, we need to understand Node.js and NPM, because Gulp is built on
+    these. Second, we need to understand how to use Gulp and its various plugins. Third, we'll see how we can use gulp
+    to create custom, flexible web development workflows.
+</p>
+
+<h2>Node</h2>
+
+<p>
+    Gulp is built on Node. So you should understand Node. When a lot of people think about Node,
+    they think "Just another web stack." Wrong. Imagine is you mentioned the word ".NET" to someone and they said
+    ".NET is just another web framework". As a .NET developer, you know that .NET is much greater than a web framework
+    (like ASP.NET). Though Node is dissimilar than .NET an numerous ways, understand that Node.js is not just another
+    web framework.
+</p>
+
+<p>
+    This is how I like to think about Node. Someone took the V8 JavaScript engine of Chrome and decided to make
+    an executable. It is true that the executable they made for node has excellent capabilities for creating a
+    webserver, but what they really did is make an executable that gives you the ability to do file IO type work,
+    networking, cryptography etc. In other words, a library for general stuff.
+</p>
+
+<p>
+    Node is general-purpose but their philosophy is much different than the philosophy has been historically with
+    .NET. The goal of .NET has been to provide a huge runtime and set of libraries on install. The goal of Node is
+    the exact opposite. They have a basic set of libraries that come with node to handle things like processes, file i/o,
+    net and other things. The basic install gives you a lot of functionality but nothing compared to a basic install of
+    the .NET framework.
+</p>
+
+<p>
+    When you install Node, you also get NPM, which is Node's package manager. Think of it like the Nuget of Node.
+    Instead of trying to deliver a huge amount of stuff in the basic install, they give you NPM and the community
+    builds everything outside of the core.
+</p>
+
+<p>
+    To install gulp, you'll use npm. Some NPM packages are installed globally to give you global functions and whatnot
+    that you can use. Some are installed locally only, because the project you are using just needs to reference it. In
+    some cases the package should be installed both globally and locally, because you need the global commands that you
+    get with a global install and the local files. Gulp is one of those. You'll install it like this on the command
+    line.
+</p>
+
+<pre>
+npm install gulp -g
+npm install gulp
+</pre>
+
+<p>
+    Next you'll need a gulpfile, which is what you use to configure gulp. The most basic one looks like this
+    (and it doesn't actually do anything).
+</p>
+
+<pre>
+var gulp = require('gulp');
+</pre>
+
+<p>We'll talk about this "require" business later on. An empty gulp file does nothing, so you need a gulp task.</p>
+
+<pre>
+var gulp = require('gulp');
+gulp.task('default', function() {
+    console.log('you ran the default gulp task');
+});
+</pre>
+
+<p>
+    If you are in the root of the application and type <code>gulp</code> (assuming you have followed the steps above)
+    in the terminal, it will run that task. The string at the beginning is the name of the task. The thing that comes
+    afterwards (in this case, a function) is what is executed. You can also create other tasks and execute them.
+</p>
+
+<pre>
+var gulp = require('gulp');
+gulp.task('default', function() {
+    console.log('you ran the default gulp task');
+});
+gulp.task('other-task', function() {
+    console.log('you ran the other task');
+});
+</pre>
+
+<p>You would execute the other task by typing <code>gulp other-task</code> in the terminal.</p>
+
+<p>Some tasks define their own functionality. Some tasks exist only to group other tasks together.</p>
+
+<pre>
+var gulp = require('gulp');
+gulp.task('default', function() {
+    console.log('you ran the default gulp task');
+});
+gulp.task('other-task', function() {
+    console.log('you ran the other task');
+});
+gulp.task('grouper', ['default', 'other-task']);
+</pre>
+
+<h2>Style</h2>
+
+<p>
+    Let's do something real. First, I need to style some things on our sample site. I can create a single css file
+    and that works, but it would be better if
+    we could split files up. So we can do that with gulp.
+</p>
+
+<pre>
+gulp.task('css', function () {
+    gulp.src(['assets/css/style.css', 'assets/css/calc.css'])
+        .pipe(concat('all.css'))
+        .pipe(gulp.dest('Content'))
+});
+</pre>
+
+<p>
+    Gulp calls itself a <em>streaming</em> build system. You can see that in the above. First, the files are gathered
+    then they are piped/streamed through another process for concatenation and then piped to the proper destination.
+    You get the most out of gulp when you learn how to leverage this.
+</p>
+
+<h2>Minifying</h2>
+
+<p>
+    Here we add minifying to the stream, so it gathers the files, concatenates them, then minifies them, then writes
+    the output.
+</p>
+
+<pre>
+gulp.task('css', function () {
+    gulp.src(['assets/css/style.css', 'assets/css/calc.css'])
+        .pipe(concat('all.css'))
+<b>.pipe(minifyCss())</b>
+        .pipe(gulp.dest('Content'));
+});
+</pre>
+
+<h2>Sourcemaps</h2>
+
+<p>Let's put source maps into the mix!</p>
+
+<pre>
+gulp.task('css', function () {
+    gulp.src(['assets/css/style.css', 'assets/css/calc.css'])
+        .pipe(sourcemaps.init())
+        .pipe(concat('all.css'))
+        .pipe(minifyCss())
+        .pipe(sourcemaps.write('maps'))
+        .pipe(gulp.dest('Content'));
+</pre>
+
+<h2>JavaScript</h2>
+
+<p>
+    If the order doesn't matter, you don't have to specify every file and can use wildcards. For my plain js,
+    this will work fine.
+</p>
+
+<pre>
+gulp.task('js', function () {
+    gulp.src('assets/js/**/*.js')
+        .pipe(concat('all.js'))
+        .pipe(gulp.dest('Content'));
+});
+</pre>
+
+<h2>Watching</h2>
+
+<p>
+    Going back to the command line all the time gets tedious. You can setup a watcher to execute tasks when
+    files change.
+</p>
+
+<pre>
+gulp.task('watch-css', function () {
+    gulp.watch('assets/css/**/*.css', ['css'])
+});
+</pre>
+
+<h2>Sass</h2>
+
+<p>But why do CSS? Use Sass instead!</p>
+<pre>
+gulp.task('sass', function () {
+    gulp.src('assets/sass/main.scss')
+    .pipe(sourcemaps.init())
+    .pipe(sass({ style: 'compressed' }))
+    .pipe(sourcemaps.write('maps'))
+    .pipe(gulp.dest('Content'))
+});
+</pre>
+
+<pre>
+gulp.task('watch-sass', function () {
+    gulp.watch('assets/sass/**/*.scss', ['sass'])
+});
+</pre>
+
+<p>Sometimes there are errors that need to be caught. Fortunately, packages often have steps to deal with this.</p>
+
+<pre>
+gulp.task('sass', function () {
+    gulp.src('assets/sass/main.scss')
+    .pipe(sourcemaps.init())
+    .pipe(sass({ style: 'compressed' })<b>.on('error', sass.logError)</b>)
+    .pipe(sourcemaps.write('maps'))
+    .pipe(gulp.dest('Content'))
+});
+</pre>
+
+<h2>Unit Tests</h2>
+
+<p>Of course you want unit tests. Here is how you would run unit tests using gulp and mocha.</p>
+
+<pre>
+gulp.task('js-tests', function () {
+    gulp.src('assets/mocha/**/*.js')
+        .pipe(mocha({ reporter: 'nyan'}));
+});
+</pre>
+
+<p>It would be best if we could just watch the js files and whenever they change, run some tests. Easy.</p>
+
+<pre>
+gulp.task('watch-js', function () {
+    gulp.watch('assets/js/**/*.js', ['js', 'js-tests']);
+});
+</pre>
+
+<h2>commonJs and webpack</h2>
+
+<p>
+    Back to that require function that we used above. Node uses what is called the commonjs method of loading
+    js files. On the server with Node, this is built-in. But it isn't in the browsers. But you can use things
+    like webpack to get you that functionality (and it does a great number of other things to).
+</p>
+
+<pre>
+gulp.task('webpack', function () {
+    gulp.src('assets/webpack/**/webpack.js')
+        .pipe(webpack({
+            output: {
+                filename: 'webpack.js'
+            }
+        }))
+        .pipe(gulp.dest('Content'));
+});
+</pre>
+
+<h2>React</h2>
+
+<p>On the topic of file transformations, what about react? Here you go.</p>
+
+<pre>
+gulp.task('react', function () {
+    gulp.src('assets/react/to-do-app.js')
+        .pipe(webpack({
+            output: {
+                filename: 'reactapp.js'
+            },
+            module: {
+                loaders: [
+                    { test: /\.js$/, loader: "jsx-loader?harmony" }
+                ]
+            }
+        }))
+        .pipe(gulp.dest('Content'));
+});
+</pre>
+
+<pre>
+gulp.task('watch-react', function () {
+    gulp.watch('assets/react/**/*.js', ['react'])
+});
+</pre>
+
+<h2>Typescript</h2>
+
+<p>And some people like Typescript.</p>
+
+<pre>
+gulp.task('ts', function () {
+    gulp.src('assets/ts/calc.ts')
+        .pipe(typescript({
+            out: 'calc-ts.js'
+        }))
+        .pipe(gulp.dest('content'))
+});
+</pre>
+
+<h2>Run a command line script</h2>
+
+<p>
+    Sometimes what you need to call doesn't have a gulp plugin. You can always just call shell tasks using the
+    gulp plugin <code>gulp-shell</code>.
+</p>
+
+<pre>
+gulp.task('cmd', shell.task(['dosomething.bat']));
+</pre>
+
+<h2>Custom Gulp Streams</h2>
+
+<p>
+    What if I want to write my own custom stream? It's actually not that hard. This one replaces the text "[$Yo$]"
+    with the text "yo dawg".
+</p>
+
+<pre>
+var eventStream = require('event-stream');
+function translate() {
+    function transform(file, callback) {
+        file.contents = new Buffer(file.contents.toString().replace('[$Yo$]', 'yo dawg'));
+        callback(null, file);
+    }
+    return eventStream.map(transform);
+}
+gulp.task('css', function () {
+    gulp.src(['assets/css/style.css', 'assets/css/calc.css'])
+<b>.pipe(translate())</b>
+        .pipe(sourcemaps.init())
+        .pipe(concat('all.css'))
+        .pipe(minifyCss())
+        .pipe(sourcemaps.write('maps'))
+        .pipe(gulp.dest('Content'));
+});
+</pre>
+
+<p>You can use this idea and do any transformations you want to any type of file along the way. Neato.</p>

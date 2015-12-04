@@ -1,0 +1,1 @@
+echo This is a message from a bat file, yo

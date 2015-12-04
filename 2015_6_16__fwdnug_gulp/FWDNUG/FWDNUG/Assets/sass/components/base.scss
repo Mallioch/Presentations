@@ -1,0 +1,41 @@
+﻿@import "./../_variables.scss";
+
+h1 { 
+    font-size: $big-font-size;
+}
+
+h2 {
+    font-family: $heading-font;
+    font-size: $medium-font-size;
+    margin-top: $medium-font-size;
+}
+
+p {
+    color: $primary-theme-color;
+    font-size: $primary-font-size;
+    line-height: 1.4em;
+    margin-top: $primary-font-size;
+}
+
+pre {
+    background-color: $primary-theme-color-light;
+    border: solid 1px $primary-theme-color;
+    font-family: monospace;
+    font-size: $primary-font-size;
+    line-height: 1.4em;
+    margin-top: 10px;
+    padding: 8px;
+}
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.content {
+    padding: 0 20px;
+
+    h1 {
+        margin-top: $big-font-size;
+    }
+}
