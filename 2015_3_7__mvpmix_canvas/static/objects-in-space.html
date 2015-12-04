@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <style>
+            canvas {
+                border: solid 1px #000;
+                float: left;
+            }
+
+            .controlPanel {
+                border: solid 1px #000;
+                float: left;
+                width: 100px;
+            }
+
+            button {
+                height: 50px;
+                margin: 10px;
+                width: 80px;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <canvas id="mainCanvas" width="600" height="600"></canvas>
+
+        <div class="controlPanel">
+            <button id="baselineButton">baseline</button>
+            <button id="verticalDescenderButton">vertical descender</button>
+            <button id="wordButton">word</button>
+            <button id="spriteButton">sprite</button>
+            <button id="blackAndWhiteButton">B&amp;W</button>
+        </div>
+
+        <script type="text/javascript">
+            window.Diag = {};
+        </script>
+        <script type="text/javascript" src="drawing-space.js"></script>
+        <script type="text/javascript" src="canvas-object.js"></script>
+        <script type="text/javascript" src="sprite.js"></script>
+        <script type="text/javascript" src="vertical-descender.js"></script>
+        <script type="text/javascript" src="baseline.js"></script>
+        <script type="text/javascript" src="word.js"></script>
+        <script type="text/javascript" src="objects-in-space.js"></script>
+    </body>
+
+
+</html>
