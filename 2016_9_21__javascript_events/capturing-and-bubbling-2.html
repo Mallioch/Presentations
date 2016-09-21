@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head lang="en">
+    <meta charset="utf-8">
+    <title>Events - Capturing and Bubbling #2</title>
+
+    <style>
+      body {
+        background-color: #EEE;
+        padding: 15px;
+      }
+
+      #inner {
+        background-color: yellow;
+        overflow: auto;
+        padding: 15px;
+      }
+
+      .half {
+        float: left;
+        padding: 5px 2%;
+        text-align: center;
+        width: 46%;
+      }
+
+      .first {
+        background-color: pink;
+      }
+
+      .second {
+        background-color: purple;
+      }
+
+
+    </style>
+
+  </head>
+
+  <body>
+    <div id="inner">
+      <div class="half first">
+        <button>click me</button>
+      </div>
+
+      <div class="half second">
+        <button>click me 2</button>
+      </div>
+    </div>
+  </body>
+
+  <script>
+
+
+    document.body.addEventListener('click', function(evt) {
+      console.log('body         ', 'capt', evt.currentTarget, evt.target);
+    }, true);
+
+    document.querySelector('#inner').addEventListener('click', function(evt) {
+      console.log('#inner       ', 'capt', evt.currentTarget, evt.target);
+    }, true);
+
+    document.querySelector('.first').addEventListener('click', function(evt) {
+      console.log('.first       ', 'capt', evt.currentTarget, evt.target);
+    }, true);
+
+    document.querySelector('.second').addEventListener('click', function(evt) {
+      console.log('.second       ', 'capt', evt.currentTarget, evt.target);
+    }, true);
+
+    document.querySelector('.first button').addEventListener('click', function(evt) {
+      console.log('.first button', 'capt', evt.currentTarget, evt.target);
+    }, true);
+
+    document.querySelector('.second button').addEventListener('click', function(evt) {
+      console.log('.second button', 'capt', evt.currentTarget, evt.target);
+    }, true);
+
+
+
+
+    document.querySelector('.second button').addEventListener('click', function(evt) {
+      console.log('.second button', 'bubb', evt.currentTarget, evt.target);
+    }, false);
+
+    document.querySelector('.first button').addEventListener('click', function(evt) {
+      console.log('.first button', 'bubb', evt.currentTarget, evt.target);
+    }, false);
+
+    document.querySelector('.first').addEventListener('click', function(evt) {
+      console.log('.first       ', 'bubb', evt.currentTarget, evt.target);
+    }, false);
+
+    document.querySelector('.second').addEventListener('click', function(evt) {
+      console.log('.second       ', 'bubb', evt.currentTarget, evt.target);
+    }, false);
+
+    document.querySelector('#inner').addEventListener('click', function(evt) {
+      console.log('#inner       ', 'bubb', evt.currentTarget, evt.target);
+    }, false);
+
+    document.body.addEventListener('click', function(evt) {
+      console.log('body         ', 'bubb', evt.currentTarget, evt.target);
+    }, false);
+
+
+
+
+
+
+
+  </script>
+
+
+</html>

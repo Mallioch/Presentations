@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head lang="en">
+    <meta charset="utf-8">
+    <title>Events - The Landing Page</title>
+    <link href="style.css" rel="stylesheet" />
+
+    <style>
+
+      ul {
+        list-style-type: none;
+        margin: 0;
+      }
+
+      li {
+        float: left;
+        position: relative;
+        width: 150px;
+      }
+
+      #primary > li {
+        background-color: #000;
+        color: #FFF;
+
+      }
+
+      #secondary-first, #secondary-second {
+        background-color: #00F;
+        color: #FFF;
+        position: absolute;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      #primary > li:hover ul, .open > ul {
+        display: block;
+        left: 0;
+        top: 28px;
+      }
+
+    </style>
+  </head>
+
+  <body>
+
+    <h1>Menu: Hover- and Click-able</h1>
+
+    <p>I'm not sure this is a good idea but...</p>
+
+    <ul id="primary">
+      <li class="top-level">
+        First
+        <ul id="secondary-first" class="hidden">
+          <li>#1 - Sub item</li>
+          <li>#1 - Sub item</li>
+        </ul>
+      </li>
+      <li class="top-level">
+        Second
+        <ul id="secondary-second" class="hidden">
+          <li>#2 - Sub item</li>
+          <li>#2 - Sub item</li>
+        </ul>
+      </li>
+    </ul>
+
+
+
+
+
+
+    <script>
+      var primary = document.querySelector('#primary');
+      primary.addEventListener('click', function(evt) {
+
+        if (evt.target.classList.contains('top-level')) {
+          evt.target.classList.toggle('open');
+        }
+
+      });
+    </script>
+
+  </body>
+
+</html>

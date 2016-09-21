@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head lang="en">
+    <meta charset="utf-8">
+    <title>Events - No Event Delegation</title>
+    <link href="style.css" rel="stylesheet" />
+
+    <style>
+    ul {
+      background-color: #EEE;
+    }
+
+    .toggled {
+      background-color: #000;
+      color: #FFF;
+    }
+    </style>
+  </head>
+
+  <body>
+
+    <button>add list item</button>
+
+    <ul>
+      <li>item</li>
+      <li>item</li>
+      <li>item</li>
+      <li>item</li>
+      <li>item</li>
+    </ul>
+
+
+    <script>
+
+    function toggle(evt) {
+      evt.target.classList.toggle('toggled');
+    }
+
+    var items = document.querySelectorAll('li');
+    for (var i = 0; i < items.length; i++) {
+      var item = items[i];
+      item.addEventListener('click', toggle);
+    };
+
+    var button = document.querySelector('button');
+    button.addEventListener('click', function() {
+      var ul = document.querySelector('ul');
+      var li = document.createElement('li');
+      li.textContent = 'item';
+      ul.appendChild(li);
+    });
+
+
+
+    </script>
+
+  </body>
+
+</html>

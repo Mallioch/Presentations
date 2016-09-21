@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head lang="en">
+    <meta charset="utf-8">
+    <title>Events - Toucher</title>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+
+    <div id="touch-this" style="border: solid 1px #000; padding: 20px;">touch this</div>
+
+    <script>
+      var element = document.getElementById('touch-this');
+
+      element.addEventListener('mousedown', function () { console.log('mousedown'); });
+      element.addEventListener('mousemove', function () { console.log('mousemove'); });
+      element.addEventListener('mouseup', function () { console.log('mouseup'); });
+      element.addEventListener('click', function () { console.log('click'); });
+      element.addEventListener('touchstart', function () { console.log('touchstart'); });
+      element.addEventListener('touchmove', function () { console.log('touchmove'); });
+      element.addEventListener('touchend', function () { console.log('touchend'); });
+      element.addEventListener('touchcancel', function () { console.log('touchcancel'); });
+      element.addEventListener('MSPointerDown', function () { console.log('MSPointerDown'); });
+      element.addEventListener('MSPointerUp', function () { console.log('MSPointerUp'); });
+      element.addEventListener('MSPointerEnter', function () { console.log('MSPointerEnter'); });
+      element.addEventListener('MSPointerCancel', function () { console.log('MSPointerCancel'); });
+      element.addEventListener('MSPointerLeave', function () { console.log('MSPointerLeave'); });
+      element.addEventListener('MSPointerMove', function () { console.log('MSPointerMove'); });
+      element.addEventListener('MSPointerOut', function () { console.log('MSPointerOut'); });
+      element.addEventListener('MSPointerLeave', function () { console.log('MSPointerLeave'); });
+      element.addEventListener('MSPointerOver', function () { console.log('MSPointerOver'); });
+    </script>
+
+  </body>
+
+</html>

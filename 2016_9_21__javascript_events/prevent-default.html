@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head lang="en">
+    <meta charset="utf-8">
+    <title>Events - Prevent Default</title>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+
+    <h1>Prevent Default</h1>
+
+    <a href="http://google.com">Go to Google (not really)</a>
+
+    <script>
+      var a = document.querySelector('a');
+      a.addEventListener('click', function(evt) {
+        evt.preventDefault();
+        console.log('in ur anchor, preventin ur defaultz');
+      });
+    </script>
+
+  </body>
+
+</html>

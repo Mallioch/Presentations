@@ -1,0 +1,14 @@
+li {
+  margin: 10px 0;
+  padding: 5px;
+}
+
+#main-menu li {
+  background-color: #EEE;
+  border: solid 1px #CCC;
+}
+
+#main-menu h2 {
+  font-size: 1.2em;
+  margin: 0;
+}
