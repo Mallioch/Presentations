@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head lang="en">
+    <meta charset="utf-8">
+    <title>Events - Stop Propagation</title>
+    <link href="style.css" rel="stylesheet" />
+
+    <style>
+    ul {
+      background-color: #EEE;
+    }
+
+    .done {
+      text-decoration: line-through;
+    }
+    </style>
+  </head>
+
+  <body>
+
+    <h1>Stopping Propagation</h1>
+
+    <ul>
+      <li>item #1<button class="delete">delete</button></li>
+      <li>item #2<button class="delete">delete</button></li>
+      <li>item #3<button class="delete">delete</button></li>
+      <li>item #4<button class="delete">delete</button></li>
+      <li>item #5<button class="delete">delete</button></li>
+    </ul>
+
+
+    <script src="jquery_3_1_0.js"></script>
+    <script>
+
+    function deleteIt(evt) {
+      console.log('deleting');
+      evt.stopPropagation();
+      $(evt.target).parent().remove();
+    }
+
+    function markItDone(evt) {
+      console.log('mark it done');
+      $(evt.target).toggleClass('done');
+    }
+
+    $('ul').on('click', '.delete', deleteIt);
+    $('ul').on('click', 'li', markItDone);
+
+    </script>
+
+  </body>
+
+</html>

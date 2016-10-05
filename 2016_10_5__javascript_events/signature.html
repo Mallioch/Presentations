@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head lang="en">
+    <meta charset="utf-8">
+    <title>Events - Signature</title>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+
+  <canvas id="theCanvas" height="300" width="960" style="-ms-touch-action: none; border: solid 1px #000;">
+  </canvas>
+
+<script>
+
+  var canvas, context, touches = [], isWriting = false, lastContactPoint, currentTouchId;
+
+  var requestAnimFrame = window.requestAnimationFrame ||
+    window.mozRequestAnimationFrame ||
+    window.webkitRequestAnimationFrame ||
+    window.msRequestAnimationFrame ||
+    function (callback) {
+      window.setTimeout(callback, 1000 / 60);
+    };
+
+  function draw() {
+
+    context.fillStyle = '#FFF';
+    context.fillRect(0, 0, canvas.width, canvas.height);
+
+    var i;
+    for (i = 0; i < touches.length; i++) {
+      drawSegment(touches[i]);
+    }
+
+    requestAnimFrame(draw);
+  }
+
+  function drawSegment(segment) {
+    var i, firstTouch = true;
+    for (i = 0; i < segment.length; i++) {
+      var touch = segment[i];
+
+      if (firstTouch) {
+        firstTouch = false;
+        context.beginPath();
+        context.moveTo(touch.x, touch.y);
+        continue;
+      }
+
+      context.lineTo(touch.x, touch.y);
+    }
+
+    context.strokeStyle = '#000';
+    context.stroke();
+  }
+
+  function addTouch(position) {
+    var touchArray = touches[touches.length - 1];
+    touchArray.push(position);
+  }
+
+  function load() {
+    console.log('window load');
+
+    canvas = document.getElementById('theCanvas');
+    context = canvas.getContext('2d');
+
+    requestAnimFrame(function () {
+      draw();
+    });
+
+    canvas.addEventListener('touchstart', function (evt) {
+      evt.preventDefault();
+      currentTouchId = evt.touches[0].identifier;
+      console.log('touch id', currentTouchId, evt);
+      touches.push([]);
+
+      position = getPositionFromTarget(evt.touches[0], evt.touches[0].target);
+      addTouch(position);
+    });
+
+    canvas.addEventListener('touchmove', function (evt) {
+      evt.preventDefault();
+
+      var i, position;
+      for (i = 0; i < evt.changedTouches.length; i++) {
+        if (evt.changedTouches[i].identifier !== currentTouchId)
+          continue;
+        position = getPositionFromTarget(evt.changedTouches[i], evt.changedTouches[i].target);
+        addTouch(position);
+      }
+    });
+
+    if (window.navigator.msPointerEnabled) {
+      canvas.addEventListener('MSPointerDown', function (evt) {
+        if (currentTouchId)
+          return;
+
+        currentTouchId = evt.pointerId;
+        touches.push([]);
+        var position = getPositionFromTarget(evt, evt.target);
+        addTouch(position);
+      });
+
+      canvas.addEventListener('MSPointerMove', function (evt) {
+        if (evt.pointerId !== currentTouchId)
+          return;
+
+        var position = getPositionFromTarget(evt, evt.target);
+        addTouch(position);
+      });
+
+      canvas.addEventListener('MSPointerUp', function (evt) {
+        currentTouchId = undefined;
+      });
+    }
+    else {
+      canvas.addEventListener('mousedown', function (evt) {
+        var position = getPositionFromTarget(evt, evt.target);
+        touches.push([]);
+        addTouch(position);
+        isWriting = true;
+      });
+
+      canvas.addEventListener('mousemove', function (evt) {
+        if (isWriting) {
+          var position = getPositionFromTarget(evt, evt.target);
+          addTouch(position);
+          console.log(position);
+        }
+      });
+
+      canvas.addEventListener('mouseup', function (evt) {
+        var position = getPositionFromTarget(evt, evt.target);
+        addTouch(position);
+        isWriting = false;
+      });
+    }
+
+  }
+
+  window.addEventListener('load', load);
+
+  function drawCircle(x, y) {
+    context.fillStyle = '#00F';
+
+    var radius = 6;
+    var startRadian = 0;
+    var endRadian = Math.PI * 2;
+
+    context.beginPath();
+    context.arc(x, y, radius, startRadian, endRadian);
+    context.fill();
+  }
+
+
+
+  function getPositionFromTarget(evt, target) {
+
+    return {
+      y: evt.pageY - target.offsetTop,
+      x: evt.pageX - target.offsetLeft
+    };
+  }
+
+  function saveCanvas() {
+    var imageData = canvas.toDataURL('image/jpeg', 1);
+
+    console.log('data', imageData);
+
+    var formData = new FormData();
+    formData.append('fileData', imageData);
+
+    var xhr = new XMLHttpRequest();
+
+    xhr.open('POST', "/touch/upload", true);
+    xhr.send(formData);
+  }
+
+</script>
+
+</body>
+</html>

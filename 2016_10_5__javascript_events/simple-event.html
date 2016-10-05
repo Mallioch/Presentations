@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head lang="en">
+    <meta charset="utf-8">
+    <title>Events - Simple Event</title>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+
+    <button>click me</button>
+
+    <div style="border: solid 2px #000; margin-top: 20px;">This is a div</div>
+
+    <script>
+
+    function theListener(evt) {
+      console.log('You clicked a ', evt.target.tagName);
+    }
+
+    var button = document.querySelector('button');
+    button.addEventListener('click', theListener);
+
+    document.querySelector('div').addEventListener('click', theListener);
+
+    </script>
+
+  </body>
+
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head lang="en">
+    <meta charset="utf-8">
+    <title>Events - Sliding Graph</title>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+  <h1>Sliding Graph</h1>
+
+  <canvas id="theCanvas" height="200" width="960" style="-ms-touch-action: none; border: solid 1px #000;">
+  </canvas>
+
+
+<script>
+
+  var canvas, context, baselineHeight;
+
+  var data = [5, 150, 100, 190, 40, 60, 76, 80, 150, 100, 110, 123, 115, 30, 58, 73, 175, 78, 90, 140, 20, 35, 75, 65, 140, 50];
+
+  var startXLocation = 0,
+      sizeMultiplier = 70,
+      totalWidth = sizeMultiplier * (data.length - 1);
+
+  function load() {
+    canvas = document.getElementById('theCanvas');
+    context = canvas.getContext('2d');
+
+    baselineHeight = canvas.height;
+
+    draw();
+
+    attachTouchEvents();
+  }
+
+
+
+  function draw() {
+    //Clear out the canvas so we can redraw
+    context.clearRect(0, 0, canvas.width, canvas.height);
+
+    //start the line path that will define our graph.
+    context.beginPath();
+    context.moveTo(0 - startXLocation, baselineHeight - data[0]);
+
+    var i;
+    for (i = 1; i < data.length; i++) {
+      context.lineTo((i * sizeMultiplier) - startXLocation, baselineHeight - data[i]);
+    }
+
+    //move to the bottom of the graph at the x-location of the last point.
+    context.lineTo(((data.length - 1) * sizeMultiplier) - startXLocation, baselineHeight);
+    //move to bottom left-hand size
+    context.lineTo(-startXLocation, baselineHeight);
+
+    context.lineWidth = 2;
+    context.strokeStyle = '#BF00FF';
+    context.fillStyle = '#BF9BFF';
+
+    context.stroke();
+    context.fill();
+  }
+
+  window.addEventListener('load', load);
+
+  function getPositionFromTarget(evt, target) {
+
+    return {
+      y: evt.pageY - target.offsetTop,
+      x: evt.pageX - target.offsetLeft
+    };
+  }
+
+  var lastX, started = false;
+
+  function attachTouchEvents() {
+    canvas.addEventListener('touchstart', moveStart);
+    canvas.addEventListener('touchmove', moveChange);
+    canvas.addEventListener('touchend', moveEnd);
+
+    if (window.navigator.msPointerEnabled) {
+      canvas.addEventListener('MSPointerDown', moveStart);
+      canvas.addEventListener('MSPointerMove', moveChange);
+      canvas.addEventListener('MSPointerUp', moveEnd);
+    }
+    else {
+      canvas.addEventListener('mousedown', moveStart);
+      canvas.addEventListener('mousemove', moveChange);
+      canvas.addEventListener('mouseup', moveEnd);
+    }
+  }
+
+  function moveStart(evt) {
+    evt.preventDefault();
+    var position = getPositionFromTarget(evt, evt.target);
+    lastX = position.x;
+    started = true;
+    draw();
+  }
+
+  function moveChange(evt) {
+    if (!started) {
+      return;
+    }
+
+    var position = getPositionFromTarget(evt, evt.target);
+    moveDelta(lastX - position.x);
+    lastX = position.x;
+    draw();
+    console.log('startXLocation', startXLocation, 'lastX', lastX, 'totalWidth', totalWidth);
+  }
+
+  function moveEnd(evt) {
+    if (!started) {
+      return;
+    }
+    started = false;
+
+    lastX = null;
+  }
+
+  function moveDelta(delta) {
+    startXLocation = startXLocation + delta;
+
+    if (startXLocation < 0)
+      startXLocation = 0;
+    else if (startXLocation > totalWidth - canvas.width)
+      startXLocation = totalWidth - canvas.width;
+  }
+
+</script>
+
+
+</body>
+</html>

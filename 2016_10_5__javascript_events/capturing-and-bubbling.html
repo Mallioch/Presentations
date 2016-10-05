@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head lang="en">
+    <meta charset="utf-8">
+    <title>Events - Capturing and Bubbling</title>
+
+    <style>
+      body {
+        background-color: #EEE;
+        padding: 15px;
+      }
+
+      #inner {
+        background-color: yellow;
+        padding: 15px;
+      }
+
+      #more-inner {
+        background-color: pink;
+        padding: 15px;
+        text-align: center;
+      }
+
+
+    </style>
+
+  </head>
+
+  <body>
+    <div id="inner">
+      <div id="more-inner">
+        <button>click me</button>
+      </div>
+    </div>
+  </body>
+
+  <script>
+
+    window.addEventListener('click', function(evt) {
+      console.log('window', 'capturing', evt.currentTarget, evt.target);
+    }, true);
+
+    document.body.addEventListener('click', function(evt) {
+      console.log('body', 'capturing', evt.currentTarget, evt.target);
+    }, true);
+
+    document.querySelector('#inner').addEventListener('click', function(evt) {
+      console.log('#inner', 'capturing', evt.currentTarget, evt.target);
+    }, true);
+
+    document.querySelector('#more-inner').addEventListener('click', function(evt) {
+      console.log('#more-inner', 'capturing', evt.currentTarget, evt.target);
+    }, true);
+
+    document.querySelector('button').addEventListener('click', function(evt) {
+      console.log('button', 'capturing', evt.currentTarget, evt.target);
+    }, true);
+
+
+
+
+    document.querySelector('button').addEventListener('click', function(evt) {
+      console.log('button', 'bubbling', evt.currentTarget, evt.target);
+    }, false);
+
+    document.querySelector('#more-inner').addEventListener('click', function(evt) {
+      console.log('#more-inner', 'bubbling', evt.currentTarget, evt.target);
+    }, false);
+
+    document.querySelector('#inner').addEventListener('click', function(evt) {
+      console.log('#inner', 'bubbling', evt.currentTarget, evt.target);
+    }, false);
+
+    document.body.addEventListener('click', function(evt) {
+      console.log('body', 'bubbling', evt.currentTarget, evt.target);
+    }, false);
+
+    window.addEventListener('click', function(evt) {
+      console.log('window', 'bubbling', evt.currentTarget, evt.target);
+    }, false);
+
+
+
+
+
+
+
+
+
+  </script>
+
+
+</html>

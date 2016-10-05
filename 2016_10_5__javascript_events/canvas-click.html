@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head lang="en">
+    <meta charset="utf-8">
+    <title>Events - Canvas Click</title>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+  <h1>Canvas Click</h1>
+
+  <p>Click me...</p>
+
+  <canvas id="theCanvas" height="300" width="600" style="-ms-touch-action: none; border: solid 1px #000;">
+  </canvas>
+
+
+
+<script>
+
+  var canvas = document.getElementById('theCanvas');
+  var context = canvas.getContext('2d');
+
+  canvas.addEventListener('click', function (evt) {
+    var position = getPositionFromTarget(evt, evt.target);
+    draw(position.x, position.y);
+  });
+
+
+  function draw(x, y) {
+    context.fillStyle = '#00F';
+
+    var radius = 6;
+    var startRadian = 0;
+    var endRadian = Math.PI * 2;
+
+    context.beginPath();
+    context.arc(x, y, radius, startRadian, endRadian);
+    context.fill();
+  }
+
+  function getPositionFromTarget(evt, target) {
+
+    return {
+      y: evt.pageY - target.offsetTop,
+      x: evt.pageX - target.offsetLeft
+    };
+  }
+
+</script>
+
+
+</body>
+</html>

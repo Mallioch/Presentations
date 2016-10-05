@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head lang="en">
+    <meta charset="utf-8">
+    <title>Events - Canvas Touch</title>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+  <h1>Canvas Touch</h1>
+
+  <p>Touch or click me...</p>
+
+  <canvas id="theCanvas" height="300" width="600" style="-ms-touch-action: none; border: solid 1px #000;">
+  </canvas>
+
+
+
+<script>
+
+  var canvas, context;
+
+  function load() {
+    canvas = document.getElementById('theCanvas');
+    context = canvas.getContext('2d');
+
+    canvas.addEventListener('touchstart', function (evt) {
+      evt.preventDefault();
+      var i, position;
+      for (i = 0; i < evt.touches.length; i++) {
+        position = getPositionFromTarget(evt.touches[i], evt.touches[i].target);
+        draw(position.x, position.y);
+      }
+    });
+
+    if (window.navigator.msPointerEnabled) {
+      canvas.addEventListener('MSPointerDown', function (evt) {
+        var position = getPositionFromTarget(evt, evt.target);
+        draw(position.x, position.y);
+      });
+    }
+    else {
+      canvas.addEventListener('click', function (evt) {
+        var position = getPositionFromTarget(evt, evt.target);
+        draw(position.x, position.y);
+      });
+    }
+
+  }
+
+  window.addEventListener('load', load);
+
+  function draw(x, y) {
+    context.fillStyle = '#00F';
+
+    var radius = 6;
+    var startRadian = 0;
+    var endRadian = Math.PI * 2;
+
+    context.beginPath();
+    context.arc(x, y, radius, startRadian, endRadian);
+    context.fill();
+  }
+
+  function getPositionFromTarget(evt, target) {
+
+    return {
+      y: evt.pageY - target.offsetTop,
+      x: evt.pageX - target.offsetLeft
+    };
+  }
+
+</script>
+
+
+</body>
+</html>
