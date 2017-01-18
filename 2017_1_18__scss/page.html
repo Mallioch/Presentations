@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Practice Some SCSS</title>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <header>
+      <h1>Some Star Wars Characters</h1>
+    </header>
+
+    <ul id="characters">
+    </ul>
+
+    <div id="details">
+    </div>
+
+    <footer>
+      <p>This example was built for the Dallas HTML5 Meetup</p>
+    </footer>
+
+    <script type="text/html" id="detail-template">
+
+      <h2>{{name}}</h2>
+
+      <ul id="characteristics">
+        <li><div class="label">height:</div><div class="value">{{height}}</div></li>
+        <li><div class="label">mass:</div><div class="value">{{mass}}</div></li>
+        <li><div class="label">hair color:</div><div class="value">{{hair_color}}</div></li>
+        <li><div class="label">skin color:</div><div class="value">{{skin_color}}</div></li>
+        <li><div class="label">eye color:</div><div class="value">{{eye_color}}</div></li>
+        <li><div class="label">birth year:</div><div class="value">{{birth_year}}</div></li>
+        <li><div class="label">gender:</div><div class="value">{{gender}}</div></li>
+      </ul>
+
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
