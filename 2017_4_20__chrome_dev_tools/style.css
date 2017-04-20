@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+}
+
+header {
+  background-color: #014301;
+  margin-bottom: 10px;
+  padding: 1px 20px;
+}
+
+header h1 {
+  color: #FFF;
+  font-family: Helvetica, Verdana, sans-serif;
+}

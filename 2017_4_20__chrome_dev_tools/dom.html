@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>DOM Stuff</title>
+    <link href="style.css" rel="Stylesheet" />
+
+    <style>
+      .interactive {
+        border: solid 1px #000;
+        display: inline-block;
+        padding: 20px;
+      }
+
+      li {
+        margin: 20px;
+      }
+
+      html .thing {
+        color: blue;
+      }
+
+      .thing {
+        font-weight: 900;
+        color: red;
+      }
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Using the Chrome Developer Tools</h1>
+    </header>
+
+    <div class="thing">Some text</div>
+
+
+    <p>This thing below will change its text when you click on it.</p>
+
+    <div id="click-me" class="interactive">click me</div>
+
+    <p>When you click the list below, it will add a list item to itself.</p>
+
+    <ol class="interactive" id="click-list">
+    </ol>
+
+    <button id="item-remover">Remove the list.</button>
+
+    <script src="dom.js"></script>
+  </body>
+</html>
