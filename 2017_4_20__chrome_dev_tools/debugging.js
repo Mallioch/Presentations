@@ -23,9 +23,5 @@ function getRandomJoke() {
 getJokeButton.addEventListener('click', function() {
   var joke = getRandomJoke();
 
-  joke = joke.replace(/Chuck Norris/g, 'Doug');
-
   jokeDisplay.textContent = joke;
-
-
 });

@@ -16,15 +16,6 @@
         margin: 20px;
       }
 
-      html .thing {
-        color: blue;
-      }
-
-      .thing {
-        font-weight: 900;
-        color: red;
-      }
-
     </style>
   </head>
   <body>
@@ -32,19 +23,19 @@
       <h1>Using the Chrome Developer Tools</h1>
     </header>
 
-    <div class="thing">Some text</div>
+    <div class="container">
 
+      <p>This thing below will change its text when you click on it.</p>
 
-    <p>This thing below will change its text when you click on it.</p>
+      <div id="click-me" class="interactive">click me</div>
 
-    <div id="click-me" class="interactive">click me</div>
+      <p>When you click the list below, it will add a list item to itself.</p>
 
-    <p>When you click the list below, it will add a list item to itself.</p>
+      <ol class="interactive" id="click-list">
+      </ol>
 
-    <ol class="interactive" id="click-list">
-    </ol>
-
-    <button id="item-remover">Remove the list.</button>
+      <button id="item-remover">Remove the list.</button>
+    </div>
 
     <script src="dom.js"></script>
   </body>

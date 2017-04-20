@@ -12,3 +12,12 @@ header h1 {
   color: #FFF;
   font-family: Helvetica, Verdana, sans-serif;
 }
+
+body .container {
+  border: none;
+  padding: 20px;
+}
+
+.container {
+  border: solid 1px red;
+}

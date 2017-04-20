@@ -24,5 +24,5 @@ clickList.addEventListener('click', function() {
 
 var itemRemover = document.querySelector('#item-remover');
 itemRemover.addEventListener('click', function() {
-  document.body.removeChild(clickList);
+  document.querySelector('.container').removeChild(clickList);
 });
