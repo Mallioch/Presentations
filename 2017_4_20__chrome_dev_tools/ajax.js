@@ -1,5 +1,7 @@
 var button = document.querySelector('button');
 
+
+
 button.addEventListener('click', function() {
   $.ajax({
     url: 'https://api.github.com/search/repositories?q=steak'
@@ -7,5 +9,5 @@ button.addEventListener('click', function() {
   .done(function(data) {
     console.log('got data', data);
   });
-  
+
 });

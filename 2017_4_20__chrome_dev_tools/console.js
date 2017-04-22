@@ -29,7 +29,7 @@
 // }
 // console.todo("This is something that's need to be fixed");
 // console.important('This is an important message');
-//
+
 
 
 
@@ -40,7 +40,7 @@
 //   { firstName: 'Anastasia', lastName: 'Karividopoulos', primaryLanguage: 'Greek', age: 27 },
 //   { firstName: 'Peter', lastName: 'Tchaicovsky', primaryLanguage: 'Russian', age: 45 },
 // ];
-//
+
 // console.table(objects);
 
 
@@ -86,7 +86,7 @@
 
 
 
-/* you can use `monitor(callThis)` in the console to monitor what gets passed into the function. */
+/* you can use `c(callThis)` in the console to monitor what gets passed into the function. */
 // function callThis() {
 // }
 //
