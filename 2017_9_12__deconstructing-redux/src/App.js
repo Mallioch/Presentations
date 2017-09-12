@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Link, Route } from 'react-router-dom';
+
+import Counter1 from './Counter1';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+      <BrowserRouter>
+        <div className="app">
+
+          <nav>
+            <Link to="/">Root</Link>
+            <Link to="/counter1">Counter #1</Link>
+          </nav>
+
+          <Route path="/counter1" component={Counter1} />
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      </BrowserRouter>
     );
   }
 }
