@@ -1,14 +1,16 @@
 import React from 'react';
-import store from './reduxstore';
+import store from './requacks/';
+console.log('store?', store);
 
 
-export default class Counter1 extends React.Component {
+export default class Counter2 extends React.Component {
 
   constructor() {
     console.log('constructor');
     super();
 
     this.state = store.getState();
+    console.log('constructor state?', this.state);
   }
 
   componentDidMount() {
@@ -30,7 +32,7 @@ export default class Counter1 extends React.Component {
   render() {
     return (
       <div>
-        <h1>Counter 1</h1>
+        <h1>Counter 2</h1>
 
         <p>Count: {this.state.count}</p>
         <button onClick={this.handleClick}>increment</button>

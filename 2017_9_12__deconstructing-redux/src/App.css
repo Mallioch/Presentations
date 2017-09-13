@@ -1,3 +1,7 @@
 .app {
   text-align: center;
 }
+
+nav a {
+  margin: 10px;
+}
