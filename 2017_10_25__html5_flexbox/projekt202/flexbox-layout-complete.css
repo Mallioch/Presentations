@@ -19,3 +19,19 @@
     margin-bottom: 20px;
   }
 }
+
+
+
+.locations .container {
+  display: flex;
+}
+
+.locations .location {
+  flex-grow: 1;
+}
+
+@media screen and (max-width: 730px) {
+  .locations .container {
+    flex-direction: column;
+  }
+}

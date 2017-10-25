@@ -91,3 +91,16 @@ img {
   color: #CCC;
   font-size: .8em;
 }
+
+.locations {
+	background-color: rgba(20, 68, 94, 1.0);
+	color: white;
+}
+
+.locations a {
+	color: white;
+}
+
+.locations p {
+	margin: 1em;
+}
