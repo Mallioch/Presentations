@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Setting the Axis with flex-direction</title>
+    <link rel="stylesheet" href="../box-styles.css" />
+  </head>
+  <body>
+
+    <h1>Setting the Axis with <code>flex-direction</code></h1>
+
+    <h2>Default <code>display: block</code> layout</h2>
+
+    <p>Default behavior for these <code>block</code> elements is to take up 100% of their parent and stack on top of each other. Serious old-school behavior.</p>
+
+    <div class="box yellow">
+      1
+    </div>
+
+    <div class="box orange">
+      2
+    </div>
+
+    <div class="box red">
+      3
+    </div>
+
+    <div class="box purple">
+      4
+    </div>
+
+    <div class="box blue">
+      5
+    </div>
+
+    <div class="box light-blue">
+      6
+    </div>
+
+
+    <h2>With a <code>flex</code> parent</h2>
+
+    <p>Add a parent with <code>display: flex</code> and so many things change!</p>
+
+    <ul>
+      <li>The parent element becomes the <strong>flex container</strong>.</li>
+      <li>Any direct child of the <strong>flex container</strong> becomes a <strong>flex item</strong></li>
+      <li>Before they became flex items, their content size determined their height but not their width. When they become flex items <em>and</em> they are in a horizontal/row axis, content size determines <em>both</em>.</li>
+      <li>By default, flex containers have a horizontal, or row-based <strong>axis</strong>. In other words, it will line things up from beginning to end horizontally on a single row. In CSS property lingo, the container had a default of <code>flex-direction: row</code> applied.</li>
+    </ul>
+
+    <div style="display: flex;">
+
+      <div class="box yellow">
+        1
+      </div>
+
+      <div class="box orange">
+        2
+      </div>
+
+      <div class="box red">
+        3
+      </div>
+
+      <div class="box purple">
+        4
+      </div>
+
+      <div class="box blue">
+        5
+      </div>
+
+      <div class="box light-blue">
+        6
+      </div>
+
+    </div>
+
+
+    <h2>Same, with More Text</h2>
+
+    <div style="display: flex;">
+
+      <div class="box yellow">
+        1 - Same CSS, more content!
+      </div>
+
+      <div class="box orange">
+        2 - Same CSS, more content!
+      </div>
+
+      <div class="box red">
+        3 - Same CSS, more content!
+      </div>
+
+      <div class="box purple">
+        4 - Same CSS, more content!
+      </div>
+
+      <div class="box blue">
+        5 - Same CSS, more content!
+      </div>
+
+      <div class="box light-blue">
+        6 - Same CSS, more content!
+      </div>
+
+    </div>
+
+
+
+    <h2>Changing the Axis with <code>flex-direction</code></h2>
+
+    <p>You aren't stuck with a horizontal/row axis. You can control this with <code>flex-direction</code>.<p>
+
+    <div style="display: flex; flex-direction: column;">
+
+      <div class="box yellow">
+        1
+      </div>
+
+      <div class="box orange">
+        2
+      </div>
+
+      <div class="box red">
+        3
+      </div>
+
+      <div class="box purple">
+        4
+      </div>
+
+      <div class="box blue">
+        5
+      </div>
+
+      <div class="box light-blue">
+        6
+      </div>
+
+    </div>
+
+  </body>
+</html>

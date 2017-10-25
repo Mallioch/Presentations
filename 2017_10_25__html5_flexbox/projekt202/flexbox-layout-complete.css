@@ -1,0 +1,12 @@
+
+
+.case-studies .gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.case-studies .gallery .item {
+  flex-basis: 40%;
+  margin-bottom: 20px;
+}

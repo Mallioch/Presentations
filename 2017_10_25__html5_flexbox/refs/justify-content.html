@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>justify-content for Organizing Things on the Axis</title>
+    <link rel="stylesheet" href="../box-styles.css" />
+  </head>
+  <body>
+
+    <h1><code>justify-content</code> for Organizing Things on the Axis</h1>
+
+
+
+
+    <h2>No <code>justify-content</code></h2>
+
+    <p>If the <strong>flex items</strong> on a row have a total <code>flex-basis</code> of less than 100%, the items will by default start at the beginning of the row (called the <strong>flex start</strong>) and stack towards the right (called the <strong>flex end</strong>) as long as there is room. The default for this property is <code>flex-start</code></p>
+
+    <p>I have the pink background there to show you the uncovered area.</p>
+
+    <div style="display: flex; flex-wrap: wrap; background-color: pink;">
+
+      <div class="box yellow" style="flex-basis: 30%;">
+        1
+      </div>
+
+      <div class="box orange" style="flex-basis: 30%;">
+        2
+      </div>
+
+      <div class="box red" style="flex-basis: 30%;">
+        3
+      </div>
+
+      <div class="box purple" style="flex-basis: 30%;">
+        4
+      </div>
+
+      <div class="box blue" style="flex-basis: 30%;">
+        5
+      </div>
+
+      <div class="box light-blue" style="flex-basis: 30%;">
+        6
+      </div>
+
+    </div>
+
+
+
+    <h2><code>justify-content: flex-end</code> to start the stacking at the end</h2>
+
+    <div style="display: flex; flex-wrap: wrap; background-color: pink; justify-content: flex-end;">
+
+      <div class="box yellow" style="flex-basis: 30%;">
+        1
+      </div>
+
+      <div class="box orange" style="flex-basis: 30%;">
+        2
+      </div>
+
+      <div class="box red" style="flex-basis: 30%;">
+        3
+      </div>
+
+      <div class="box purple" style="flex-basis: 30%;">
+        4
+      </div>
+
+      <div class="box blue" style="flex-basis: 30%;">
+        5
+      </div>
+
+      <div class="box light-blue" style="flex-basis: 30%;">
+        6
+      </div>
+
+    </div>
+
+
+
+    <h2><code>justify-content: center</code> to center the items</h2>
+
+    <div style="display: flex; flex-wrap: wrap; background-color: pink; justify-content: center;">
+
+      <div class="box yellow" style="flex-basis: 30%;">
+        1
+      </div>
+
+      <div class="box orange" style="flex-basis: 30%;">
+        2
+      </div>
+
+      <div class="box red" style="flex-basis: 30%;">
+        3
+      </div>
+
+      <div class="box purple" style="flex-basis: 30%;">
+        4
+      </div>
+
+      <div class="box blue" style="flex-basis: 30%;">
+        5
+      </div>
+
+      <div class="box light-blue" style="flex-basis: 30%;">
+        6
+      </div>
+
+    </div>
+
+    <h2><code>justify-content: space-around</code> to put space around the items</h2>
+
+    <div style="display: flex; flex-wrap: wrap; background-color: pink; justify-content: space-around;">
+
+      <div class="box yellow" style="flex-basis: 30%;">
+        1
+      </div>
+
+      <div class="box orange" style="flex-basis: 30%;">
+        2
+      </div>
+
+      <div class="box red" style="flex-basis: 30%;">
+        3
+      </div>
+
+      <div class="box purple" style="flex-basis: 30%;">
+        4
+      </div>
+
+      <div class="box blue" style="flex-basis: 30%;">
+        5
+      </div>
+
+      <div class="box light-blue" style="flex-basis: 30%;">
+        6
+      </div>
+
+    </div>
+
+    <h2><code>justify-content: space-between</code> to keep the items on the side flush with the edge</h2>
+
+    <div style="display: flex; flex-wrap: wrap; background-color: pink; justify-content: space-between;">
+
+      <div class="box yellow" style="flex-basis: 30%;">
+        1
+      </div>
+
+      <div class="box orange" style="flex-basis: 30%;">
+        2
+      </div>
+
+      <div class="box red" style="flex-basis: 30%;">
+        3
+      </div>
+
+      <div class="box purple" style="flex-basis: 30%;">
+        4
+      </div>
+
+      <div class="box blue" style="flex-basis: 30%;">
+        5
+      </div>
+
+      <div class="box light-blue" style="flex-basis: 30%;">
+        6
+      </div>
+
+    </div>
+
+  </body>
+</html>
