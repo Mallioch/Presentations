@@ -1,37 +1,49 @@
-
-
-.case-studies .gallery {
+.gallery {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  flex-direction: row;
 }
 
-.case-studies .gallery .item {
-  flex-basis: 40%;
+.gallery .item {
+  flex-basis: 45%;
   margin-bottom: 20px;
 }
 
+@media screen and (max-width: 800px) {
 
-@media screen and (max-width: 730px) {
-
-  .case-studies .gallery .item {
-    flex-basis: 100%;
-    margin-bottom: 20px;
+  .gallery {
+    flex-direction: column;
   }
+
+  .gallery .item {
+    flex-basis: auto;
+  }
+
+  .item img {
+    width: 100%;
+  }
+
 }
 
 
+.container {
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 20px;
+}
 
-.locations .container {
+
+.flex-parent {
   display: flex;
 }
 
-.locations .location {
-  flex-grow: 1;
+.flex-parent .location {
+  flex-basis: 33.333333%;
 }
 
-@media screen and (max-width: 730px) {
-  .locations .container {
+@media screen and (max-width: 800px) {
+  .flex-parent {
     flex-direction: column;
   }
 }
