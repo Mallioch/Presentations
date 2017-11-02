@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Flexbox Things I Have Never Used</title>
+    <link rel="stylesheet" href="../box-styles.css" />
+  </head>
+  <body>
+
+    <h1>Flexbox Things I Have Never Used</h1>
+
+    <h2>align-self</h2>
+
+    <p>Want to align something differently than the rest? Weird. But you can do it.</p>
+
+    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+      <p style="background-color: pink; flex-basis: 22%;">Cool text</p>
+      <p style="background-color: pink; flex-basis: 22%;">So cool text text</p>
+      <p style="background-color: pink; flex-basis: 22%; align-self: flex-end;">Different</p>
+      <p style="background-color: pink; flex-basis: 22%;">Huge fan of text. Love it. That's why I put lots of it in certain things. I mean, look at all this text! Several lines! I am very excited about this one. Yep. Totally.</p>
+    </div>
+
+    <h2>Reverse things</h2>
+
+    <p>You can totally <code>row-reverse</code>.</p>
+
+    <div style="display: flex; flex-direction: row-reverse;">
+
+      <div class="box yellow">
+        1
+      </div>
+
+      <div class="box orange">
+        2
+      </div>
+
+      <div class="box red">
+        3
+      </div>
+
+      <div class="box purple">
+        4
+      </div>
+
+      <div class="box blue">
+        5
+      </div>
+
+      <div class="box light-blue">
+        6
+      </div>
+
+    </div>
+
+    <p>You can totally <code>column-reverse</code>.</p>
+
+    <div style="display: flex; flex-direction: column-reverse;">
+
+      <div class="box yellow">
+        1
+      </div>
+
+      <div class="box orange">
+        2
+      </div>
+
+      <div class="box red">
+        3
+      </div>
+
+      <div class="box purple">
+        4
+      </div>
+
+      <div class="box blue">
+        5
+      </div>
+
+      <div class="box light-blue">
+        6
+      </div>
+
+    </div>
+
+    <h2>Order</h2>
+
+    <p>For when you want absolute control of the ordering, regardless of source order.</p>
+
+    <div style="display: flex;">
+
+      <div class="box yellow" style="order: 3;">
+        1
+      </div>
+
+      <div class="box orange" style="order: 2;">
+        2
+      </div>
+
+      <div class="box red" style="order: 5;">
+        3
+      </div>
+
+      <div class="box purple" style="order: 6;">
+        4
+      </div>
+
+      <div class="box blue" style="order: 1;">
+        5
+      </div>
+
+      <div class="box light-blue" style="order: 4;">
+        6
+      </div>
+
+    </div>
+
+    <h2><code>flex-grow</code> and <code>flex-shrink</code></h2>
+
+    <p>If they all have a value of 1, they will be the same size.</p>
+
+    <div style="display: flex;">
+
+      <div class="box yellow" style="flex-grow: 1;">
+        1
+      </div>
+
+      <div class="box orange" style="flex-grow: 1;">
+        2
+      </div>
+
+      <div class="box red" style="flex-grow: 1;">
+        3
+      </div>
+
+      <div class="box purple" style="flex-grow: 1;">
+        4
+      </div>
+
+      <div class="box blue" style="flex-grow: 1;">
+        5
+      </div>
+
+      <div class="box light-blue" style="flex-grow: 1;">
+        6
+      </div>
+
+    </div>
+
+    <p>But you can change that up!</p>
+
+    <div style="display: flex;">
+
+      <div class="box yellow" style="flex-grow: 1;">
+        1
+      </div>
+
+      <div class="box orange" style="flex-grow: 3;">
+        2
+      </div>
+
+      <div class="box red" style="flex-grow: 1;">
+        3
+      </div>
+
+      <div class="box purple" style="flex-grow: 2;">
+        4
+      </div>
+
+      <div class="box blue" style="flex-grow: 1;">
+        5
+      </div>
+
+      <div class="box light-blue" style="flex-grow: 2;">
+        6
+      </div>
+
+    </div>
+
+    <p><code>flex-shrink</code> let's you specify that one can shrink.</p>
+
+    <div style="display: flex;">
+
+      <div class="box yellow" style="flex-grow: 1;">
+        1
+      </div>
+
+      <div class="box orange" style="flex-grow: 1;">
+        2
+      </div>
+
+      <div class="box red" style="flex-shrink: 1;">
+        3
+      </div>
+
+      <div class="box purple" style="flex-grow: 1;">
+        4
+      </div>
+
+      <div class="box blue" style="flex-grow: 1;">
+        5
+      </div>
+
+      <div class="box light-blue" style="flex-grow: 1;">
+        6
+      </div>
+
+    </div>
+
+
+  </body>
+</html>

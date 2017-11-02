@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>align-items for aligning on the cross axis</title>
+    <link rel="stylesheet" href="../box-styles.css" />
+  </head>
+  <body>
+
+    <h1><code>align-items</code> for aligning on the <strong>cross axis</strong></h1>
+
+
+    <h2><code>align-items: stretch</code> - the default</h2>
+
+    <p>This stretches items to be the height of the <em><strong>cross axis</strong></em>. Note that the first one has a min-height set to <code>100px</code> while the third has it set to <code>200px</code>, and yet both are the same height.</p>
+
+    <div style="display: flex; justify-content: space-around;">
+
+      <div class="box yellow" style="flex-basis: 25%; min-height: 100px;">
+        1
+      </div>
+
+      <span style="font-size: 3em; flex-basis: 25%; text-align: center;">Oh hai!</span>
+
+      <div class="box red" style="flex-basis: 25%; min-height: 200px;">
+        3
+      </div>
+
+    </div>
+
+    <h2><code>align-items: flex-start</code></h2>
+
+    <p>This aligns items to the <strong>flex start</strong> of the <strong>cross axis</strong>.</p>
+
+    <div style="display: flex; justify-content: space-around; align-items: flex-start;">
+
+      <div class="box yellow" style="flex-basis: 25%; min-height: 100px;">
+        1
+      </div>
+
+      <span style="font-size: 3em; flex-basis: 25%; text-align: center;">Oh hai!</span>
+
+      <div class="box red" style="flex-basis: 25%; min-height: 200px;">
+        3
+      </div>
+
+    </div>
+
+    <h2><code>align-items: flex-end</code></h2>
+
+    <p>This aligns items to the <strong>flex end</strong> of the <strong>cross axis</strong></p>
+
+    <div style="display: flex; justify-content: space-around; align-items: flex-end;">
+
+      <div class="box yellow" style="flex-basis: 25%; min-height: 100px;">
+        1
+      </div>
+
+      <span style="font-size: 3em; flex-basis: 25%; text-align: center;">Oh hai!</span>
+
+      <div class="box red" style="flex-basis: 25%; min-height: 200px;">
+        3
+      </div>
+
+    </div>
+
+    <h2><code>align-items: center</code></h2>
+
+    <p>This aligns items to the <strong>center</strong> of the <strong>cross axis</strong></p>
+
+    <div style="display: flex; justify-content: space-around; align-items: center;">
+
+      <div class="box yellow" style="flex-basis: 25%; min-height: 100px;">
+        1
+      </div>
+
+      <span style="font-size: 3em; flex-basis: 25%; text-align: center;">Oh hai!</span>
+
+      <div class="box red" style="flex-basis: 25%; min-height: 200px;">
+        3
+      </div>
+
+    </div>
+
+
+    <h2><code>align-items: baseline</code></h2>
+
+    <p>This aligns items to the <strong>baseline</strong> of the <strong>cross axis</strong></p>
+
+    <div style="display: flex; justify-content: space-around; align-items: baseline;">
+
+      <div class="box yellow" style="flex-basis: 25%; min-height: 100px;">
+        1
+      </div>
+
+      <span style="font-size: 3em; flex-basis: 25%; text-align: center;">Oh hai!</span>
+
+      <div class="box red" style="flex-basis: 25%; min-height: 200px;">
+        3
+      </div>
+
+    </div>
+
+    <h2>More Realistic Example</h2>
+
+    <div style="display: flex; align-items: center; justify-content: space-around;">
+      <div style="flex-basis: 30%;">
+        <img src="../projekt202/computer-on-wooden-desk.png" style="max-width: 100%;" />
+      </div>
+      <span style="flex-basis: 30%; font-size: 2em;text-align: center;">Desks! They are best with computers on them.</span>
+      <div style="flex-basis: 30%;">
+        <img src="../projekt202/computer-on-table.png" style="max-width: 100%;" />
+      </div>
+    </div>
+
+
+  </body>
+</html>

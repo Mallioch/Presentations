@@ -1,0 +1,42 @@
+body {
+  font-family: sans-serif;
+}
+
+h1 code, h2 code {
+  font-size: 1.3em;
+}
+
+.box {
+  font-family: sans-serif;
+  font-size: 3em;
+  outline: solid 1px #000;
+  text-align: center;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.orange {
+  background-color: orange;
+}
+
+.red {
+  background-color: red;
+  color: white;
+}
+
+.purple {
+  background-color: purple;
+  color: white;
+}
+
+.blue {
+  background-color: blue;
+  color: white;
+}
+
+.light-blue {
+  background-color: rgba(29, 178, 212, 1.0);
+  color: white;
+}
