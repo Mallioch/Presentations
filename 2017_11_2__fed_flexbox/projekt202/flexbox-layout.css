@@ -1,0 +1,30 @@
+
+.container {
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+
+.gallery {
+  padding: 20px;
+}
+
+.gallery img {
+  width: 100%;
+}
+
+
+@media screen and (min-width: 800px) {
+
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0;
+  }
+
+  .item {
+    flex-basis: 47%;
+  }
+
+}
