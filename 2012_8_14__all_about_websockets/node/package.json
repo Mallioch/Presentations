@@ -9,7 +9,7 @@
   },
   "version": "0.1.0-38",
   "dependencies": {
-    "socket.io": "v0.8.x",
+    "socket.io": "v2.3.x",
     "express": "v2.5.x"
   },
   "analyze": false,
