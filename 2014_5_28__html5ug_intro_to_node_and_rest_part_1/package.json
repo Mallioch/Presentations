@@ -5,7 +5,7 @@
   "main": "basic.js",
   "dependencies": {
     "express": "~4.3.1",
-    "restify" : "2.8.1",
+    "restify" : "8.5.1",
     "ejs" : "1.0.0",
     "body-parser" : "1.2.2"
   },
