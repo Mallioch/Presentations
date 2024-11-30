@@ -10,7 +10,7 @@
   "version": "0.1.0-38",
   "dependencies": {
     "socket.io": "v0.8.x",
-    "express": "v2.5.x"
+    "express": "v4.17.x"
   },
   "analyze": false,
   "devDependencies": {},
